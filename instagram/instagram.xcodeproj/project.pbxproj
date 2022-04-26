@@ -56,15 +56,63 @@
 		7FFAB5E628185478006AC4AF /* instagram */ = {
 			isa = PBXGroup;
 			children = (
-				7FFAB5E728185478006AC4AF /* AppDelegate.swift */,
-				7FFAB5E928185478006AC4AF /* SceneDelegate.swift */,
-				7FFAB5EB28185478006AC4AF /* ViewController.swift */,
-				7FFAB5ED28185478006AC4AF /* Main.storyboard */,
-				7FFAB5F02818547A006AC4AF /* Assets.xcassets */,
-				7FFAB5F22818547A006AC4AF /* LaunchScreen.storyboard */,
+				7FFAB5FF28185506006AC4AF /* Utills */,
+				7FFAB5FE281854F9006AC4AF /* View Model */,
+				7FFAB5FD281854F1006AC4AF /* Controllers */,
+				7FFAB5FC281854EA006AC4AF /* VIew */,
+				7FFAB5FB281854DE006AC4AF /* Model */,
 				7FFAB5F52818547A006AC4AF /* Info.plist */,
 			);
 			path = instagram;
+			sourceTree = "<group>";
+		};
+		7FFAB5FB281854DE006AC4AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7FFAB5FC281854EA006AC4AF /* VIew */ = {
+			isa = PBXGroup;
+			children = (
+				7FFAB6002818551D006AC4AF /* UI */,
+				7FFAB5ED28185478006AC4AF /* Main.storyboard */,
+				7FFAB5F02818547A006AC4AF /* Assets.xcassets */,
+				7FFAB5F22818547A006AC4AF /* LaunchScreen.storyboard */,
+			);
+			path = VIew;
+			sourceTree = "<group>";
+		};
+		7FFAB5FD281854F1006AC4AF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7FFAB5EB28185478006AC4AF /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7FFAB5FE281854F9006AC4AF /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		7FFAB5FF28185506006AC4AF /* Utills */ = {
+			isa = PBXGroup;
+			children = (
+				7FFAB5E728185478006AC4AF /* AppDelegate.swift */,
+				7FFAB5E928185478006AC4AF /* SceneDelegate.swift */,
+			);
+			path = Utills;
+			sourceTree = "<group>";
+		};
+		7FFAB6002818551D006AC4AF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
