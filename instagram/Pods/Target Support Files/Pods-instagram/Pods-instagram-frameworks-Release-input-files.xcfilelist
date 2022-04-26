@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-instagram/Pods-instagram-frameworks.sh
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
+${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework
+${BUILT_PRODUCTS_DIR}/Then/Then.framework
