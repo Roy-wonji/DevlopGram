@@ -1,13 +1,13 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  instagram
 //
-//  Created by 서원지 on 2022/04/27.
+//  Created by 로이 on 2022/04/27.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
