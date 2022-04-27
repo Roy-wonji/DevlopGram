@@ -8,5 +8,5 @@
 import Foundation
 
 enum  LabelMessage {
-    
+    static let likesLabelMessage: String  = "1 like" 
 }

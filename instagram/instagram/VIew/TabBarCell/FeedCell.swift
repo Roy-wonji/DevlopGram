@@ -47,7 +47,7 @@ class FeedCell: UICollectionViewCell {
     }
     
     private lazy var likesLabel = UILabel().then { label  in
-        label.text = "1 like"
+        label.text = LabelMessage.likesLabelMessage
         label.font = UIFont.boldSystemFont(ofSize: 12)
     }
     
