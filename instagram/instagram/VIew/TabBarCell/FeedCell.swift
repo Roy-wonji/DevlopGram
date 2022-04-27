@@ -31,6 +31,20 @@ class FeedCell: UICollectionViewCell {
         imageView.image = UIImage(named: "venom-7")
     }
     
+    private lazy var likeButton = UIButton(type: .system).then { button  in
+        button.setImage(UIImage(named: "like_unselected"), for: .normal)
+        button.tintColor = .black
+    }
+    
+    private lazy var commentButton = UIButton(type: .system).then { button  in
+        button.setImage(UIImage(named: "comment"), for: .normal)
+        button.tintColor = .black
+    }
+    
+    private lazy var sharedButton = UIButton(type: .system).then { button  in
+        button.setImage(UIImage(named: "send2"), for: .normal)
+        button.tintColor = .black
+    }
     
     //MARK:  - Lifecycle
     override init(frame: CGRect) {
@@ -60,5 +74,5 @@ class FeedCell: UICollectionViewCell {
     @objc fileprivate func didTapUserName() {
         print("DEBUG: did tap username ")
     }
-
+    
 }
