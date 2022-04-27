@@ -21,7 +21,6 @@ final class FeedController:  UICollectionViewController {
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: resueIdentifier)
     }
 }
-
 //MARK: - UICollectionViewDataSource
 extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
