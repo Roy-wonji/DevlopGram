@@ -24,8 +24,15 @@ class FeedCell: UICollectionViewCell {
         button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
     }
     
-    //MARK:  - Lifecycle
+    private lazy var postImageView = UIImageView().then { imageView in
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = true
+        imageView.image = UIImage(named: "venom-7")
+    }
     
+    
+    //MARK:  - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -41,16 +48,14 @@ class FeedCell: UICollectionViewCell {
         profileImageView.setDimensions(height: 40, width: 40)
         profileImageView.layer.cornerRadius = 40 / 2
         
-        
         addSubview(userNameButton)
         userNameButton.centerY(inView: profileImageView,
-                               leftAnchor: profileImageView.rightAnchor, paddingLeft:  8)
+                               leftAnchor: profileImageView.rightAnchor, paddingLeft:  8 )
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     //MARK:  - Actions
     @objc fileprivate func didTapUserName() {
         print("DEBUG: did tap username ")
