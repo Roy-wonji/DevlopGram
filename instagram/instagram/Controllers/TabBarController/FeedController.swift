@@ -29,7 +29,7 @@ extension FeedController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: resueIdentifier, for:  indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: resueIdentifier, for:  indexPath) as! FeedCell
         return cell
     }
 }
