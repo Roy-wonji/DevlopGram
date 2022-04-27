@@ -14,6 +14,8 @@ class FeedCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        backgroundColor = .systemPurple
     }
     
     required init?(coder: NSCoder) {
