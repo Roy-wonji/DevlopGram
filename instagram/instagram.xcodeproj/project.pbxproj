@@ -122,12 +122,7 @@
 		7FFAB5FD281854F1006AC4AF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7FFAB5EB28185478006AC4AF /* MainTabViewController.swift */,
-				7FFAB60228185BDB006AC4AF /* FeedController.swift */,
-				7FFAB60428185BEE006AC4AF /* SearchController.swift */,
-				7FFAB60628185C1A006AC4AF /* ImageSelectorController.swift */,
-				7FFAB60828185C20006AC4AF /* NotificationController.swift */,
-				7FFAB60A28185C66006AC4AF /* ProfileController.swift */,
+				7FFAB60C28197B9B006AC4AF /* TabBarController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -160,6 +155,19 @@
 			children = (
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		7FFAB60C28197B9B006AC4AF /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				7FFAB5EB28185478006AC4AF /* MainTabViewController.swift */,
+				7FFAB60228185BDB006AC4AF /* FeedController.swift */,
+				7FFAB60428185BEE006AC4AF /* SearchController.swift */,
+				7FFAB60628185C1A006AC4AF /* ImageSelectorController.swift */,
+				7FFAB60828185C20006AC4AF /* NotificationController.swift */,
+				7FFAB60A28185C66006AC4AF /* ProfileController.swift */,
+			);
+			path = TabBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
