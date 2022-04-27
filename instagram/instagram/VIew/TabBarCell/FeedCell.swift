@@ -6,9 +6,15 @@
 //
 
 import UIKit
+import Then
 
 class FeedCell: UICollectionViewCell {
     //MARK:  - Properties
+    private let profileImageView = UIImageView().then { imageView in
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = true
+    }
     
     //MARK:  - Lifecycle
     
