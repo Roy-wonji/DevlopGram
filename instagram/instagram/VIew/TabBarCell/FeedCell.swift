@@ -76,6 +76,7 @@ class FeedCell: UICollectionViewCell {
     private func setLayout() {
         setProfileImageView()
         setUsernameButton()
+        setPostImageView()
     }
     
     
@@ -93,6 +94,12 @@ class FeedCell: UICollectionViewCell {
         addSubview(userNameButton)
         userNameButton.centerY(inView: profileImageView,
                                leftAnchor: profileImageView.rightAnchor, paddingLeft:  8 )
+    }
+    
+    private func setPostImageView() {
+        addSubview(postImageView)
+        postImageView.anchor(top: profileImageView.bottomAnchor,  left: leftAnchor,
+                             right: rightAnchor, paddingTop: 8 )
     }
     
     required init?(coder: NSCoder) {
