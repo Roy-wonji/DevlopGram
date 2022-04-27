@@ -51,6 +51,11 @@ class FeedCell: UICollectionViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 12)
     }
     
+    private lazy var captionLabel = UILabel().then { label  in
+        label.text = LabelMessage.captionLabelMessage
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+    }
+    
     //MARK:  - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
