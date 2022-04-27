@@ -58,7 +58,8 @@ class FeedCell: UICollectionViewCell {
     
     private lazy var postTimeLabel = UILabel().then { label  in
         label.text = LabelMessage.postTimeLabelMessage
-        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .lightGray
     }
     
     //MARK:  - Lifecycle
