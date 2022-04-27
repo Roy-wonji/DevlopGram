@@ -12,10 +12,10 @@ extension UIView {
                 left: NSLayoutXAxisAnchor? = nil,
                 bottom: NSLayoutYAxisAnchor? = nil,
                 right: NSLayoutXAxisAnchor? = nil,
-                paddingTop: CGFloat = 0,
-                paddingLeft: CGFloat = 0,
-                paddingBottom: CGFloat = 0,
-                paddingRight: CGFloat = 0,
+                paddingTop: CGFloat = .zero,
+                paddingLeft: CGFloat = .zero,
+                paddingBottom: CGFloat = .zero,
+                paddingRight: CGFloat = .zero,
                 width: CGFloat? = nil,
                 height: CGFloat? = nil) {
         
@@ -46,13 +46,13 @@ extension UIView {
         }
     }
 
-    func center(inView view: UIView, yConstant: CGFloat? = 0) {
+    func center(inView view: UIView, yConstant: CGFloat? = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: yConstant!).isActive = true
     }
     
-    func centerX(inView view: UIView, topAnchor: NSLayoutYAxisAnchor? = nil, paddingTop: CGFloat? = 0) {
+    func centerX(inView view: UIView, topAnchor: NSLayoutYAxisAnchor? = nil, paddingTop: CGFloat? = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
@@ -62,7 +62,7 @@ extension UIView {
     }
     
     func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil,
-                 paddingLeft: CGFloat = 0, constant: CGFloat = 0) {
+                 paddingLeft: CGFloat = .zero, constant: CGFloat = .zero) {
         
         translatesAutoresizingMaskIntoConstraints = false
         centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
