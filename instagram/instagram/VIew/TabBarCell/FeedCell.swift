@@ -62,6 +62,7 @@ class FeedCell: UICollectionViewCell {
         label.textColor = .lightGray
     }
     
+    
     //MARK:  - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,6 +78,10 @@ class FeedCell: UICollectionViewCell {
         setProfileImageView()
         setUsernameButton()
         setPostImageView()
+        setStackView()
+        setLikesLabel()
+        setCaptionLabel()
+        setPostTimeLabel()
     }
     
     
@@ -100,6 +105,26 @@ class FeedCell: UICollectionViewCell {
         addSubview(postImageView)
         postImageView.anchor(top: profileImageView.bottomAnchor,  left: leftAnchor,
                              right: rightAnchor, paddingTop: 8 )
+        postImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
+    }
+    
+    private func setStackView() {
+        configureActionButtons()
+    }
+    
+    private func setLikesLabel() {
+        addSubview(likesLabel)
+        likesLabel.anchor(top: likeButton.bottomAnchor, left: leftAnchor, paddingTop: -4, paddingLeft: 8)
+    }
+    
+    private func setCaptionLabel() {
+        addSubview(captionLabel)
+        captionLabel.anchor(top: likesLabel.bottomAnchor, left: leftAnchor, paddingTop: 8 , paddingLeft: 8)
+    }
+    
+    private func setPostTimeLabel() {
+        addSubview(postTimeLabel)
+        postTimeLabel.anchor(top: captionLabel.bottomAnchor, left: leftAnchor, paddingTop: 8 , paddingLeft: 8)
     }
     
     required init?(coder: NSCoder) {
@@ -110,4 +135,13 @@ class FeedCell: UICollectionViewCell {
         print("DEBUG: did tap username ")
     }
     
+    //MARK: - configureActionButtons
+    func configureActionButtons() {
+      let stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, sharedButton])
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        
+        addSubview(stackView)
+        stackView.anchor(top: postImageView.bottomAnchor, width: 120, height: 50)
+    }
 }
