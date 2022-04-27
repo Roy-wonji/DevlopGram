@@ -10,16 +10,12 @@ import UIKit
 private let resueIdentifier = "Cell"
 
 final class FeedController:  UICollectionViewController {
-    
     //MARK:  - Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
-    
     //MARK: - UI 설정 하는 함수
-
     func configureUI() {
         collectionView.backgroundColor = .white
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: resueIdentifier)
@@ -27,7 +23,6 @@ final class FeedController:  UICollectionViewController {
 }
 
 //MARK: - UICollectionViewDataSource
-
 extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
@@ -39,9 +34,7 @@ extension FeedController {
         return cell
     }
 }
-
 //MARK:  - UICollectionViewDelegateFlowLayout
-
 extension FeedController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 200)

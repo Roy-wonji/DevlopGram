@@ -8,23 +8,16 @@
 import UIKit
 
 final class MainTabViewController:  UITabBarController {
-    
     //MARK:  - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewControllers()
-        
     }
-    
     //MARK:  - Helpers
-    
-   private func configureViewControllers() {
+    private func configureViewControllers() {
         view.backgroundColor = .white
-    
         let layout =  UICollectionViewFlowLayout( )
-        let feed = tempateNavigationController(unselectedImage: #imageLiteral(resourceName: "home_unselected"),  selectedImage:  #imageLiteral(resourceName: "home_selected")
-        ,rootViewController: FeedController(collectionViewLayout: layout))
+        let feed = tempateNavigationController(unselectedImage: #imageLiteral(resourceName: "home_unselected"),  selectedImage:  #imageLiteral(resourceName: "home_selected") , rootViewController: FeedController(collectionViewLayout: layout))
         let search = tempateNavigationController(unselectedImage: #imageLiteral(resourceName: "search_selected"),  selectedImage:  #imageLiteral(resourceName: "search_selected") , rootViewController: SearchController())
         let imageSelector = tempateNavigationController(unselectedImage: #imageLiteral(resourceName: "plus_unselected"),  selectedImage:  #imageLiteral(resourceName: "plus_unselected") , rootViewController: ImageSelectorController())
         let notifications = tempateNavigationController(unselectedImage: #imageLiteral(resourceName: "like_unselected"),  selectedImage:  #imageLiteral(resourceName: "like_selected") , rootViewController: NotificationController())
@@ -33,8 +26,8 @@ final class MainTabViewController:  UITabBarController {
         tabBar.tintColor = .black
         tabBar.backgroundColor = .white
     }
-    //MARK: tabbar 의 이미지가 선택 되었을때랑 안선택 되었을때 이미지 선택 해주는 함수
-   private func tempateNavigationController(unselectedImage: UIImage, selectedImage: UIImage , rootViewController: UIViewController) -> UINavigationController {
+    //MARK: - tabbar 의 이미지가 선택 되었을때랑 안선택 되었을때 이미지 선택 해주는 함수
+    private func tempateNavigationController(unselectedImage: UIImage, selectedImage: UIImage , rootViewController: UIViewController) -> UINavigationController {
         let navigation = UINavigationController(rootViewController: rootViewController)
         navigation.tabBarItem.image = unselectedImage
         navigation.tabBarItem.selectedImage = selectedImage
