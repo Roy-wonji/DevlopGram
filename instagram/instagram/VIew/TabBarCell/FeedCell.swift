@@ -48,12 +48,12 @@ class FeedCell: UICollectionViewCell {
     
     private lazy var likesLabel = UILabel().then { label  in
         label.text = LabelMessage.likesLabelMessage
-        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.font = UIFont.boldSystemFont(ofSize: 13)
     }
     
     private lazy var captionLabel = UILabel().then { label  in
         label.text = LabelMessage.captionLabelMessage
-        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 14)
     }
     
     private lazy var postTimeLabel = UILabel().then { label  in
