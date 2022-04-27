@@ -70,6 +70,16 @@ class FeedCell: UICollectionViewCell {
     
     func configureUI() {
         backgroundColor = .white
+        setLayout()
+    }
+    
+    private func setLayout() {
+        setProfileImageView()
+        setUsernameButton()
+    }
+    
+    
+    private func setProfileImageView() {
         addSubview(profileImageView)
         profileImageView.anchor(top : topAnchor,
                                 left: leftAnchor ,
@@ -77,7 +87,9 @@ class FeedCell: UICollectionViewCell {
                                 paddingLeft: 12)
         profileImageView.setDimensions(height: 40, width: 40)
         profileImageView.layer.cornerRadius = 40 / 2
-        
+    }
+    
+    private func setUsernameButton() {
         addSubview(userNameButton)
         userNameButton.centerY(inView: profileImageView,
                                leftAnchor: profileImageView.rightAnchor, paddingLeft:  8 )
