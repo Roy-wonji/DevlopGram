@@ -46,6 +46,11 @@ class FeedCell: UICollectionViewCell {
         button.tintColor = .black
     }
     
+    private lazy var likesLabel = UILabel().then { label  in
+        label.text = "1 like"
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+    }
+    
     //MARK:  - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)

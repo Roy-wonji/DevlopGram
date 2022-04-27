@@ -20,6 +20,7 @@
 		7FFAB60B28185C66006AC4AF /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB60A28185C66006AC4AF /* ProfileController.swift */; };
 		7FFAB60F281982B7006AC4AF /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB60E281982B7006AC4AF /* FeedCell.swift */; };
 		7FFAB61228198617006AC4AF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB61128198617006AC4AF /* Extensions.swift */; };
+		7FFAB617281997EA006AC4AF /* LabelMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB616281997EA006AC4AF /* LabelMessage.swift */; };
 		D4E6EED4F17A3FE251222C0C /* Pods_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3CFF97BAF0BE9CEC332BEB /* Pods_instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		7FFAB60A28185C66006AC4AF /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		7FFAB60E281982B7006AC4AF /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		7FFAB61128198617006AC4AF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7FFAB616281997EA006AC4AF /* LabelMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelMessage.swift; sourceTree = "<group>"; };
 		C1CA049BE872193F56CDDDF1 /* Pods-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram.debug.xcconfig"; path = "Target Support Files/Pods-instagram/Pods-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		C80E68C012A406597FAD7282 /* Pods-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram.release.xcconfig"; path = "Target Support Files/Pods-instagram/Pods-instagram.release.xcconfig"; sourceTree = "<group>"; };
 		ED3CFF97BAF0BE9CEC332BEB /* Pods_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +117,7 @@
 		7FFAB5FC281854EA006AC4AF /* VIew */ = {
 			isa = PBXGroup;
 			children = (
+				7FFAB615281997C7006AC4AF /* Common */,
 				7FFAB60D2819828E006AC4AF /* TabBarCell */,
 				7FFAB6002818551D006AC4AF /* UI */,
 				7FFAB5ED28185478006AC4AF /* Main.storyboard */,
@@ -190,6 +193,14 @@
 				7FFAB61128198617006AC4AF /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7FFAB615281997C7006AC4AF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7FFAB616281997EA006AC4AF /* LabelMessage.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +328,7 @@
 				7FFAB60B28185C66006AC4AF /* ProfileController.swift in Sources */,
 				7FFAB60728185C1A006AC4AF /* ImageSelectorController.swift in Sources */,
 				7FFAB60F281982B7006AC4AF /* FeedCell.swift in Sources */,
+				7FFAB617281997EA006AC4AF /* LabelMessage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
