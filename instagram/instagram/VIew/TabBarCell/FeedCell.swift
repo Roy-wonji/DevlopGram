@@ -56,6 +56,11 @@ class FeedCell: UICollectionViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 12)
     }
     
+    private lazy var postTimeLabel = UILabel().then { label  in
+        label.text = LabelMessage.postTimeLabelMessage
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+    }
+    
     //MARK:  - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
