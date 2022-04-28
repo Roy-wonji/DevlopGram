@@ -21,7 +21,6 @@
 		7FFAB60F281982B7006AC4AF /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB60E281982B7006AC4AF /* FeedCell.swift */; };
 		7FFAB61228198617006AC4AF /* Extensions + viewAutolayout .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB61128198617006AC4AF /* Extensions + viewAutolayout .swift */; };
 		7FFAB617281997EA006AC4AF /* LabelMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB616281997EA006AC4AF /* LabelMessage.swift */; };
-		7FFAB61A281A6BD2006AC4AF /* Extension + FeedController .swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB619281A6BD2006AC4AF /* Extension + FeedController .swift */; };
 		7FFAB61C281A6C52006AC4AF /* CellIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB61B281A6C52006AC4AF /* CellIdentifier.swift */; };
 		D4E6EED4F17A3FE251222C0C /* Pods_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3CFF97BAF0BE9CEC332BEB /* Pods_instagram.framework */; };
 /* End PBXBuildFile section */
@@ -43,7 +42,6 @@
 		7FFAB60E281982B7006AC4AF /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		7FFAB61128198617006AC4AF /* Extensions + viewAutolayout .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions + viewAutolayout .swift"; sourceTree = "<group>"; };
 		7FFAB616281997EA006AC4AF /* LabelMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelMessage.swift; sourceTree = "<group>"; };
-		7FFAB619281A6BD2006AC4AF /* Extension + FeedController .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + FeedController .swift"; sourceTree = "<group>"; };
 		7FFAB61B281A6C52006AC4AF /* CellIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifier.swift; sourceTree = "<group>"; };
 		C1CA049BE872193F56CDDDF1 /* Pods-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram.debug.xcconfig"; path = "Target Support Files/Pods-instagram/Pods-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		C80E68C012A406597FAD7282 /* Pods-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram.release.xcconfig"; path = "Target Support Files/Pods-instagram/Pods-instagram.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 		7FFAB610281985FA006AC4AF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7FFAB618281A6B93006AC4AF /* ControllerExtensions */,
 				7FFAB61128198617006AC4AF /* Extensions + viewAutolayout .swift */,
 			);
 			path = Extensions;
@@ -207,14 +204,6 @@
 				7FFAB61B281A6C52006AC4AF /* CellIdentifier.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		7FFAB618281A6B93006AC4AF /* ControllerExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				7FFAB619281A6BD2006AC4AF /* Extension + FeedController .swift */,
-			);
-			path = ControllerExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,7 +330,6 @@
 				7FFAB5EA28185478006AC4AF /* SceneDelegate.swift in Sources */,
 				7FFAB61C281A6C52006AC4AF /* CellIdentifier.swift in Sources */,
 				7FFAB60B28185C66006AC4AF /* ProfileController.swift in Sources */,
-				7FFAB61A281A6BD2006AC4AF /* Extension + FeedController .swift in Sources */,
 				7FFAB60728185C1A006AC4AF /* ImageSelectorController.swift in Sources */,
 				7FFAB60F281982B7006AC4AF /* FeedCell.swift in Sources */,
 				7FFAB617281997EA006AC4AF /* LabelMessage.swift in Sources */,
