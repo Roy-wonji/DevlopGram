@@ -46,7 +46,23 @@ final class LoginController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
     }
     
+    private lazy var dontHaveAccountButton = UIButton(type: .system).then { button in
+        let atts:  [NSAttributedString.Key: Any] = [ .foregroundColor: UIColor(white: 1, alpha: 0.7),  .font: UIFont.systemFont(ofSize: 16)]
+        let attributedTitle = NSMutableAttributedString(string: LoginUiText.attributedTitleText, attributes: atts)
+        
+        let boldAtts: [NSAttributedString.Key: Any] = [ .foregroundColor: UIColor(white: 1, alpha: 0.7),  .font: UIFont.boldSystemFont(ofSize: 16)]
+        attributedTitle.append(NSMutableAttributedString(string: LoginUiText.signupText, attributes: boldAtts))
+        button.setAttributedTitle(attributedTitle, for: .normal)
+    }
     
+    private lazy var forgotPasswordButton = UIButton(type: .system).then { button in
+        let atts:  [NSAttributedString.Key: Any] = [ .foregroundColor: UIColor(white: 1, alpha: 0.7),  .font: UIFont.systemFont(ofSize: 16)]
+        let attributedTitle = NSMutableAttributedString(string: LoginUiText.passwordAttributedTitleText, attributes: atts)
+        
+        let boldAtts: [NSAttributedString.Key: Any] = [ .foregroundColor: UIColor(white: 1, alpha: 0.7),  .font: UIFont.boldSystemFont(ofSize: 16)]
+        attributedTitle.append(NSMutableAttributedString(string: LoginUiText.helpSignText, attributes: boldAtts))
+        button.setAttributedTitle(attributedTitle, for: .normal)
+    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -69,6 +85,7 @@ final class LoginController: UIViewController {
     private func setConstrants() {
         setConstrantsIconImage()
         setConstrantsStackVIew()
+        setConstrantsDontHaveAccountButton()
     }
     
     private func setConstrantsIconImage() {
@@ -79,12 +96,18 @@ final class LoginController: UIViewController {
     }
     
     private func setConstrantsStackVIew() {
-        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton])
+        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, forgotPasswordButton])
         stack.axis = .vertical
         stack.spacing = 20
         
         view.addSubview(stack)
         stack.anchor(top: iconImage.bottomAnchor, left: view.leftAnchor,
                      right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
+    }
+    
+    private func setConstrantsDontHaveAccountButton() {
+        view.addSubview(dontHaveAccountButton)
+        dontHaveAccountButton.centerX(inView: view)
+        dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
 }
