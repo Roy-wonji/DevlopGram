@@ -17,7 +17,6 @@ final class LoginController: UIViewController {
     
     private lazy var emailTextField = CustomTextField(placeholder: LoginUiText.emailTextFieldText).then { textField  in
         textField.keyboardType = .emailAddress
-       
     }
     
     private lazy var passwordTextField = CustomTextField(placeholder: LoginUiText.passwordTextFieldText).then { textField  in
@@ -42,7 +41,6 @@ final class LoginController: UIViewController {
         button.attributedTitle(fristPart: LoginUiText.attributedTitleText, secondPart: LoginUiText.signupText)
     }
     
-    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +58,7 @@ final class LoginController: UIViewController {
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame
     }
-    
+    //MARK: - 오토레이아웃
     private func setConstrants() {
         setConstrantsIconImage()
         setConstrantsStackVIew()
