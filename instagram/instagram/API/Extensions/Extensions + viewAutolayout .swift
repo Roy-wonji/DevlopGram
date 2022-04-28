@@ -7,6 +7,18 @@
 
 import UIKit
 
+extension UIButton {
+    func attributedTitle(fristPart: String, secondPart: String) {
+        let atts:  [NSAttributedString.Key: Any] = [ .foregroundColor: UIColor(white: 1, alpha: 0.7),  .font: UIFont.systemFont(ofSize: 16)]
+        let attributedTitle = NSMutableAttributedString(string: "\(fristPart)  ", attributes: atts)
+        
+        let boldAtts: [NSAttributedString.Key: Any] = [ .foregroundColor: UIColor(white: 1, alpha: 0.87),  .font: UIFont.boldSystemFont(ofSize: 16)]
+        attributedTitle.append(NSMutableAttributedString(string: secondPart, attributes: boldAtts))
+        setAttributedTitle(attributedTitle, for: .normal)
+    }
+}
+
+
 extension UIView {
     func anchor(top: NSLayoutYAxisAnchor? = nil,
                 left: NSLayoutXAxisAnchor? = nil,

@@ -34,23 +34,14 @@ final class LoginController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
     }
     
+    private lazy var forgotPasswordButton = UIButton(type: .system).then { button in
+        button.attributedTitle(fristPart: LoginUiText.passwordAttributedTitleText, secondPart: LoginUiText.helpSignText)
+    }
+
     private lazy var dontHaveAccountButton = UIButton(type: .system).then { button in
-        let atts:  [NSAttributedString.Key: Any] = [ .foregroundColor: UIColor(white: 1, alpha: 0.7),  .font: UIFont.systemFont(ofSize: 16)]
-        let attributedTitle = NSMutableAttributedString(string: LoginUiText.attributedTitleText, attributes: atts)
-        
-        let boldAtts: [NSAttributedString.Key: Any] = [ .foregroundColor: UIColor(white: 1, alpha: 0.7),  .font: UIFont.boldSystemFont(ofSize: 16)]
-        attributedTitle.append(NSMutableAttributedString(string: LoginUiText.signupText, attributes: boldAtts))
-        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.attributedTitle(fristPart: LoginUiText.attributedTitleText, secondPart: LoginUiText.signupText)
     }
     
-    private lazy var forgotPasswordButton = UIButton(type: .system).then { button in
-        let atts:  [NSAttributedString.Key: Any] = [ .foregroundColor: UIColor(white: 1, alpha: 0.7),  .font: UIFont.systemFont(ofSize: 16)]
-        let attributedTitle = NSMutableAttributedString(string: LoginUiText.passwordAttributedTitleText, attributes: atts)
-        
-        let boldAtts: [NSAttributedString.Key: Any] = [ .foregroundColor: UIColor(white: 1, alpha: 0.7),  .font: UIFont.boldSystemFont(ofSize: 16)]
-        attributedTitle.append(NSMutableAttributedString(string: LoginUiText.helpSignText, attributes: boldAtts))
-        button.setAttributedTitle(attributedTitle, for: .normal)
-    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
