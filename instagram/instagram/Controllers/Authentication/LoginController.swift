@@ -15,24 +15,12 @@ final class LoginController: UIViewController {
         imageView.contentMode = .scaleAspectFill
     }
     
-    private lazy var emailTextField = UITextField().then { textField  in
-        textField.borderStyle = .none
-        textField.textColor = .white
-        textField.keyboardAppearance = .dark
+    private lazy var emailTextField = CustomTextField(placeholder: LoginUiText.emailTextFieldText).then { textField  in
         textField.keyboardType = .emailAddress
-        textField.backgroundColor = UIColor(white: 1, alpha: 0.1)
-        textField.setHeight(50)
-        textField.attributedPlaceholder = NSAttributedString(string: LoginUiText.emailTextFieldText , attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.7)])
+       
     }
     
-    private lazy var passwordTextField = UITextField().then { textField  in
-        textField.borderStyle = .none
-        textField.textColor = .white
-        textField.keyboardAppearance = .dark
-        textField.keyboardType = .emailAddress
-        textField.backgroundColor = UIColor(white: 1, alpha: 0.1)
-        textField.setHeight(50)
-        textField.attributedPlaceholder = NSAttributedString(string: LoginUiText.passwordTextFieldText , attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.7)])
+    private lazy var passwordTextField = CustomTextField(placeholder: LoginUiText.passwordTextFieldText).then { textField  in
         textField.isSecureTextEntry = true
     }
     
