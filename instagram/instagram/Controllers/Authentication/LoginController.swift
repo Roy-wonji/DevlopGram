@@ -15,8 +15,15 @@ final class LoginController: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
-
+    //MARK: -  UI 관련
     private func configureUI() {
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .white
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.barStyle = .black
+        let gradient = CAGradientLayer()
+        gradient.colors = [ UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
+        gradient.locations =  [0 , 1]
+        view.layer.addSublayer(gradient)
+        gradient.frame = view.frame
     }
 }
