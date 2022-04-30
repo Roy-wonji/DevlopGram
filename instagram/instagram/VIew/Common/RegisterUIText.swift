@@ -12,4 +12,5 @@ enum RegisterUIText {
     static let passwordTextFieldText: String = "Password"
     static let  fullNameTextFieldText: String = "FullName"
     static let  userNameTextFieldText: String = "UserName"
+    static let  signUpButtonText: String = "Sign Up"
 }
