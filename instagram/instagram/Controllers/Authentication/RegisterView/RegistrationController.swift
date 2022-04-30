@@ -10,6 +10,7 @@ import Then
 
 final class RegistrationController: UIViewController {
     //MARK:  - Properties
+    private var viewModel = RegistrationViewModel()
     
     private lazy var plusPhotoButton = UIButton(type: .system).then{ button  in
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
@@ -54,6 +55,18 @@ final class RegistrationController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
      
+    @objc fileprivate func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else if sender == passwordTextField {
+            viewModel.password = sender.text
+        } else if sender == fullNameTextField {
+            viewModel.fullName = sender.text
+        } else {
+            viewModel.userName = sender.text
+        }
+    }
+    
     //MARK: -  UI 관련
     private func configureUI() {
        configureGradientLayer()
@@ -89,4 +102,13 @@ final class RegistrationController: UIViewController {
         alreadyHaveAccountButton.centerX(inView: view)
         alreadyHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
+    
+    private func configureNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        userNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
 }
+
+
