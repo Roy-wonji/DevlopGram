@@ -14,5 +14,6 @@ enum LoginUiText {
     static let signupText: String = "Sign UP"
     static let passwordAttributedTitleText: String = "forgot your password?  "
     static let helpSignText: String = "Get help sigining in."
+    static let loginText: String = "Log In"
     
 }

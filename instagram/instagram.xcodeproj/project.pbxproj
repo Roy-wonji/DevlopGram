@@ -239,8 +239,8 @@
 		7FFAB648281AE798006AC4AF /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				7FFAB649281AE7F8006AC4AF /* LoginController.swift */,
-				7FFAB64B281AE81C006AC4AF /* RegistrationController.swift */,
+				7FFAB66B281D620F006AC4AF /* RegisterView */,
+				7FFAB66A281D61F9006AC4AF /* LoginView */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -251,6 +251,22 @@
 				7FFAB651281AF912006AC4AF /* CustomTextField.swift */,
 			);
 			path = TextField;
+			sourceTree = "<group>";
+		};
+		7FFAB66A281D61F9006AC4AF /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				7FFAB649281AE7F8006AC4AF /* LoginController.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		7FFAB66B281D620F006AC4AF /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				7FFAB64B281AE81C006AC4AF /* RegistrationController.swift */,
+			);
+			path = RegisterView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
