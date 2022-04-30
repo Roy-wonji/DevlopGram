@@ -63,7 +63,9 @@ final class LoginController: UIViewController {
         } else {
             viewModel.password = sender.text
         }
-       
+        loginButton.backgroundColor = viewModel.buttonBackground
+        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        loginButton.isEnabled = viewModel.formIsValid
     }
     //MARK: -  UI 관련
     private func configureUI() {
