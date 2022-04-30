@@ -41,20 +41,21 @@ final class RegistrationController: UIViewController {
     private lazy var alreadyHaveAccountButton = UIButton(type: .system).then { button in
         button.attributedTitle(fristPart: RegisterUIText.alreadyHaveAccountButtonText,
                                secondPart: RegisterUIText.signUpButtonText)
-       button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
     }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureNotificationObservers()
     }
     
     //MARK:  - Actions
     @objc func handleShowSignUp() {
         navigationController?.popViewController(animated: true)
     }
-     
+    
     @objc fileprivate func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
@@ -65,11 +66,12 @@ final class RegistrationController: UIViewController {
         } else {
             viewModel.userName = sender.text
         }
+        updateForm()
     }
     
     //MARK: -  UI 관련
     private func configureUI() {
-       configureGradientLayer()
+        configureGradientLayer()
         setConstrants()
     }
     //MARK: 오토레이아웃 관련
@@ -110,5 +112,11 @@ final class RegistrationController: UIViewController {
         userNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
 }
-
-
+//MARK: - FormViewModel 확장
+extension RegistrationController: FormViewModel {
+    func updateForm() {
+        signUpButton.backgroundColor = viewModel.buttonBackground
+        signUpButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        signUpButton.isEnabled = viewModel.formIsValid
+    }
+}
