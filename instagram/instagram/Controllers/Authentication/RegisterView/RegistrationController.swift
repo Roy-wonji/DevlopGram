@@ -16,6 +16,16 @@ final class RegistrationController: UIViewController {
         button.tintColor = .white
     }
     
+    private lazy var emailTextField = CustomTextField(placeholder: RegisterUIText.emailTextFieldText).then { textField  in
+        textField.keyboardType = .emailAddress
+    }
+    
+    private lazy var passwordTextField = CustomTextField(placeholder: RegisterUIText.passwordTextFieldText).then { textField  in
+        textField.isSecureTextEntry = true
+    }
+    
+    private lazy var fullNameTextField = CustomTextField(placeholder: RegisterUIText.fullNameTextFieldText)
+    private lazy var userNameTextField = CustomTextField(placeholder: RegisterUIText.userNameTextFieldText)
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
