@@ -10,7 +10,7 @@ import Then
 
 final class LoginController: UIViewController {
     //MARK:  - Properties
-    
+    private let viewModel = LoginVIewModel()
     
     private let iconImage = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white")).then { imageView in
         imageView.contentMode = .scaleAspectFill
@@ -47,7 +47,7 @@ final class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        setConstrants()
+        configureNotificationObservers()
     }
     
     //MARK: - Actions
@@ -56,9 +56,13 @@ final class LoginController: UIViewController {
      navigationController?.pushViewController(controller, animated: true)
     }
     
+    @objc fileprivate func textDidChange() {
+        print("DEBUG: Text did change...")
+    }
     //MARK: -  UI 관련
     private func configureUI() {
        configureGradientLayer()
+        setConstrants()
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
     }
@@ -90,5 +94,10 @@ final class LoginController: UIViewController {
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.centerX(inView: view)
         dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
+    }
+    
+    private func configureNotificationObservers() {
+        emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
 }
