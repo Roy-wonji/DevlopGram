@@ -242,8 +242,8 @@
 		7FFAB648281AE798006AC4AF /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				7FFAB66B281D620F006AC4AF /* RegisterView */,
 				7FFAB66A281D61F9006AC4AF /* LoginView */,
+				7FFAB66B281D620F006AC4AF /* RegisterView */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";

@@ -37,12 +37,23 @@ final class RegistrationController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
     }
     
+    private lazy var alreadyHaveAccountButton = UIButton(type: .system).then { button in
+        button.attributedTitle(fristPart: RegisterUIText.alreadyHaveAccountButtonText,
+                               secondPart: RegisterUIText.signUpButtonText)
+       button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+    }
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
     
+    //MARK:  - Actions
+    @objc func handleShowSignUp() {
+        navigationController?.popViewController(animated: true)
+    }
+     
     //MARK: -  UI 관련
     private func configureUI() {
        configureGradientLayer()
@@ -52,6 +63,7 @@ final class RegistrationController: UIViewController {
     private func setConstrants() {
         setConstrantsPlusPhotoButton()
         setConstrantsStackVIew()
+        setConstrantsalreadyHaveAccountButton()
     }
     
     private func setConstrantsPlusPhotoButton() {
@@ -70,5 +82,11 @@ final class RegistrationController: UIViewController {
         view.addSubview(stack)
         stack.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor,
                      right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
+    }
+    
+    private func setConstrantsalreadyHaveAccountButton() {
+        view.addSubview(alreadyHaveAccountButton)
+        alreadyHaveAccountButton.centerX(inView: view)
+        alreadyHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
 }
