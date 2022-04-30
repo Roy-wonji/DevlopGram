@@ -10,7 +10,7 @@ import Then
 
 final class LoginController: UIViewController {
     //MARK:  - Properties
-    private let viewModel = LoginVIewModel()
+    private var viewModel = LoginVIewModel()
     
     private let iconImage = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white")).then { imageView in
         imageView.contentMode = .scaleAspectFill
@@ -27,11 +27,12 @@ final class LoginController: UIViewController {
     private lazy var loginButton = UIButton(type: .system).then { button  in
         button.setTitle(LoginUiText.loginText, for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        button.backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1).withAlphaComponent(0.5)
         button.clipsToBounds = true
         button.layer.cornerRadius = 5
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.isEnabled = false
     }
     
     private lazy var forgotPasswordButton = UIButton(type: .system).then { button in
@@ -56,8 +57,13 @@ final class LoginController: UIViewController {
      navigationController?.pushViewController(controller, animated: true)
     }
     
-    @objc fileprivate func textDidChange() {
-        print("DEBUG: Text did change...")
+    @objc fileprivate func textDidChange(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
+        }
+       
     }
     //MARK: -  UI 관련
     private func configureUI() {
