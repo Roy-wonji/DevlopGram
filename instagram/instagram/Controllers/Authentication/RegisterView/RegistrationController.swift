@@ -71,7 +71,7 @@ final class RegistrationController: UIViewController {
     }
     
     @objc func handleProfilePhotoSelect() {
-      let picker = UIImagePickerController()
+        let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
         present(picker, animated: true, completion: nil)

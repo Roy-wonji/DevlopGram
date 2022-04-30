@@ -7,6 +7,8 @@
 
 import UIKit
 import Then
+import AuthenticationServices
+
 
 final class LoginController: UIViewController {
     //MARK:  - Properties
@@ -39,6 +41,11 @@ final class LoginController: UIViewController {
         button.attributedTitle(fristPart: LoginUiText.passwordAttributedTitleText, secondPart: LoginUiText.helpSignText)
     }
     
+    private lazy var appleLoginButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .white).then { button  in
+        button.setHeight(40)
+        button.addTarget(self, action: #selector(handleAppleSignUp), for: .touchUpInside)
+    }
+    
     private lazy var dontHaveAccountButton = UIButton(type: .system).then { button in
         button.attributedTitle(fristPart: LoginUiText.attributedTitleText, secondPart: LoginUiText.signupText)
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
@@ -55,6 +62,15 @@ final class LoginController: UIViewController {
     @objc fileprivate func handleShowSignUp() {
         let controller  = RegistrationController()
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @objc fileprivate func handleAppleSignUp() {
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        request.requestedScopes = [.fullName, .email]
+        let controller = ASAuthorizationController(authorizationRequests: [request])
+        controller.delegate = self as? ASAuthorizationControllerDelegate
+        controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
+        controller.performRequests()
     }
     
     @objc fileprivate func textDidChange(sender: UITextField) {
@@ -87,7 +103,7 @@ final class LoginController: UIViewController {
     }
     
     private func setConstrantsStackVIew() {
-        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, forgotPasswordButton])
+        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, forgotPasswordButton, appleLoginButton])
         stack.axis = .vertical
         stack.spacing = 20
         
@@ -113,5 +129,24 @@ extension LoginController: FormViewModel {
         loginButton.backgroundColor = viewModel.buttonBackground
         loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
         loginButton.isEnabled = viewModel.formIsValid
+    }
+}
+
+extension LoginController: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        if let credential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            let idToken = credential.identityToken!
+            let tokeStr = String(data: idToken, encoding: .utf8)
+            print(tokeStr)
+            guard let code = credential.authorizationCode else { return }
+            let codeStr = String(data: code, encoding: .utf8)
+            print(codeStr)
+            let user = credential.user
+            print(user)
+        }
+    }
+    // 실패 후 동작
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("apple 로그인에  실패 하였습니다")
     }
 }
