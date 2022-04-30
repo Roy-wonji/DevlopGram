@@ -15,6 +15,7 @@ final class RegistrationController: UIViewController {
     private lazy var plusPhotoButton = UIButton(type: .system).then{ button  in
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
         button.tintColor = .white
+        button.addTarget(self, action: #selector(handleProfilePhotoSelect), for: .touchUpInside)
     }
     
     private lazy var emailTextField = CustomTextField(placeholder: RegisterUIText.emailTextFieldText).then { textField  in
@@ -69,6 +70,12 @@ final class RegistrationController: UIViewController {
         updateForm()
     }
     
+    @objc func handleProfilePhotoSelect() {
+      let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker, animated: true, completion: nil)
+    }
     //MARK: -  UI 관련
     private func configureUI() {
         configureGradientLayer()
@@ -118,5 +125,17 @@ extension RegistrationController: FormViewModel {
         signUpButton.backgroundColor = viewModel.buttonBackground
         signUpButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
         signUpButton.isEnabled = viewModel.formIsValid
+    }
+}
+//MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate 설정
+extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.editedImage] as? UIImage else  { return }
+        plusPhotoButton.layer.cornerRadius = plusPhotoButton.frame.width / 2
+        plusPhotoButton.layer.masksToBounds = true
+        plusPhotoButton.layer.borderColor =  UIColor.white.cgColor
+        plusPhotoButton.layer.borderWidth = 2
+        plusPhotoButton.setImage(selectedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        self.dismiss(animated: true, completion: nil)
     }
 }
