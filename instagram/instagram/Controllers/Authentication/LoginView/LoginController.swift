@@ -38,7 +38,7 @@ final class LoginController: UIViewController {
     private lazy var forgotPasswordButton = UIButton(type: .system).then { button in
         button.attributedTitle(fristPart: LoginUiText.passwordAttributedTitleText, secondPart: LoginUiText.helpSignText)
     }
-
+    
     private lazy var dontHaveAccountButton = UIButton(type: .system).then { button in
         button.attributedTitle(fristPart: LoginUiText.attributedTitleText, secondPart: LoginUiText.signupText)
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
@@ -54,7 +54,7 @@ final class LoginController: UIViewController {
     //MARK: - Actions
     @objc fileprivate func handleShowSignUp() {
         let controller  = RegistrationController()
-     navigationController?.pushViewController(controller, animated: true)
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc fileprivate func textDidChange(sender: UITextField) {
@@ -63,13 +63,11 @@ final class LoginController: UIViewController {
         } else {
             viewModel.password = sender.text
         }
-        loginButton.backgroundColor = viewModel.buttonBackground
-        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
-        loginButton.isEnabled = viewModel.formIsValid
+        updateForm()
     }
     //MARK: -  UI 관련
     private func configureUI() {
-       configureGradientLayer()
+        configureGradientLayer()
         setConstrants()
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
@@ -107,5 +105,13 @@ final class LoginController: UIViewController {
     private func configureNotificationObservers() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+    }
+}
+//MARK: - FormViewModel 확장
+extension LoginController: FormViewModel {
+    func updateForm() {
+        loginButton.backgroundColor = viewModel.buttonBackground
+        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        loginButton.isEnabled = viewModel.formIsValid
     }
 }
