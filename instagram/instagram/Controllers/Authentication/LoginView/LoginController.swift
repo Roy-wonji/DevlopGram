@@ -39,6 +39,7 @@ final class LoginController: UIViewController {
 
     private lazy var dontHaveAccountButton = UIButton(type: .system).then { button in
         button.attributedTitle(fristPart: LoginUiText.attributedTitleText, secondPart: LoginUiText.signupText)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
     }
     
     //MARK: - Lifecycle
@@ -47,6 +48,14 @@ final class LoginController: UIViewController {
         configureUI()
         setConstrants()
     }
+    
+    //MARK: - Actions
+    @objc fileprivate func handleShowSignUp() {
+        let controller  = RegistrationController()
+     navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    
     //MARK: -  UI 관련
     private func configureUI() {
         view.backgroundColor = .white
