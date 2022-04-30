@@ -55,17 +55,11 @@ final class LoginController: UIViewController {
      navigationController?.pushViewController(controller, animated: true)
     }
     
-    
     //MARK: -  UI 관련
     private func configureUI() {
-        view.backgroundColor = .white
+       configureGradientLayer()
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
-        let gradient = CAGradientLayer()
-        gradient.colors = [ UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
-        gradient.locations =  [0 , 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
     }
     //MARK: - 오토레이아웃
     private func setConstrants() {

@@ -17,6 +17,6 @@ final class RegistrationController: UIViewController {
     }
 
     private func configureUI() {
-        view.backgroundColor = .systemPink
+       configureGradientLayer()
     }
 }
