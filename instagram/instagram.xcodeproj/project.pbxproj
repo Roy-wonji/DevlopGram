@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F625E77281DA40200DF3DEC /* LoginViewController+ Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E76281DA40200DF3DEC /* LoginViewController+ Extensions.swift */; };
 		7FFAB5E828185478006AC4AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5E728185478006AC4AF /* AppDelegate.swift */; };
 		7FFAB5EA28185478006AC4AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5E928185478006AC4AF /* SceneDelegate.swift */; };
 		7FFAB5EC28185478006AC4AF /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5EB28185478006AC4AF /* MainTabViewController.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F625E76281DA40200DF3DEC /* LoginViewController+ Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+ Extensions.swift"; sourceTree = "<group>"; };
 		7FFAB5E428185478006AC4AF /* instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFAB5E728185478006AC4AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FFAB5E928185478006AC4AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				7FFAB61128198617006AC4AF /* Extensions + viewAutolayout .swift */,
+				7F625E76281DA40200DF3DEC /* LoginViewController+ Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				7FFAB64C281AE81C006AC4AF /* RegistrationController.swift in Sources */,
 				7FFAB60528185BEE006AC4AF /* SearchController.swift in Sources */,
 				7FFAB5EC28185478006AC4AF /* MainTabViewController.swift in Sources */,
+				7F625E77281DA40200DF3DEC /* LoginViewController+ Extensions.swift in Sources */,
 				7FFAB671281D70B4006AC4AF /* RegistrationViewModel.swift in Sources */,
 				7FFAB60928185C20006AC4AF /* NotificationController.swift in Sources */,
 				7FFAB64A281AE7F8006AC4AF /* LoginController.swift in Sources */,

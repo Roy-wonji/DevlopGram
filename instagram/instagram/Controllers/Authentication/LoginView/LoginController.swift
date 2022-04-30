@@ -9,10 +9,10 @@ import UIKit
 import Then
 import AuthenticationServices
 
-
-final class LoginController: UIViewController {
+final class LoginController: UIViewController, ASAuthorizationControllerDelegate {
     //MARK:  - Properties
     private var viewModel = LoginVIewModel()
+    fileprivate var currentNonce: String?
     
     private let iconImage = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white")).then { imageView in
         imageView.contentMode = .scaleAspectFill
@@ -41,7 +41,7 @@ final class LoginController: UIViewController {
         button.attributedTitle(fristPart: LoginUiText.passwordAttributedTitleText, secondPart: LoginUiText.helpSignText)
     }
     
-    private lazy var appleLoginButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .white).then { button  in
+    private lazy var appleLoginButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .whiteOutline).then { button  in
         button.setHeight(40)
         button.addTarget(self, action: #selector(handleAppleSignUp), for: .touchUpInside)
     }
@@ -64,13 +64,17 @@ final class LoginController: UIViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
     
-    @objc fileprivate func handleAppleSignUp() {
-        let request = ASAuthorizationAppleIDProvider().createRequest()
+    @objc func handleAppleSignUp() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let nonce = randomNonceString()
+        currentNonce = nonce
+        let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
-        let controller = ASAuthorizationController(authorizationRequests: [request])
-        controller.delegate = self as? ASAuthorizationControllerDelegate
-        controller.presentationContextProvider = self as? ASAuthorizationControllerPresentationContextProviding
-        controller.performRequests()
+        request.nonce = sha256(nonce)
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
     }
     
     @objc fileprivate func textDidChange(sender: UITextField) {
@@ -132,21 +136,8 @@ extension LoginController: FormViewModel {
     }
 }
 
-extension LoginController: ASAuthorizationControllerDelegate {
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-        if let credential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            let idToken = credential.identityToken!
-            let tokeStr = String(data: idToken, encoding: .utf8)
-            print(tokeStr)
-            guard let code = credential.authorizationCode else { return }
-            let codeStr = String(data: code, encoding: .utf8)
-            print(codeStr)
-            let user = credential.user
-            print(user)
-        }
-    }
-    // 실패 후 동작
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        print("apple 로그인에  실패 하였습니다")
+extension LoginController:  ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
     }
 }
