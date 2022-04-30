@@ -8,5 +8,10 @@
 import Foundation
 
 struct RegistrationViewModel{
+    var email: String?
+    var password: String?
+    var fullName: String?
+    var userName: String?
+    
     
 }

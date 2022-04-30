@@ -1,12 +1,12 @@
 //
-//  AuthenticationViewModel.swift
+//  LoginViewModel.swift
 //  instagram
 //
 //  Created by 서원지 on 2022/04/30
 
 import UIKit
 
-struct LoginVIewModel {
+struct LoginVIewModel: AuthenticationViewModel {
     var email: String?
     var password: String?
     
