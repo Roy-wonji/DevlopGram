@@ -9,5 +9,17 @@ target 'instagram' do
 pod 'SnapKit', '~> 5.0.0'
 pod 'Then'
 pod 'TextFieldEffects'
-
+pod 'Firebase/Core'
+pod 'Firebase/Database'
+pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
+pod 'Firebase/Messaging'
+pod 'Firebase/Auth'
+pod 'ActiveLabel'
+pod 'SDWebImage', '~> 4.4.2'
+pod 'JGProgressHUD', '~> 2.0.3'
+pod 'YPImagePicker'
+pod 'Firebase/Analytics'
+pod 'Firebase/AppCheck'
+pod 'Firebase/AppDistribution'
 end

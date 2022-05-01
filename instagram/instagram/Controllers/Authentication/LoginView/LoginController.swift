@@ -65,9 +65,9 @@ final class LoginController: UIViewController, ASAuthorizationControllerDelegate
     }
     
     @objc func handleAppleSignUp() {
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
         let nonce = randomNonceString()
         currentNonce = nonce
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
         request.nonce = sha256(nonce)
