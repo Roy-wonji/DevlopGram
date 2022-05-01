@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 final class FeedController:  UICollectionViewController {
     //MARK:  - Lifecycle
@@ -17,8 +18,30 @@ final class FeedController:  UICollectionViewController {
     func configureUI() {
         collectionView.backgroundColor = .white
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: CellIdentifier.resueIdentifier)
+        naviagationTabBar()
+    }
+    
+    func naviagationTabBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title:  FeedUIText.leftBarItemText, style: .plain,
+            target: self, action: #selector(handleLogOut))
+        navigationItem.title = "Feed"
+    }
+    
+    //MARK: - Actions
+    @objc func handleLogOut() {
+        do {
+            try Auth.auth().signOut()
+            let controller = LoginController()
+            let  navigation = UINavigationController(rootViewController: controller)
+            navigation.modalPresentationStyle = .fullScreen
+            self.present(navigation, animated: true, completion:  nil)
+        } catch { print("DEBUG:  Falied  to  sign  out") }
     }
 }
+
+
+
 //MARK: - UICollectionViewDataSource
 extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -74,6 +74,7 @@ final class RegistrationController: UIViewController {
                 return
             }
             print("DEBUG:Sucessfully registered user with firestore...")
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -142,6 +143,14 @@ final class RegistrationController: UIViewController {
         fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         userNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        userNameTextField.resignFirstResponder()
+        fullNameTextField.resignFirstResponder()
+      self.view.endEditing(true)
+    }
 }
 //MARK: - FormViewModel 확장
 extension RegistrationController: FormViewModel {
@@ -151,6 +160,7 @@ extension RegistrationController: FormViewModel {
         signUpButton.isEnabled = viewModel.formIsValid
     }
 }
+
 //MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate 설정
 extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

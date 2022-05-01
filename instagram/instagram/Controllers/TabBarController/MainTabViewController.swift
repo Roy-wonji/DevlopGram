@@ -12,8 +12,8 @@ final class MainTabViewController:  UITabBarController {
     //MARK:  - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkIfUserIsLoggedIn()
         configureViewControllers()
+        checkIfUserIsLoggedIn()
     }
     
     //MARK: - API

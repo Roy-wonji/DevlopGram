@@ -9,6 +9,10 @@ import Foundation
 import Firebase
 
 struct AuthService {
+    static func logUseIn(withEmail email: String, password: String, completion:  AuthDataResultCallback?) {
+        Auth.auth().signIn(withEmail: email, password: password, completion: completion)
+    }
+    
     static func registerUser(withCredential credentials: AuthCredentials,  completion:
                              @escaping(Error?) -> Void) {
         

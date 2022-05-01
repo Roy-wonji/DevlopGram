@@ -14,6 +14,7 @@
 		7F625E80281EBAC200DF3DEC /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */; };
 		7F625E82281ED00000DF3DEC /* AppleLoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E81281ECFFF00DF3DEC /* AppleLoginService.swift */; };
 		7F625E84281ED08C00DF3DEC /* AppleLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E83281ED08C00DF3DEC /* AppleLogin.swift */; };
+		7F625E89281EE1DB00DF3DEC /* FeedUIText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E88281EE1DB00DF3DEC /* FeedUIText.swift */; };
 		7FFAB5E828185478006AC4AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5E728185478006AC4AF /* AppDelegate.swift */; };
 		7FFAB5EA28185478006AC4AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5E928185478006AC4AF /* SceneDelegate.swift */; };
 		7FFAB5EC28185478006AC4AF /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5EB28185478006AC4AF /* MainTabViewController.swift */; };
@@ -59,6 +60,7 @@
 		7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
 		7F625E81281ECFFF00DF3DEC /* AppleLoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginService.swift; sourceTree = "<group>"; };
 		7F625E83281ED08C00DF3DEC /* AppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogin.swift; sourceTree = "<group>"; };
+		7F625E88281EE1DB00DF3DEC /* FeedUIText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIText.swift; sourceTree = "<group>"; };
 		7FFAB5E428185478006AC4AF /* instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFAB5E728185478006AC4AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FFAB5E928185478006AC4AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				7FFAB61B281A6C52006AC4AF /* CellIdentifier.swift */,
 				7FFAB64D281AEFBF006AC4AF /* LoginUiText.swift */,
 				7FFAB66C281D6826006AC4AF /* RegisterUIText.swift */,
+				7F625E88281EE1DB00DF3DEC /* FeedUIText.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				7FFAB61228198617006AC4AF /* Extensions + viewAutolayout .swift in Sources */,
 				7FFAB652281AF912006AC4AF /* CustomTextField.swift in Sources */,
 				7F625E7C281EB3E700DF3DEC /* ImageUploader.swift in Sources */,
+				7F625E89281EE1DB00DF3DEC /* FeedUIText.swift in Sources */,
 				7FFAB5EA28185478006AC4AF /* SceneDelegate.swift in Sources */,
 				7F625E7E281EB40900DF3DEC /* AuthService.swift in Sources */,
 				7F625E80281EBAC200DF3DEC /* AuthCredentials.swift in Sources */,
