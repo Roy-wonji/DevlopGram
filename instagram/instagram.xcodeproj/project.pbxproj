@@ -11,6 +11,7 @@
 		7F625E7A281E772200DF3DEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F625E79281E772200DF3DEC /* GoogleService-Info.plist */; };
 		7F625E7C281EB3E700DF3DEC /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E7B281EB3E700DF3DEC /* ImageUploader.swift */; };
 		7F625E7E281EB40900DF3DEC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E7D281EB40900DF3DEC /* AuthService.swift */; };
+		7F625E80281EBAC200DF3DEC /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */; };
 		7FFAB5E828185478006AC4AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5E728185478006AC4AF /* AppDelegate.swift */; };
 		7FFAB5EA28185478006AC4AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5E928185478006AC4AF /* SceneDelegate.swift */; };
 		7FFAB5EC28185478006AC4AF /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5EB28185478006AC4AF /* MainTabViewController.swift */; };
@@ -53,6 +54,7 @@
 		7F625E79281E772200DF3DEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7F625E7B281EB3E700DF3DEC /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploader.swift; path = instagram/Utills/Extensions/ImageUploader.swift; sourceTree = SOURCE_ROOT; };
 		7F625E7D281EB40900DF3DEC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = instagram/Utills/Extensions/AuthService.swift; sourceTree = SOURCE_ROOT; };
+		7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
 		7FFAB5E428185478006AC4AF /* instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFAB5E728185478006AC4AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FFAB5E928185478006AC4AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				7F625E7B281EB3E700DF3DEC /* ImageUploader.swift */,
 				7F625E7D281EB40900DF3DEC /* AuthService.swift */,
 				7F625E76281DA40200DF3DEC /* AppleAuthService.swift */,
+				7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */,
 			);
 			name = API;
 			path = ../API;
@@ -485,6 +488,7 @@
 				7F625E7C281EB3E700DF3DEC /* ImageUploader.swift in Sources */,
 				7FFAB5EA28185478006AC4AF /* SceneDelegate.swift in Sources */,
 				7F625E7E281EB40900DF3DEC /* AuthService.swift in Sources */,
+				7F625E80281EBAC200DF3DEC /* AuthCredentials.swift in Sources */,
 				7FFAB61C281A6C52006AC4AF /* CellIdentifier.swift in Sources */,
 				7FFAB674281D7C95006AC4AF /* AuthenticationViewModelProtocol.swift in Sources */,
 				7FFAB60B28185C66006AC4AF /* ProfileController.swift in Sources */,

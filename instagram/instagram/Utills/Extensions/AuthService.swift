@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import Firebase
+
+struct AuthService {
+    static func registerUser(withCredential credentials: AuthCredentials) {
+        print("DEBUG: Credentials are \(credentials)")
+    }
+}

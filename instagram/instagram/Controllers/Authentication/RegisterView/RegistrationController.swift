@@ -11,6 +11,7 @@ import Then
 final class RegistrationController: UIViewController {
     //MARK:  - Properties
     private var viewModel = RegistrationViewModel()
+    private var profileImage: UIImage?
     
     private lazy var plusPhotoButton = UIButton(type: .system).then{ button  in
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
@@ -32,11 +33,13 @@ final class RegistrationController: UIViewController {
     private lazy var signUpButton = UIButton(type: .system).then { button  in
         button.setTitle(RegisterUIText.signUpButtonText, for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
+        button.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1).withAlphaComponent(0.5)
         button.clipsToBounds = true
         button.layer.cornerRadius = 5
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+        button.isEnabled = false
     }
     
     private lazy var alreadyHaveAccountButton = UIButton(type: .system).then { button in
@@ -53,6 +56,21 @@ final class RegistrationController: UIViewController {
     }
     
     //MARK:  - Actions
+    
+    @objc func handleSignUp() {
+        guard let email = emailTextField.text else  { return }
+        guard let password = passwordTextField.text else  { return }
+        guard let fullname = fullNameTextField.text else  { return }
+        guard let username = userNameTextField.text else  { return }
+        guard let profileImage = self.profileImage else { return }
+
+        let crendentials = AuthCredentials(email: email, password: password,
+                                         fullname: fullname, username: username,
+                                         profileImage: profileImage)
+        
+        AuthService.registerUser(withCredential: crendentials)
+    }
+    
     @objc func handleShowSignUp() {
         navigationController?.popViewController(animated: true)
     }
@@ -131,6 +149,7 @@ extension RegistrationController: FormViewModel {
 extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.editedImage] as? UIImage else  { return }
+        profileImage = selectedImage
         plusPhotoButton.layer.cornerRadius = plusPhotoButton.frame.width / 2
         plusPhotoButton.layer.masksToBounds = true
         plusPhotoButton.layer.borderColor =  UIColor.white.cgColor
