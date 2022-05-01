@@ -8,11 +8,11 @@
 import UIKit
 import Then
 import AuthenticationServices
+import Firebase
 
-final class LoginController: UIViewController, ASAuthorizationControllerDelegate {
+final class LoginController: UIViewController {
     //MARK:  - Properties
     private var viewModel = LoginVIewModel()
-    fileprivate var currentNonce: String?
     
     private let iconImage = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white")).then { imageView in
         imageView.contentMode = .scaleAspectFill
@@ -66,15 +66,16 @@ final class LoginController: UIViewController, ASAuthorizationControllerDelegate
     
     @objc func handleAppleSignUp() {
         let nonce = randomNonceString()
-        currentNonce = nonce
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        let request = appleIDProvider.createRequest()
-        request.requestedScopes = [.fullName, .email]
-        request.nonce = sha256(nonce)
-        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-        authorizationController.delegate = self
-        authorizationController.presentationContextProvider = self
-        authorizationController.performRequests()
+        AppleLogin.currentNonce = nonce
+         let appleIDProvider = ASAuthorizationAppleIDProvider()
+         let request = appleIDProvider.createRequest()
+         request.requestedScopes = [.fullName, .email]
+         request.nonce = sha256(nonce)
+
+         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+         authorizationController.delegate = self
+         authorizationController.presentationContextProvider = self
+         authorizationController.performRequests()
     }
     
     @objc fileprivate func textDidChange(sender: UITextField) {
@@ -136,8 +137,3 @@ extension LoginController: FormViewModel {
     }
 }
 
-extension LoginController:  ASAuthorizationControllerPresentationContextProviding {
-    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return self.view.window!
-    }
-}
