@@ -184,8 +184,6 @@
 			children = (
 				7FFAB672281D7C6A006AC4AF /* Protocool */,
 				7FFAB675281D7CB6006AC4AF /* Authentication */,
-				7FFAB66E281D7037006AC4AF /* LoginViewModel.swift */,
-				7FFAB670281D70B4006AC4AF /* RegistrationViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -301,6 +299,8 @@
 		7FFAB675281D7CB6006AC4AF /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				7FFAB66E281D7037006AC4AF /* LoginViewModel.swift */,
+				7FFAB670281D70B4006AC4AF /* RegistrationViewModel.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
