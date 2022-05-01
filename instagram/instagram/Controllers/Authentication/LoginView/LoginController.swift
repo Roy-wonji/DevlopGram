@@ -42,11 +42,6 @@ final class LoginController: UIViewController {
         button.attributedTitle(fristPart: LoginUiText.passwordAttributedTitleText, secondPart: LoginUiText.helpSignText)
     }
     
-    private lazy var appleLoginButton = ASAuthorizationAppleIDButton(authorizationButtonType: .signIn, authorizationButtonStyle: .whiteOutline).then { button  in
-        button.setHeight(40)
-        button.addTarget(self, action: #selector(handleAppleSignUp), for: .touchUpInside)
-    }
-    
     private lazy var dontHaveAccountButton = UIButton(type: .system).then { button in
         button.attributedTitle(fristPart: LoginUiText.attributedTitleText, secondPart: LoginUiText.signupText)
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
@@ -77,20 +72,6 @@ final class LoginController: UIViewController {
     @objc fileprivate func handleShowSignUp() {
         let controller  = RegistrationController()
         navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    @objc func handleAppleSignUp() {
-        let nonce = randomNonceString()
-        AppleLogin.currentNonce = nonce
-         let appleIDProvider = ASAuthorizationAppleIDProvider()
-         let request = appleIDProvider.createRequest()
-         request.requestedScopes = [.fullName, .email]
-         request.nonce = sha256(nonce)
-
-         let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-         authorizationController.delegate = self
-         authorizationController.presentationContextProvider = self
-         authorizationController.performRequests()
     }
     
     @objc fileprivate func textDidChange(sender: UITextField) {
@@ -130,7 +111,7 @@ final class LoginController: UIViewController {
     }
     
     private func setConstrantsStackVIew() {
-        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, forgotPasswordButton, appleLoginButton])
+        let stack = UIStackView(arrangedSubviews: [emailTextField, passwordTextField, loginButton, forgotPasswordButton ])
         stack.axis = .vertical
         stack.spacing = 20
         

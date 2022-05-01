@@ -27,7 +27,6 @@ final class MainTabViewController:  UITabBarController {
             }
         }
     }
-
     
     //MARK:  - Helpers
     private func configureViewControllers() {
