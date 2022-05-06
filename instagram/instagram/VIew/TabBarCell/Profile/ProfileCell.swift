@@ -11,7 +11,9 @@ import Then
 final class ProfileCell: UICollectionViewCell {
     //MARK:  - Properties
     private lazy var postImageView = UIImageView().then { imageView  in
-        imageView.image = UIImage(named: <#T##String#>)
+        imageView.image = UIImage(named: "venom-7")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
     }
     
     //MARK: - Lifecycle
@@ -26,8 +28,13 @@ final class ProfileCell: UICollectionViewCell {
     }
     
     private func configureUI() {
-        
+        setPostImageView()
     }
+    
+    private func setPostImageView() {
+        addSubview(postImageView)
+        postImageView.fillSuperview()
+        }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
