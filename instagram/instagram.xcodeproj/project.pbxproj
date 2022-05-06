@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F530E6B2824C460002BDF3B /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F530E6A2824C460002BDF3B /* ProfileCell.swift */; };
+		7F530E6D2824C46C002BDF3B /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F530E6C2824C46C002BDF3B /* ProfileHeader.swift */; };
 		7F625E7A281E772200DF3DEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F625E79281E772200DF3DEC /* GoogleService-Info.plist */; };
 		7F625E7C281EB3E700DF3DEC /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E7B281EB3E700DF3DEC /* ImageUploader.swift */; };
 		7F625E7E281EB40900DF3DEC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E7D281EB40900DF3DEC /* AuthService.swift */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F530E6A2824C460002BDF3B /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		7F530E6C2824C46C002BDF3B /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		7F625E79281E772200DF3DEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		7F625E7B281EB3E700DF3DEC /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploader.swift; path = instagram/Utills/Extensions/ImageUploader.swift; sourceTree = SOURCE_ROOT; };
 		7F625E7D281EB40900DF3DEC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = instagram/Utills/Extensions/AuthService.swift; sourceTree = SOURCE_ROOT; };
@@ -122,6 +126,24 @@
 				ED3CFF97BAF0BE9CEC332BEB /* Pods_instagram.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F530E682824C3F2002BDF3B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7F530E6A2824C460002BDF3B /* ProfileCell.swift */,
+				7F530E6C2824C46C002BDF3B /* ProfileHeader.swift */,
+			);
+			name = Profile;
+			path = "New Group/Profile";
+			sourceTree = "<group>";
+		};
+		7F530E692824C419002BDF3B /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+				7FFAB60E281982B7006AC4AF /* FeedCell.swift */,
+			);
+			path = "New Group1";
 			sourceTree = "<group>";
 		};
 		7F625E78281E6FDB00DF3DEC /* NetWork */ = {
@@ -250,7 +272,8 @@
 		7FFAB60D2819828E006AC4AF /* TabBarCell */ = {
 			isa = PBXGroup;
 			children = (
-				7FFAB60E281982B7006AC4AF /* FeedCell.swift */,
+				7F530E692824C419002BDF3B /* New Group1 */,
+				7F530E682824C3F2002BDF3B /* Profile */,
 			);
 			path = TabBarCell;
 			sourceTree = "<group>";
@@ -485,6 +508,7 @@
 				7FFAB61228198617006AC4AF /* Extensions + viewAutolayout .swift in Sources */,
 				7FFAB652281AF912006AC4AF /* CustomTextField.swift in Sources */,
 				7F625E7C281EB3E700DF3DEC /* ImageUploader.swift in Sources */,
+				7F530E6B2824C460002BDF3B /* ProfileCell.swift in Sources */,
 				7F625E89281EE1DB00DF3DEC /* FeedUIText.swift in Sources */,
 				7FFAB5EA28185478006AC4AF /* SceneDelegate.swift in Sources */,
 				7F625E7E281EB40900DF3DEC /* AuthService.swift in Sources */,
@@ -497,6 +521,7 @@
 				7FFAB60728185C1A006AC4AF /* ImageSelectorController.swift in Sources */,
 				7FFAB60F281982B7006AC4AF /* FeedCell.swift in Sources */,
 				7FFAB617281997EA006AC4AF /* LabelMessage.swift in Sources */,
+				7F530E6D2824C46C002BDF3B /* ProfileHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
