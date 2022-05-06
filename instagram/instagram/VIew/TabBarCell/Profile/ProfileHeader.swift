@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileHeader: UICollectionReusableView {
+final class ProfileHeader: UICollectionReusableView {
     //MARK:  - Properties
     
     
@@ -18,6 +18,12 @@ class ProfileHeader: UICollectionReusableView {
     
     private func updateUI() {
         backgroundColor = .systemPink
+        configureUI()
+        
+    }
+    
+    private func configureUI() {
+        
     }
     
     required init?(coder: NSCoder) {

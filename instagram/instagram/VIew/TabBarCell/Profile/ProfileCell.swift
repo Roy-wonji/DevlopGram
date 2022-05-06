@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileCell: UICollectionViewCell {
+final class ProfileCell: UICollectionViewCell {
     //MARK:  - Properties
     
     
@@ -18,6 +18,11 @@ class ProfileCell: UICollectionViewCell {
     
     private func updateUI() {
         backgroundColor = .lightGray
+        configureUI()
+    }
+    
+    private func configureUI() {
+        
     }
     
     required init?(coder: NSCoder) {

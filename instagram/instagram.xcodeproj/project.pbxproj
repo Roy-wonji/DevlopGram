@@ -136,11 +136,20 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
-		7FED837828250F1700A4847A /* New Group */ = {
+		7FED837B282510E100A4847A /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "New Group";
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		7FED837C282510E700A4847A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7FED837528250F1500A4847A /* ProfileCell.swift */,
+				7FED837428250F1400A4847A /* ProfileHeader.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		7FFAB5DB28185478006AC4AF = {
@@ -261,10 +270,9 @@
 		7FFAB60D2819828E006AC4AF /* TabBarCell */ = {
 			isa = PBXGroup;
 			children = (
-				7FED837828250F1700A4847A /* New Group */,
+				7FED837C282510E700A4847A /* Profile */,
+				7FED837B282510E100A4847A /* Feed */,
 				7FED837228250F0800A4847A /* FeedCell.swift */,
-				7FED837528250F1500A4847A /* ProfileCell.swift */,
-				7FED837428250F1400A4847A /* ProfileHeader.swift */,
 			);
 			path = TabBarCell;
 			sourceTree = "<group>";
