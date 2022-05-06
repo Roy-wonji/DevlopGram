@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Then
 
 final class ProfileCell: UICollectionViewCell {
     //MARK:  - Properties
-    
+    private lazy var postImageView = UIImageView().then { imageView  in
+        imageView.image = UIImage(named: <#T##String#>)
+    }
     
     //MARK: - Lifecycle
     override init(frame: CGRect) {
