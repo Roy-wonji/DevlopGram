@@ -14,6 +14,7 @@ final class ProfileCell: UICollectionViewCell {
     //MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+        updateUI()
     }
     
     private func updateUI() {

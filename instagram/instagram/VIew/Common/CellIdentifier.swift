@@ -8,5 +8,7 @@
 import Foundation
 
 enum CellIdentifier {
-     static  let resueIdentifier = "Cell"
+    static  let resueIdentifier = "Cell"
+    static let profileCellIdentifier = "ProfileCell"
+    static let headerIdentifier = "ProfileHeader"
 }
