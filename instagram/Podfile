@@ -20,6 +20,4 @@ pod 'SDWebImage', '~> 4.4.2'
 pod 'JGProgressHUD', '~> 2.0.3'
 pod 'YPImagePicker'
 pod 'Firebase/Analytics'
-pod 'Firebase/AppCheck'
-pod 'Firebase/AppDistribution'
 end
