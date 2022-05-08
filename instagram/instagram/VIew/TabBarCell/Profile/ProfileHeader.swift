@@ -7,9 +7,16 @@
 
 import UIKit
 import Then
+import SDWebImage
 
 final class ProfileHeader: UICollectionReusableView {
     //MARK:  - Properties
+    var viewModel:  ProfileHeaderViewModel?   {
+        didSet{ configure()
+            
+        }
+    }
+    
     private lazy var profileImageView = UIImageView().then { imageView  in
         imageView.image = UIImage(named: "venom-7")
         imageView.contentMode = .scaleAspectFill
@@ -73,7 +80,6 @@ final class ProfileHeader: UICollectionReusableView {
     private func updateUI() {
         backgroundColor = .white
         configureUI()
-        
     }
     
     private func configureUI() {
@@ -143,6 +149,12 @@ final class ProfileHeader: UICollectionReusableView {
     }
     
     //MARK: - label 관련 함수
+    func configure() {
+        guard let viewModel = viewModel else  { return }
+        nameLabel.text = viewModel.fullname
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+    }
+    
     func attributedStatText(value: Int, label: String) -> NSAttributedString {
         let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
         attributedText.append(NSAttributedString(string: label, attributes:  [.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))

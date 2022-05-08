@@ -10,14 +10,25 @@ import UIKit
 final class ProfileController: UICollectionViewController {
     
     //MARK: - Properties
-    
+    var user: User? {
+        didSet { collectionView.reloadData() }
+    }
     
     //MARK: - LifeCycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemPink
+        self.overrideUserInterfaceStyle =  .light
         configureCollectionVIew()
+        fetchUser()
+    }
+    
+    //MARK: - API
+    func fetchUser() {
+        UserService.fetchUser { user in
+            self.user = user
+            self.navigationItem.title = user.username
+        }
     }
     
     //MARK:  - UI 관련
@@ -44,7 +55,17 @@ extension ProfileController {
     }
     //MARK: - collectionView  ProfileHeader 셀 등록
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CellIdentifier.headerIdentifier, for: indexPath)
+        
+        print("DEBUG: Did call header functions")
+        
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CellIdentifier.headerIdentifier, for: indexPath) as! ProfileHeader
+    
+        if let user = user {
+            header.viewModel = ProfileHeaderViewModel(user: user)
+        } else {
+            print("DEBUG:  User not yet set..")
+        }
+        
         return header
     }
 }

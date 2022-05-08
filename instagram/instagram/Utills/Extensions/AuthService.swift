@@ -15,7 +15,6 @@ struct AuthService {
     
     static func registerUser(withCredential credentials: AuthCredentials,  completion:
                              @escaping(Error?) -> Void) {
-        
         ImageUploader.uploadImage(image: credentials.profileImage) { imageUrl in
             Auth.auth().createUser(withEmail: credentials.email, password: credentials.password) { (result,  error) in
                 
@@ -30,7 +29,7 @@ struct AuthService {
                                            "profileImageUrl": imageUrl,
                                            "uid": uid,
                                            "username": credentials.username]
-                Firestore.firestore().collection("user").document().setData(data, completion: completion)
+                COLLECTION_USERS.document(uid).setData(data, completion: completion)
             }
         }
     }

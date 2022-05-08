@@ -10,7 +10,9 @@
 		7F14C6C92827E75A00C4A1A7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6C82827E75A00C4A1A7 /* UserService.swift */; };
 		7F14C6CB2827E79C00C4A1A7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6CA2827E79C00C4A1A7 /* Constants.swift */; };
 		7F14C6CD2827EA6F00C4A1A7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6CC2827EA6F00C4A1A7 /* User.swift */; };
-		7F625E7A281E772200DF3DEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F625E79281E772200DF3DEC /* GoogleService-Info.plist */; };
+		7F14C6CF2827F2A300C4A1A7 /* UserText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6CE2827F2A300C4A1A7 /* UserText.swift */; };
+		7F14C6D52828060F00C4A1A7 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6D42828060F00C4A1A7 /* ProfileHeaderViewModel.swift */; };
+		7F14C6D828280E3A00C4A1A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F14C6D728280E3900C4A1A7 /* GoogleService-Info.plist */; };
 		7F625E7C281EB3E700DF3DEC /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E7B281EB3E700DF3DEC /* ImageUploader.swift */; };
 		7F625E7E281EB40900DF3DEC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E7D281EB40900DF3DEC /* AuthService.swift */; };
 		7F625E80281EBAC200DF3DEC /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */; };
@@ -59,7 +61,9 @@
 		7F14C6C82827E75A00C4A1A7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7F14C6CA2827E79C00C4A1A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F14C6CC2827EA6F00C4A1A7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7F625E79281E772200DF3DEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7F14C6CE2827F2A300C4A1A7 /* UserText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserText.swift; sourceTree = "<group>"; };
+		7F14C6D42828060F00C4A1A7 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
+		7F14C6D728280E3900C4A1A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7F625E7B281EB3E700DF3DEC /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploader.swift; path = instagram/Utills/Extensions/ImageUploader.swift; sourceTree = SOURCE_ROOT; };
 		7F625E7D281EB40900DF3DEC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = instagram/Utills/Extensions/AuthService.swift; sourceTree = SOURCE_ROOT; };
 		7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
@@ -136,6 +140,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7F14C6D62828062E00C4A1A7 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7F14C6D42828060F00C4A1A7 /* ProfileHeaderViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		7F625E78281E6FDB00DF3DEC /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,7 +202,7 @@
 				7FFAB5FC281854EA006AC4AF /* VIew */,
 				7F625E78281E6FDB00DF3DEC /* NetWork */,
 				7FFAB5F52818547A006AC4AF /* Info.plist */,
-				7F625E79281E772200DF3DEC /* GoogleService-Info.plist */,
+				7F14C6D728280E3900C4A1A7 /* GoogleService-Info.plist */,
 			);
 			path = instagram;
 			sourceTree = "<group>";
@@ -228,6 +240,7 @@
 		7FFAB5FE281854F9006AC4AF /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				7F14C6D62828062E00C4A1A7 /* Profile */,
 				7FFAB672281D7C6A006AC4AF /* Protocool */,
 				7FFAB675281D7CB6006AC4AF /* Authentication */,
 			);
@@ -305,6 +318,7 @@
 				7FFAB66C281D6826006AC4AF /* RegisterUIText.swift */,
 				7F625E88281EE1DB00DF3DEC /* FeedUIText.swift */,
 				7FED837D282517DB00A4847A /* ProfileUIText.swift */,
+				7F14C6CE2827F2A300C4A1A7 /* UserText.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -444,7 +458,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FFAB5F42818547A006AC4AF /* LaunchScreen.storyboard in Resources */,
-				7F625E7A281E772200DF3DEC /* GoogleService-Info.plist in Resources */,
+				7F14C6D828280E3A00C4A1A7 /* GoogleService-Info.plist in Resources */,
 				7FFAB5F12818547A006AC4AF /* Assets.xcassets in Resources */,
 				7FFAB5EF28185478006AC4AF /* Main.storyboard in Resources */,
 			);
@@ -519,6 +533,7 @@
 				7FFAB677281D7F29006AC4AF /* FormViewModelProtocol.swift in Sources */,
 				7FFAB66F281D7037006AC4AF /* LoginViewModel.swift in Sources */,
 				7FED837E282517DB00A4847A /* ProfileUIText.swift in Sources */,
+				7F14C6CF2827F2A300C4A1A7 /* UserText.swift in Sources */,
 				7FFAB60328185BDB006AC4AF /* FeedController.swift in Sources */,
 				7FFAB61228198617006AC4AF /* Extensions + viewAutolayout .swift in Sources */,
 				7FFAB652281AF912006AC4AF /* CustomTextField.swift in Sources */,
@@ -537,6 +552,7 @@
 				7FFAB66D281D6826006AC4AF /* RegisterUIText.swift in Sources */,
 				7FFAB60728185C1A006AC4AF /* ImageSelectorController.swift in Sources */,
 				7FFAB617281997EA006AC4AF /* LabelMessage.swift in Sources */,
+				7F14C6D52828060F00C4A1A7 /* ProfileHeaderViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -627,7 +643,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -681,7 +697,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -708,6 +724,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -741,6 +758,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
