@@ -17,6 +17,7 @@ final class FeedController:  UICollectionViewController {
     //MARK: - UI 설정 하는 함수
     func configureUI() {
         collectionView.backgroundColor = .white
+        self.overrideUserInterfaceStyle =  .light
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: CellIdentifier.resueIdentifier)
         naviagationTabBar()
     }

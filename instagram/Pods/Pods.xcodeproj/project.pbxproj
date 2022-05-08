@@ -3401,6 +3401,7 @@
 		7EF5D084570731CC848007EC888A0700 /* transport_security_grpc.h in Copy src/core/tsi Private Headers */ = {isa = PBXBuildFile; fileRef = 3D5C1007392BB0C0ED20FF135A98DB3D /* transport_security_grpc.h */; };
 		7EFFC91C910BD3A3EB2C5F263C528452 /* tls.h in Headers */ = {isa = PBXBuildFile; fileRef = 16870B419A855FE546E3B69F49DB0D11 /* tls.h */; };
 		7F0E9D842C4E4621A6B548DCFDD55CC7 /* FIRStorageListResult_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = BF962BCE081135417D3E170293FA9F38 /* FIRStorageListResult_Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7F14C6C72827D4A400C4A1A7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9D940727FF8FB9C785EB98E56350EF41 /* Podfile */; };
 		7F1960B96A5450F9EB474191FD569463 /* iam_credentials.h in Copy src/core/lib/security/credentials/iam Private Headers */ = {isa = PBXBuildFile; fileRef = 1A9B4D2E7A6671D80828F77523223B6A /* iam_credentials.h */; };
 		7F21590DA02C2FDD88AC5975F76443E9 /* hash_function_defaults.h in Copy container/internal Public Headers */ = {isa = PBXBuildFile; fileRef = B21C7B8FDCE56E80B8A654D7C24C7381 /* hash_function_defaults.h */; };
 		7F299E51EF534EAE8A2CDE83692233DF /* grpclb_balancer_addresses.h in Headers */ = {isa = PBXBuildFile; fileRef = DFE1B1A75EE29C2C15DCCB75388309E9 /* grpclb_balancer_addresses.h */; };
@@ -30067,6 +30068,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F14C6C72827D4A400C4A1A7 /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
