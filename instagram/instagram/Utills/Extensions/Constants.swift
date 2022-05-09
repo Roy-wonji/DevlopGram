@@ -6,6 +6,5 @@
 //
 
 import Firebase
-import FirebaseFirestore
 
 let COLLECTION_USERS =  Firestore.firestore().collection("users")

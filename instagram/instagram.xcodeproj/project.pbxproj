@@ -58,14 +58,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F060674282981FF00E0744A /* instagramDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = instagramDebug.entitlements; sourceTree = "<group>"; };
 		7F14C6C82827E75A00C4A1A7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7F14C6CA2827E79C00C4A1A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F14C6CC2827EA6F00C4A1A7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7F14C6CE2827F2A300C4A1A7 /* UserText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserText.swift; sourceTree = "<group>"; };
 		7F14C6D42828060F00C4A1A7 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		7F14C6D728280E3900C4A1A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7F625E7B281EB3E700DF3DEC /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploader.swift; path = instagram/Utills/Extensions/ImageUploader.swift; sourceTree = SOURCE_ROOT; };
-		7F625E7D281EB40900DF3DEC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = instagram/Utills/Extensions/AuthService.swift; sourceTree = SOURCE_ROOT; };
+		7F625E7B281EB3E700DF3DEC /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageUploader.swift; path = "instagram/API/New Group/ImageUploader.swift"; sourceTree = SOURCE_ROOT; };
+		7F625E7D281EB40900DF3DEC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthService.swift; path = instagram/API/FireBaseAPI/AuthService.swift; sourceTree = SOURCE_ROOT; };
 		7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
 		7F625E88281EE1DB00DF3DEC /* FeedUIText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIText.swift; sourceTree = "<group>"; };
 		7FED837228250F0800A4847A /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
@@ -98,7 +99,6 @@
 		7FFAB670281D70B4006AC4AF /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		7FFAB673281D7C95006AC4AF /* AuthenticationViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModelProtocol.swift; sourceTree = "<group>"; };
 		7FFAB676281D7F29006AC4AF /* FormViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewModelProtocol.swift; sourceTree = "<group>"; };
-		7FFAB678281D8D43006AC4AF /* instagram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = instagram.entitlements; sourceTree = "<group>"; };
 		C1CA049BE872193F56CDDDF1 /* Pods-instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram.debug.xcconfig"; path = "Target Support Files/Pods-instagram/Pods-instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		C80E68C012A406597FAD7282 /* Pods-instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram.release.xcconfig"; path = "Target Support Files/Pods-instagram/Pods-instagram.release.xcconfig"; sourceTree = "<group>"; };
 		ED3CFF97BAF0BE9CEC332BEB /* Pods_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +138,17 @@
 				ED3CFF97BAF0BE9CEC332BEB /* Pods_instagram.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F06066E282979DE00E0744A /* FireBaseAPI */ = {
+			isa = PBXGroup;
+			children = (
+				7F625E7D281EB40900DF3DEC /* AuthService.swift */,
+				7F625E7B281EB3E700DF3DEC /* ImageUploader.swift */,
+				7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */,
+				7F14C6C82827E75A00C4A1A7 /* UserService.swift */,
+			);
+			path = FireBaseAPI;
 			sourceTree = "<group>";
 		};
 		7F14C6D62828062E00C4A1A7 /* Profile */ = {
@@ -194,7 +205,7 @@
 		7FFAB5E628185478006AC4AF /* instagram */ = {
 			isa = PBXGroup;
 			children = (
-				7FFAB678281D8D43006AC4AF /* instagram.entitlements */,
+				7F060674282981FF00E0744A /* instagramDebug.entitlements */,
 				7FFAB5FF28185506006AC4AF /* Utills */,
 				7FFAB5FE281854F9006AC4AF /* View Model */,
 				7FFAB5FB281854DE006AC4AF /* Model */,
@@ -268,10 +279,7 @@
 		7FFAB60128185723006AC4AF /* API */ = {
 			isa = PBXGroup;
 			children = (
-				7F625E7B281EB3E700DF3DEC /* ImageUploader.swift */,
-				7F625E7D281EB40900DF3DEC /* AuthService.swift */,
-				7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */,
-				7F14C6C82827E75A00C4A1A7 /* UserService.swift */,
+				7F06066E282979DE00E0744A /* FireBaseAPI */,
 			);
 			name = API;
 			path = ../API;
@@ -714,7 +722,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = instagram/instagram.entitlements;
+				CODE_SIGN_ENTITLEMENTS = instagram/instagramDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N94CS4N6VR;
