@@ -68,7 +68,7 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
-
+    
     func center(inView view: UIView, yConstant: CGFloat? = .zero) {
         translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -116,5 +116,38 @@ extension UIView {
         guard let view = superview else { return }
         anchor(top: view.topAnchor, left: view.leftAnchor,
                bottom: view.bottomAnchor, right: view.rightAnchor)
+    }
+}
+
+extension UIColor {
+    static let backgroundColorAsset = UIColor(named: "backgroundColorAsset")
+    static let textColorAsset = UIColor(named: "textColorAsset")
+    static let tabBarColorAsset = UIColor(named: "tabBarColorAsset")
+}
+
+extension UIColor {
+    static var defaultLabelColor: UIColor {
+        if #available(iOS 13, *) {
+            return UIColor { (traitCollection: UITraitCollection) -> UIColor in
+                // ✅ UITraitCollection 의 userInterfaceStyle : 라이트인지 다크인지 알려준다.
+                if traitCollection.userInterfaceStyle == .light {
+                    return .black
+                } else {
+                    return .black
+                }
+            }
+        } else {
+            return .black
+        }
+    }
+}
+
+extension UIColor {
+    static var backgroundColor: UIColor {
+        if #available(iOS 13.0, *) {
+            return .systemBackground
+        } else {
+            return .white
+        }
     }
 }

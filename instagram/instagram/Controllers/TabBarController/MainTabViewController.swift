@@ -12,8 +12,14 @@ final class MainTabViewController:  UITabBarController {
     //MARK:  - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         configureViewControllers()
         checkIfUserIsLoggedIn()
+    }
+    
+    private  func configureUI() {
+        tabBarController?.tabBar.barTintColor = .backgroundColor
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.defaultLabelColor]
     }
     
     //MARK: - API
@@ -39,8 +45,10 @@ final class MainTabViewController:  UITabBarController {
         let profileLayout = UICollectionViewFlowLayout()
         let profile = tempateNavigationController(unselectedImage: #imageLiteral(resourceName: "profile_unselected"),  selectedImage:  #imageLiteral(resourceName: "profile_selected") , rootViewController: ProfileController(collectionViewLayout: profileLayout))
         viewControllers = [feed , search, imageSelector, notifications, profile]
-        tabBar.tintColor = .black
-        tabBar.backgroundColor = .white
+        tabBar.tintColor = .tabBarColorAsset
+        tabBar.backgroundColor = .backgroundColor
+        tabBar.barTintColor = .defaultLabelColor
+        view.backgroundColor = .backgroundColor
     }
     //MARK: - tabbar 의 이미지가 선택 되었을때랑 안선택 되었을때 이미지 선택 해주는 함수
     private func tempateNavigationController(unselectedImage: UIImage, selectedImage: UIImage , rootViewController: UIViewController) -> UINavigationController {

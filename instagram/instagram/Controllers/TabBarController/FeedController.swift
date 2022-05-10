@@ -17,7 +17,6 @@ final class FeedController:  UICollectionViewController {
     //MARK: - UI 설정 하는 함수
     func configureUI() {
         collectionView.backgroundColor = .white
-        self.overrideUserInterfaceStyle =  .light
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: CellIdentifier.resueIdentifier)
         naviagationTabBar()
     }
@@ -27,6 +26,8 @@ final class FeedController:  UICollectionViewController {
             title:  FeedUIText.leftBarItemText, style: .plain,
             target: self, action: #selector(handleLogOut))
         navigationItem.title = "Feed"
+        tabBarController?.tabBar.barTintColor = .backgroundColor
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.defaultLabelColor]
     }
     
     //MARK: - Actions

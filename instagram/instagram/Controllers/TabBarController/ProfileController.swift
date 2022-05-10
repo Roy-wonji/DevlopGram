@@ -20,6 +20,7 @@ final class ProfileController: UICollectionViewController {
         view.backgroundColor = .systemPink
         self.overrideUserInterfaceStyle =  .light
         configureCollectionVIew()
+        configureUI()
         fetchUser()
     }
     
@@ -29,6 +30,11 @@ final class ProfileController: UICollectionViewController {
             self.user = user
             self.navigationItem.title = user.username
         }
+    }
+    
+    func configureUI() {
+        tabBarController?.tabBar.barTintColor = .backgroundColor
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.defaultLabelColor]
     }
     
     //MARK:  - UI 관련
@@ -59,7 +65,7 @@ extension ProfileController {
         print("DEBUG: Did call header functions")
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CellIdentifier.headerIdentifier, for: indexPath) as! ProfileHeader
-    
+        
         if let user = user {
             header.viewModel = ProfileHeaderViewModel(user: user)
         } else {
