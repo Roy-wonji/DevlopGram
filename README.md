@@ -13,6 +13,7 @@
 ## 개발환경 및 라이브러리
 [![swift](https://img.shields.io/badge/swift-5.0-orange)]()
 [![xcode](https://img.shields.io/badge/Xcode-13.0-blue)]()
+![iOS](https://img.shields.io/badge/iOS-13.0-yellow)
 
 ## Projects
 ### 개발자를 위한 인스타그램 프로젝트  
@@ -34,6 +35,10 @@
 
 ## 키워드 
  - `코드베이스UI`
+ - `git flow`
+ - `json`
+ - `HTTP method`
+ - `escaping closure`
  - `UICOLLECTIONVIEW`
  - `UINAVIGATION`
  - `비동기 , 동기`
