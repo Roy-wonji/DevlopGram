@@ -25,8 +25,6 @@ final class ProfileController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
-        self.overrideUserInterfaceStyle =  .light
         configureCollectionVIew()
         configureUI()
     }
@@ -35,13 +33,13 @@ final class ProfileController: UICollectionViewController {
     
     private func configureUI() {
         tabBarController?.tabBar.barTintColor = .backgroundColor
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.defaultLabelColor]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset]
     }
     
     //MARK:  - UI 관련
     private func configureCollectionVIew() {
         navigationItem.title = user.username
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .backgroundColor
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: CellIdentifier.profileCellIdentifier)
         collectionView.register(ProfileHeader.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,

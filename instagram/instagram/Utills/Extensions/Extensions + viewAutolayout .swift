@@ -123,6 +123,7 @@ extension UIColor {
     static let backgroundColorAsset = UIColor(named: "backgroundColorAsset")
     static let textColorAsset = UIColor(named: "textColorAsset")
     static let tabBarColorAsset = UIColor(named: "tabBarColorAsset")
+    static let cellColorAsset = UIColor(named: "cellColorAsset")
 }
 
 extension UIColor {

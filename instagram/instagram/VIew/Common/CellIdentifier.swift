@@ -11,4 +11,5 @@ enum CellIdentifier {
     static  let resueIdentifier = "Cell"
     static let profileCellIdentifier = "ProfileCell"
     static let headerIdentifier = "ProfileHeader"
+    static let searchReuseIdentifier = "UserCell"
 }

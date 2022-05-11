@@ -9,6 +9,10 @@ import UIKit
 import Firebase
 
 final class FeedController:  UICollectionViewController {
+    
+    //MARK: - Properties
+    
+    
     //MARK:  - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,18 +20,17 @@ final class FeedController:  UICollectionViewController {
     }
     //MARK: - UI 설정 하는 함수
     func configureUI() {
-        collectionView.backgroundColor = .white
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: CellIdentifier.resueIdentifier)
         naviagationTabBar()
     }
     
-    func naviagationTabBar() {
+    private func naviagationTabBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title:  FeedUIText.leftBarItemText, style: .plain,
             target: self, action: #selector(handleLogOut))
         navigationItem.title = "Feed"
         tabBarController?.tabBar.barTintColor = .backgroundColor
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.defaultLabelColor]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset]
     }
     
     //MARK: - Actions
@@ -53,6 +56,7 @@ extension FeedController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.resueIdentifier, for:  indexPath) as! FeedCell
+        cell.backgroundColor = .backgroundColor
         return cell
     }
 }

@@ -23,7 +23,6 @@ final class ProfileCell: UICollectionViewCell {
     }
     
     private func updateUI() {
-        backgroundColor = .lightGray
         configureUI()
     }
     

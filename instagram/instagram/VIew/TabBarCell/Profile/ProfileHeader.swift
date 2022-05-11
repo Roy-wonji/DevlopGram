@@ -26,6 +26,7 @@ final class ProfileHeader: UICollectionReusableView {
     private lazy var nameLabel = UILabel().then { label in
         label.text = ProfileUIText.nameLabelText
         label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = .textColorAsset
     }
     
     
@@ -36,7 +37,7 @@ final class ProfileHeader: UICollectionReusableView {
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 0.5
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.textColorAsset, for: .normal)
         button.addTarget(self, action: #selector(handleEditProfileFollowTapped), for: .touchUpInside)
     }
     
@@ -44,31 +45,35 @@ final class ProfileHeader: UICollectionReusableView {
         label.numberOfLines = .zero
         label.textAlignment = .center
         label.attributedText = attributedStatText(value: 1, label: ProfileUIText.postLabelText)
+        label.textColor = .textColorAsset
     }
     
     private lazy var followersLabel = UILabel().then { label in
         label.numberOfLines = .zero
         label.textAlignment = .center
         label.attributedText = attributedStatText(value: 2, label: ProfileUIText.followerLabelText)
+        label.textColor = .textColorAsset
     }
     
     private lazy var followingLabel = UILabel().then { label in
         label.numberOfLines = .zero
         label.textAlignment = .center
         label.attributedText = attributedStatText(value: 1, label: ProfileUIText.followingLabelText)
+        label.textColor = .textColorAsset
     }
     
     private lazy var gridButton = UIButton(type: .system).then { button in
         button.setImage(UIImage(named: "grid"), for: .normal)
+        button.tintColor = .textColorAsset
     }
     
     private lazy var listButton = UIButton(type: .system).then { button in
         button.setImage(UIImage(named: "list"), for: .normal)
-        button.tintColor = UIColor(white: .zero, alpha: 0.2)
+        button.tintColor = .textColorAsset
     }
     private lazy var bookmarkButton = UIButton(type: .system).then { button in
         button.setImage(UIImage(named: "ribbon"), for: .normal)
-        button.tintColor = UIColor(white: .zero, alpha: 0.2)
+        button.tintColor = .textColorAsset
     }
     
     //MARK: - Lifecycle
@@ -78,7 +83,6 @@ final class ProfileHeader: UICollectionReusableView {
     }
     
     private func updateUI() {
-        backgroundColor = .white
         configureUI()
     }
     

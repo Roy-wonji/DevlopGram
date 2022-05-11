@@ -70,7 +70,7 @@ final class MainTabViewController:  UITabBarController {
         let navigation = UINavigationController(rootViewController: rootViewController)
         navigation.tabBarItem.image = unselectedImage
         navigation.tabBarItem.selectedImage = selectedImage
-        navigation.navigationBar.tintColor = .black
+        navigation.navigationBar.tintColor = .textColorAsset
         return navigation
     }
 }

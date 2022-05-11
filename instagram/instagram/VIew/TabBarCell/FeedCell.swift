@@ -18,7 +18,7 @@ class FeedCell: UICollectionViewCell {
     }
     
     private lazy var userNameButton  = UIButton(type: .system).then { button  in
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.textColorAsset, for: .normal)
         button.setTitle("venom", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
@@ -33,27 +33,29 @@ class FeedCell: UICollectionViewCell {
     
     private lazy var likeButton = UIButton(type: .system).then { button  in
         button.setImage(UIImage(named: "like_unselected"), for: .normal)
-        button.tintColor = .black
+        button.tintColor = .textColorAsset
     }
     
     private lazy var commentButton = UIButton(type: .system).then { button  in
         button.setImage(UIImage(named: "comment"), for: .normal)
-        button.tintColor = .black
+        button.tintColor = .textColorAsset
     }
     
     private lazy var sharedButton = UIButton(type: .system).then { button  in
         button.setImage(UIImage(named: "send2"), for: .normal)
-        button.tintColor = .black
+        button.tintColor = .textColorAsset
     }
     
     private lazy var likesLabel = UILabel().then { label  in
         label.text = LabelMessage.likesLabelMessage
         label.font = UIFont.boldSystemFont(ofSize: 13)
+        label.textColor = .textColorAsset
     }
     
     private lazy var captionLabel = UILabel().then { label  in
         label.text = LabelMessage.captionLabelMessage
         label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .textColorAsset
     }
     
     private lazy var postTimeLabel = UILabel().then { label  in
@@ -137,7 +139,7 @@ class FeedCell: UICollectionViewCell {
     
     //MARK: - configureActionButtons
     func configureActionButtons() {
-      let stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, sharedButton])
+        let stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, sharedButton])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         
