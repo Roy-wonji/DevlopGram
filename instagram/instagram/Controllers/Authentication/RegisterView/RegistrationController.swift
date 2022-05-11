@@ -12,6 +12,7 @@ final class RegistrationController: UIViewController {
     //MARK:  - Properties
     private var viewModel = RegistrationViewModel()
     private var profileImage: UIImage?
+    weak var delegate: AuthenticationDelegate?
     
     private lazy var plusPhotoButton = UIButton(type: .system).then{ button  in
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
@@ -63,10 +64,10 @@ final class RegistrationController: UIViewController {
         guard let fullname = fullNameTextField.text else  { return }
         guard let username = userNameTextField.text?.lowercased() else  { return }
         guard let profileImage = self.profileImage else { return }
-
+        
         let crendentials = AuthCredentials(email: email, password: password,
-                                         fullname: fullname, username: username,
-                                         profileImage: profileImage)
+                                           fullname: fullname, username: username,
+                                           profileImage: profileImage)
         
         AuthService.registerUser(withCredential: crendentials) { error in
             if let error = error {
@@ -74,11 +75,13 @@ final class RegistrationController: UIViewController {
                 return
             }
             print("DEBUG:Sucessfully registered user with firestore...")
-            self.dismiss(animated: true, completion: nil)
+            self.delegate?.authenticationDidComplete()
         }
     }
     
     @objc func handleShowSignUp() {
+        let controller = RegistrationController()
+        controller.delegate = delegate
         navigationController?.popViewController(animated: true)
     }
     
@@ -149,7 +152,7 @@ final class RegistrationController: UIViewController {
         passwordTextField.resignFirstResponder()
         userNameTextField.resignFirstResponder()
         fullNameTextField.resignFirstResponder()
-      self.view.endEditing(true)
+        self.view.endEditing(true)
     }
 }
 //MARK: - FormViewModel 확장

@@ -75,6 +75,7 @@ final class MainTabViewController:  UITabBarController {
     }
 }
 
+//MARK: - AuthenticationDelegate
 extension MainTabViewController: AuthenticationDelegate {
     func authenticationDidComplete() {
         fetchUser()
