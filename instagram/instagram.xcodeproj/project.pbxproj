@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F06068D282A53B400E0744A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06068C282A53B400E0744A /* APIError.swift */; };
+		7F0606A0282BF96E00E0744A /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06069F282BF96E00E0744A /* AuthenticationDelegate.swift */; };
 		7F14C6C92827E75A00C4A1A7 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6C82827E75A00C4A1A7 /* UserService.swift */; };
 		7F14C6CB2827E79C00C4A1A7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6CA2827E79C00C4A1A7 /* Constants.swift */; };
 		7F14C6CD2827EA6F00C4A1A7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6CC2827EA6F00C4A1A7 /* User.swift */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		7F060674282981FF00E0744A /* instagramDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = instagramDebug.entitlements; sourceTree = "<group>"; };
 		7F06068C282A53B400E0744A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		7F06069F282BF96E00E0744A /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
 		7F14C6C82827E75A00C4A1A7 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7F14C6CA2827E79C00C4A1A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F14C6CC2827EA6F00C4A1A7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -152,6 +154,13 @@
 				7F06068C282A53B400E0744A /* APIError.swift */,
 			);
 			path = FireBaseAPI;
+			sourceTree = "<group>";
+		};
+		7F06069A282BEAF700E0744A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7F14C6D62828062E00C4A1A7 /* Profile */ = {
@@ -274,6 +283,7 @@
 		7FFAB6002818551D006AC4AF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7F06069A282BEAF700E0744A /* View */,
 				7FFAB653281AFFB0006AC4AF /* TextField */,
 			);
 			path = UI;
@@ -372,6 +382,7 @@
 			children = (
 				7FFAB673281D7C95006AC4AF /* AuthenticationViewModelProtocol.swift */,
 				7FFAB676281D7F29006AC4AF /* FormViewModelProtocol.swift */,
+				7F06069F282BF96E00E0744A /* AuthenticationDelegate.swift */,
 			);
 			path = Protocool;
 			sourceTree = "<group>";
@@ -563,6 +574,7 @@
 				7FED837328250F0800A4847A /* FeedCell.swift in Sources */,
 				7FFAB66D281D6826006AC4AF /* RegisterUIText.swift in Sources */,
 				7FFAB60728185C1A006AC4AF /* ImageSelectorController.swift in Sources */,
+				7F0606A0282BF96E00E0744A /* AuthenticationDelegate.swift in Sources */,
 				7FFAB617281997EA006AC4AF /* LabelMessage.swift in Sources */,
 				7F14C6D52828060F00C4A1A7 /* ProfileHeaderViewModel.swift in Sources */,
 			);

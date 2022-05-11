@@ -15369,7 +15369,7 @@
 		575E2C50AC2F961EB24D0E9004955EC0 /* FirebaseCoreInternal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FirebaseCoreInternal.debug.xcconfig; sourceTree = "<group>"; };
 		576D171147CE83F85DBC25E294EB6DFD /* generate_real.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = generate_real.h; path = absl/random/internal/generate_real.h; sourceTree = "<group>"; };
 		576D511AAB91B4169F315C78B8675B44 /* FIRLibrary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRLibrary.h; path = FirebaseCore/Extension/FIRLibrary.h; sourceTree = "<group>"; };
-		5776CB20D93623570C37968C77830C33 /* Pods-instagram */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-instagram"; path = Pods_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5776CB20D93623570C37968C77830C33 /* Pods_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5778D5FE8175B3BA221EA0DBCC96AA9B /* GDTCORPlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORPlatform.h; path = GoogleDataTransport/GDTCORLibrary/Internal/GDTCORPlatform.h; sourceTree = "<group>"; };
 		57801F765FB85946AFBC414F9C330F31 /* curve25519_32.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = curve25519_32.h; path = src/third_party/fiat/curve25519_32.h; sourceTree = "<group>"; };
 		57884D136041731ECE560F92E083E455 /* write_batch_internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = write_batch_internal.h; path = db/write_batch_internal.h; sourceTree = "<group>"; };
@@ -21658,7 +21658,7 @@
 				0A9F46A999C47653013D3AD854352507 /* leveldb.framework */,
 				6BC54C3D03DEBF9C3A40965E69CAE039 /* uv.framework */,
 				06FC5C9CF96D60C50FCD47D339C91951 /* nanopb.framework */,
-				5776CB20D93623570C37968C77830C33 /* Pods-instagram */,
+				5776CB20D93623570C37968C77830C33 /* Pods_instagram.framework */,
 				3347A1AB6546F0A3977529B8F199DC41 /* FBLPromises.framework */,
 				D09DB48D8145BFA029AAEA61818EC68B /* PryntTrimmerView.framework */,
 				B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */,
@@ -29613,7 +29613,7 @@
 			);
 			name = "Pods-instagram";
 			productName = Pods_instagram;
-			productReference = 5776CB20D93623570C37968C77830C33 /* Pods-instagram */;
+			productReference = 5776CB20D93623570C37968C77830C33 /* Pods_instagram.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		BBD6B43FA0F7FFBCD1978EBE76F99021 /* JGProgressHUD-JGProgressHUD */ = {

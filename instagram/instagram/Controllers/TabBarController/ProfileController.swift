@@ -10,35 +10,37 @@ import UIKit
 final class ProfileController: UICollectionViewController {
     
     //MARK: - Properties
-    var user: User? {
-        didSet { collectionView.reloadData() }
-    }
+    private var user: User
     
     //MARK: - LifeCycle
+    
+    init(user: User) {
+        self.user = user
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemPink
         self.overrideUserInterfaceStyle =  .light
         configureCollectionVIew()
         configureUI()
-        fetchUser()
     }
     
     //MARK: - API
-    func fetchUser() {
-        UserService.fetchUser { user in
-            self.user = user
-            self.navigationItem.title = user.username
-        }
-    }
     
-    func configureUI() {
+    private func configureUI() {
         tabBarController?.tabBar.barTintColor = .backgroundColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.defaultLabelColor]
     }
     
     //MARK:  - UI 관련
-    func configureCollectionVIew() {
+    private func configureCollectionVIew() {
+        navigationItem.title = user.username
         collectionView.backgroundColor = .white
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: CellIdentifier.profileCellIdentifier)
         collectionView.register(ProfileHeader.self,
@@ -66,11 +68,7 @@ extension ProfileController {
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CellIdentifier.headerIdentifier, for: indexPath) as! ProfileHeader
         
-        if let user = user {
-            header.viewModel = ProfileHeaderViewModel(user: user)
-        } else {
-            print("DEBUG:  User not yet set..")
-        }
+        header.viewModel = ProfileHeaderViewModel(user: user)
         
         return header
     }

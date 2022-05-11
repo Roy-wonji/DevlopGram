@@ -15,6 +15,8 @@ final class LoginController: UIViewController {
     //MARK:  - Properties
     private var viewModel = LoginVIewModel()
     fileprivate var currentNonce: String?
+    weak var delegate : AuthenticationDelegate?
+    
     
     private let iconImage = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white")).then { imageView in
         imageView.contentMode = .scaleAspectFill
@@ -73,7 +75,7 @@ final class LoginController: UIViewController {
                 print("DEBUG: Falied to log user in  \(error.localizedDescription)")
                 return
             }
-            self.dismiss(animated: true, completion: nil)
+            self.delegate?.authenticationDidComplete()
         }
     }
     
