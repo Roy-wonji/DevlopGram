@@ -10,6 +10,14 @@ import Then
 
 final class UserCell: UITableViewCell {
     //MARK: - Properties
+    
+    var user: User? {
+        didSet {
+            usernameLabel.text = user?.username
+            fullnameLabel.text = user?.fullname
+        }
+    }
+    
     private lazy var profileImageView = UIImageView().then{ imageView in
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -72,7 +80,4 @@ final class UserCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
 }

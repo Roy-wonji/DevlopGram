@@ -19,4 +19,13 @@ struct UserService {
             completion(user)
         }
     }
+    //MARK: - firebase 에서 사용자 정보 받아 오기
+    static func fetchUsers(completion: @escaping ([User]) -> Void) {
+        COLLECTION_USERS.getDocuments { (snapshot, error) in
+            guard let snapshot = snapshot else { return }
+            
+            let users = snapshot.documents.map({ User (dictionary: $0.data() )  })
+            completion(users)
+        }
+    }
 }

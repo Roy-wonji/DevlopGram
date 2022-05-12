@@ -17,8 +17,7 @@ final class LoginController: UIViewController {
     fileprivate var currentNonce: String?
     weak var delegate : AuthenticationDelegate?
     
-    
-    private let iconImage = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white")).then { imageView in
+    private let iconImage = UIImageView(image: UIImage(named: "Instagram_logo_white")).then { imageView in
         imageView.contentMode = .scaleAspectFill
     }
     
