@@ -75,7 +75,7 @@
 		7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
 		7F625E88281EE1DB00DF3DEC /* FeedUIText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIText.swift; sourceTree = "<group>"; };
 		7FBDBCD2282C125F00E258EF /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		7FED837228250F0800A4847A /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		7FED837228250F0800A4847A /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; usesTabs = 0; };
 		7FED837428250F1400A4847A /* ProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		7FED837528250F1500A4847A /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		7FED837D282517DB00A4847A /* ProfileUIText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUIText.swift; sourceTree = "<group>"; };

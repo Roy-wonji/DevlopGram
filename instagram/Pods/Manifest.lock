@@ -811,9 +811,9 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.1.0)
   - PryntTrimmerView (4.0.2)
-  - SDWebImage (4.4.8):
-    - SDWebImage/Core (= 4.4.8)
-  - SDWebImage/Core (4.4.8)
+  - SDWebImage (5.12.5):
+    - SDWebImage/Core (= 5.12.5)
+  - SDWebImage/Core (5.12.5)
   - SnapKit (5.0.1)
   - SteviaLayout (4.7.3)
   - TextFieldEffects (1.6.0)
@@ -831,7 +831,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - JGProgressHUD (~> 2.0.3)
-  - SDWebImage (~> 4.4.2)
+  - SDWebImage (~> 5.0)
   - SnapKit (~> 5.0.0)
   - TextFieldEffects
   - Then
@@ -907,13 +907,13 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
   PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
-  SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
+  SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
   YPImagePicker: f36043210c10b0783034eb1947d6e06e31c461e4
 
-PODFILE CHECKSUM: a6e459bc8fb723a812a2062ba610a51d6186414e
+PODFILE CHECKSUM: 28348b0b909d4e388a280d457c781859de7256fa
 
 COCOAPODS: 1.11.3
