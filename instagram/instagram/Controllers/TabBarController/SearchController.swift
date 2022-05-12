@@ -11,16 +11,24 @@ final class SearchController:  UITableViewController {
     //MARK: - Properties
     
     private var users = [User]()
+    private var fillterUsers = [User]()
+    private let searchController = UISearchController(searchResultsController: nil)
     //MARK:  - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTableView()
-        fetchUsers()
+        configureUI()
         
     }
     
-    //MARK: - API
+    private func configureUI() {
+        DispatchQueue.main.async {
+            self.configureTableView()
+            self.fetchUsers()
+            self.configureSearchController()
+        }
+    }
     
+    //MARK: - API
     func fetchUsers() {
         UserService.fetchUsers { user in
             self.users = user
@@ -32,6 +40,15 @@ final class SearchController:  UITableViewController {
         view.backgroundColor = .backgroundColor
         tableView.register(UserCell.self, forCellReuseIdentifier: CellIdentifier.searchReuseIdentifier)
         tableView.rowHeight = 64
+    }
+    
+    func configureSearchController ( ) {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = false
     }
 }
 
@@ -54,6 +71,15 @@ extension SearchController {
         print("DEBUG : user is \(users[indexPath.row].username)")
         let controller  = ProfileController(user: users[indexPath.row])
         navigationController?.pushViewController(controller, animated: true)
-        
+    }
+}
+
+//MARK: - UISearchResultsUpdating
+extension SearchController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text?.lowercased() else { return }
+        fillterUsers = users.filter({$0.username.contains(searchText) || $0.fullname.contains(searchText) })
+        print("DEBUG: filltered users \(fillterUsers)")
+        self.tableView.reloadData()
     }
 }
