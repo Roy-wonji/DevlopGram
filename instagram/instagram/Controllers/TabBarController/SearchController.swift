@@ -20,7 +20,7 @@ final class SearchController:  UITableViewController {
     }
     
     //MARK: - API
-
+    
     func fetchUsers() {
         UserService.fetchUsers { user in
             self.users = user
@@ -44,9 +44,16 @@ extension SearchController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.searchReuseIdentifier, for:  indexPath) as! UserCell
         cell.backgroundColor = .backgroundColor
-        cell.user = users[indexPath.row]
+        cell.viewModel = UserCellViewModel(user: users[indexPath.row])
         return cell
     }
 }
-
-
+//MARK: - UITableViewDataSource
+extension SearchController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("DEBUG : user is \(users[indexPath.row].username)")
+        let controller  = ProfileController(user: users[indexPath.row])
+        navigationController?.pushViewController(controller, animated: true)
+        
+    }
+}

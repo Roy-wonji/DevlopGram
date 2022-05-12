@@ -72,7 +72,7 @@ final class ProfileHeader: UICollectionReusableView {
         button.tintColor = .textColorAsset
     }
     private lazy var bookmarkButton = UIButton(type: .system).then { button in
-        button.setImage(UIImage(named: "person"), for: .normal)
+        button.setImage(UIImage(named: "profile_selected"), for: .normal)
         button.tintColor = .textColorAsset
     }
     
