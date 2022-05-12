@@ -13,6 +13,10 @@ final class SearchController:  UITableViewController {
     private var users = [User]()
     private var fillterUsers = [User]()
     private let searchController = UISearchController(searchResultsController: nil)
+
+    private var inSearchMode: Bool {
+        return searchController.isActive && !searchController.searchBar.text!.isEmpty
+    }
     //MARK:  - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,13 +59,14 @@ final class SearchController:  UITableViewController {
 //MARK: - UITableViewDataSource
 extension SearchController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return inSearchMode ? fillterUsers.count :  users.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.searchReuseIdentifier, for:  indexPath) as! UserCell
         cell.backgroundColor = .backgroundColor
-        cell.viewModel = UserCellViewModel(user: users[indexPath.row])
+        let user = inSearchMode ? fillterUsers[indexPath.row] : users[indexPath.row]
+        cell.viewModel = UserCellViewModel(user: user)
         return cell
     }
 }
@@ -78,7 +83,11 @@ extension SearchController {
 extension SearchController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text?.lowercased() else { return }
-        fillterUsers = users.filter({$0.username.contains(searchText) || $0.fullname.contains(searchText) })
+        
+        fillterUsers = users.filter({ $0.username.contains(searchText) ||
+            $0.fullname.lowercased().contains(searchText)
+        })
+        
         print("DEBUG: filltered users \(fillterUsers)")
         self.tableView.reloadData()
     }
