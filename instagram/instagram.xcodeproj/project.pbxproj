@@ -20,6 +20,7 @@
 		7F625E80281EBAC200DF3DEC /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */; };
 		7F625E89281EE1DB00DF3DEC /* FeedUIText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E88281EE1DB00DF3DEC /* FeedUIText.swift */; };
 		7FBDBCD3282C125F00E258EF /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDBCD2282C125F00E258EF /* UserCell.swift */; };
+		7FBDBCE2282D40B600E258EF /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBDBCE1282D40B600E258EF /* UserCellViewModel.swift */; };
 		7FED837328250F0800A4847A /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED837228250F0800A4847A /* FeedCell.swift */; };
 		7FED837628250F1500A4847A /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED837428250F1400A4847A /* ProfileHeader.swift */; };
 		7FED837728250F1500A4847A /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED837528250F1500A4847A /* ProfileCell.swift */; };
@@ -75,6 +76,7 @@
 		7F625E7F281EBAC200DF3DEC /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
 		7F625E88281EE1DB00DF3DEC /* FeedUIText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIText.swift; sourceTree = "<group>"; };
 		7FBDBCD2282C125F00E258EF /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		7FBDBCE1282D40B600E258EF /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		7FED837228250F0800A4847A /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; usesTabs = 0; };
 		7FED837428250F1400A4847A /* ProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		7FED837528250F1500A4847A /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
@@ -182,6 +184,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		7FBDBCE0282D409000E258EF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7FBDBCE1282D40B600E258EF /* UserCellViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		7FED837B282510E100A4847A /* Feed */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +276,7 @@
 		7FFAB5FE281854F9006AC4AF /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				7FBDBCE0282D409000E258EF /* Search */,
 				7F14C6D62828062E00C4A1A7 /* Profile */,
 				7FFAB672281D7C6A006AC4AF /* Protocool */,
 				7FFAB675281D7CB6006AC4AF /* Authentication */,
@@ -558,6 +569,7 @@
 				7FFAB5E828185478006AC4AF /* AppDelegate.swift in Sources */,
 				7FFAB677281D7F29006AC4AF /* FormViewModelProtocol.swift in Sources */,
 				7FFAB66F281D7037006AC4AF /* LoginViewModel.swift in Sources */,
+				7FBDBCE2282D40B600E258EF /* UserCellViewModel.swift in Sources */,
 				7FED837E282517DB00A4847A /* ProfileUIText.swift in Sources */,
 				7F14C6CF2827F2A300C4A1A7 /* UserText.swift in Sources */,
 				7FFAB60328185BDB006AC4AF /* FeedController.swift in Sources */,
@@ -739,7 +751,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C1CA049BE872193F56CDDDF1 /* Pods-instagram.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = instagram/instagramDebug.entitlements;
@@ -773,7 +785,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C80E68C012A406597FAD7282 /* Pods-instagram.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = instagram/instagram.entitlements;
