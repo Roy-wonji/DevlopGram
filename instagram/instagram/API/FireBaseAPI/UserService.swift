@@ -30,15 +30,18 @@ struct UserService {
         }
     }
     
-    //MARK: - firebase에서 팔로우 하는 사람과 팔로잉 부분
+    //MARK: - firebase에서 팔로우 하는 사람과 팔로잉
     static func followUser(uid: String, completion: @escaping(FirestoreCompletion)) {
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         Constants.COLLECTION_FOLLOWERING.document(currentUid).collection("user-following").document(uid).setData(FollowUser.followingUserSetData) { error in
             Constants.COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUid).setData(FollowUser.followerUserSetData, completion: completion)
         }
     }
-    
+    //MARK: - firebase에서 언팔로우
     static func unfollowUser(uid: String, completion: @escaping(FirestoreCompletion) ) {
-        
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        Constants.COLLECTION_FOLLOWERING.document(currentUid).collection("user-following").document(uid).delete { error in
+            Constants.COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUid).delete(completion: completion)
+        }
     }
 }

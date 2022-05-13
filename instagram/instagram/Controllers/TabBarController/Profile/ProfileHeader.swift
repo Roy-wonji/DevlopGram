@@ -15,7 +15,7 @@ final class ProfileHeader: UICollectionReusableView {
         didSet{ configure() }
     }
     
-   weak var delegate: ProfileHeaderDelegate?
+    weak var delegate: ProfileHeaderDelegate?
     
     private lazy var profileImageView = UIImageView().then { imageView  in
         imageView.image = UIImage(named: "venom-7")
@@ -152,9 +152,9 @@ final class ProfileHeader: UICollectionReusableView {
         guard let viewModel = viewModel else { return }
         delegate?.header(self, didTapActionButton: viewModel.user)
     }
-     
+    
     //MARK: - label 관련 함수
-    func configure() {
+    private func configure() {
         guard let viewModel = viewModel else  { return }
         nameLabel.text = viewModel.fullname
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
@@ -164,7 +164,7 @@ final class ProfileHeader: UICollectionReusableView {
         editProfileFollowButton.backgroundColor = viewModel.followedButtonBackgroundColor
     }
     
-    func attributedStatText(value: Int, label: String) -> NSAttributedString {
+    private func attributedStatText(value: Int, label: String) -> NSAttributedString {
         let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
         attributedText.append(NSAttributedString(string: label, attributes:  [.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
         return attributedText
