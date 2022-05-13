@@ -12,10 +12,10 @@ import SDWebImage
 final class ProfileHeader: UICollectionReusableView {
     //MARK:  - Properties
     var viewModel:  ProfileHeaderViewModel?   {
-        didSet{ configure()
-            
-        }
+        didSet{ configure() }
     }
+    
+   weak var delegate: ProfileHeaderDelegate?
     
     private lazy var profileImageView = UIImageView().then { imageView  in
         imageView.image = UIImage(named: "venom-7")
@@ -149,14 +149,19 @@ final class ProfileHeader: UICollectionReusableView {
     
     //MARK:  - Actions
     @objc func handleEditProfileFollowTapped( ) {
-        print("DEBUG: handle edit profile tapped")
+        guard let viewModel = viewModel else { return }
+        delegate?.header(self, didTapActionButton: viewModel.user)
     }
-    
+     
     //MARK: - label 관련 함수
     func configure() {
         guard let viewModel = viewModel else  { return }
         nameLabel.text = viewModel.fullname
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+        
+        editProfileFollowButton.setTitle(viewModel.followedButtonText, for: .normal)
+        editProfileFollowButton.setTitleColor(viewModel.followedButtonTextColor, for: .normal)
+        editProfileFollowButton.backgroundColor = viewModel.followedButtonBackgroundColor
     }
     
     func attributedStatText(value: Int, label: String) -> NSAttributedString {

@@ -14,12 +14,12 @@ class FeedCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.image = UIImage(named: "venom-7")
+        imageView.image = UIImage(named: "Mini")
     }
     
     private lazy var userNameButton  = UIButton(type: .system).then { button  in
         button.setTitleColor(.textColorAsset, for: .normal)
-        button.setTitle("venom", for: .normal)
+        button.setTitle("민니", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
     }
@@ -28,7 +28,7 @@ class FeedCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.image = UIImage(named: "venom-7")
+        imageView.image = UIImage(named: "Mini2")
     }
     
     private lazy var likeButton = UIButton(type: .system).then { button  in
@@ -64,7 +64,6 @@ class FeedCell: UICollectionViewCell {
         label.textColor = .lightGray
     }
     
-    
     //MARK:  - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -85,7 +84,6 @@ class FeedCell: UICollectionViewCell {
         setCaptionLabel()
         setPostTimeLabel()
     }
-    
     
     private func setProfileImageView() {
         addSubview(profileImageView)

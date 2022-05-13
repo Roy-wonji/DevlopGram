@@ -29,7 +29,7 @@ struct AuthService {
                                            "profileImageUrl": imageUrl,
                                            "uid": uid,
                                            "username": credentials.username]
-                COLLECTION_USERS.document(uid).setData(data, completion: completion)
+                Constants.COLLECTION_USERS.document(uid).setData(data, completion: completion)
             }
         }
     }

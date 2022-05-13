@@ -11,7 +11,7 @@ import Then
 final class ProfileCell: UICollectionViewCell {
     //MARK:  - Properties
     private lazy var postImageView = UIImageView().then { imageView  in
-        imageView.image = UIImage(named: "venom-7")
+        imageView.image = UIImage(named: "Mini2")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
     }

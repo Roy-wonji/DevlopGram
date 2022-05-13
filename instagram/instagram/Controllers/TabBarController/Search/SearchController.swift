@@ -21,7 +21,6 @@ final class SearchController:  UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        
     }
     
     private func configureUI() {
@@ -33,7 +32,7 @@ final class SearchController:  UITableViewController {
     }
     
     //MARK: - API
-    func fetchUsers() {
+   private  func fetchUsers() {
         UserService.fetchUsers { user in
             self.users = user
             self.tableView.reloadData()
@@ -46,7 +45,7 @@ final class SearchController:  UITableViewController {
         tableView.rowHeight = 64
     }
     
-    func configureSearchController ( ) {
+   private func configureSearchController ( ) {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
@@ -78,7 +77,6 @@ extension SearchController {
         navigationController?.pushViewController(controller, animated: true)
     }
 }
-
 //MARK: - UISearchResultsUpdating
 extension SearchController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {

@@ -7,10 +7,10 @@
 
 import UIKit
 
-class NotificationController:  UIViewController {
+final class NotificationController:  UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .purple
+        view.backgroundColor = .backgroundColorAsset
     }
 }

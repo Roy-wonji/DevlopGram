@@ -12,7 +12,6 @@ final class FeedController:  UICollectionViewController {
     
     //MARK: - Properties
     
-    
     //MARK:  - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +44,6 @@ final class FeedController:  UICollectionViewController {
         } catch { print("DEBUG:  Falied  to  sign  out") }
     }
 }
-
-
-
 //MARK: - UICollectionViewDataSource
 extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
