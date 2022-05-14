@@ -44,4 +44,10 @@ struct UserService {
             Constants.COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUid).delete(completion: completion)
         }
     }
+    
+    static func checkUserIsFollowed(uid: String , completion: @escaping(Bool) -> Void) {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        
+        Constants.COLLECTION_FOLLOWERING.document(currentUid).collection("user-following")
+    }
 }
