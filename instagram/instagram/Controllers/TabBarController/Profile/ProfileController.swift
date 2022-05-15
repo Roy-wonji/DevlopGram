@@ -27,13 +27,21 @@ final class ProfileController: UICollectionViewController {
         super.viewDidLoad()
         configureCollectionVIew()
         configureUI()
+        checkIfUserIsFollowed()
     }
     
-    //MARK: - API
     
     private func configureUI() {
         tabBarController?.tabBar.barTintColor = .backgroundColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset]
+    }
+    
+    //MARK: - API
+    private func  checkIfUserIsFollowed() {
+        UserService.checkUserIsFollowed(uid: user.uid) { isFollowed in
+            self.user.isFollowed = isFollowed
+            self.collectionView.reloadData()
+        }
     }
     
     //MARK:  - UI 관련
