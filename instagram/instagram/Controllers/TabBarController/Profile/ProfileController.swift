@@ -27,7 +27,7 @@ final class ProfileController: UICollectionViewController {
         super.viewDidLoad()
         configureCollectionVIew()
         configureUI()
-        checkIfUserIsFollowed()
+        updateAPI()
     }
     
     
@@ -37,6 +37,11 @@ final class ProfileController: UICollectionViewController {
     }
     
     //MARK: - API
+    private func updateAPI() {
+        checkIfUserIsFollowed()
+        fetchUserStatus()
+    }
+    
     private func  checkIfUserIsFollowed() {
         UserService.checkUserIsFollowed(uid: user.uid) { isFollowed in
             self.user.isFollowed = isFollowed
@@ -44,6 +49,14 @@ final class ProfileController: UICollectionViewController {
         }
     }
     
+    private func fetchUserStatus() {
+        UserService.fetchUserStats(uid: user.uid) { stats in
+            self.user.stats = stats
+            self.collectionView.reloadData()
+            
+            print("DEBUG: stats \(stats)")
+        }
+    }
     //MARK:  - UI 관련
     private func configureCollectionVIew() {
         navigationItem.title = user.username

@@ -44,21 +44,18 @@ final class ProfileHeader: UICollectionReusableView {
     private lazy var postLabel = UILabel().then { label in
         label.numberOfLines = .zero
         label.textAlignment = .center
-        label.attributedText = attributedStatText(value: 1, label: ProfileUIText.postLabelText)
         label.textColor = .textColorAsset
     }
     
     private lazy var followersLabel = UILabel().then { label in
         label.numberOfLines = .zero
         label.textAlignment = .center
-        label.attributedText = attributedStatText(value: 2, label: ProfileUIText.followerLabelText)
         label.textColor = .textColorAsset
     }
     
     private lazy var followingLabel = UILabel().then { label in
         label.numberOfLines = .zero
         label.textAlignment = .center
-        label.attributedText = attributedStatText(value: 1, label: ProfileUIText.followingLabelText)
         label.textColor = .textColorAsset
     }
     
@@ -162,11 +159,10 @@ final class ProfileHeader: UICollectionReusableView {
         editProfileFollowButton.setTitle(viewModel.followedButtonText, for: .normal)
         editProfileFollowButton.setTitleColor(viewModel.followedButtonTextColor, for: .normal)
         editProfileFollowButton.backgroundColor = viewModel.followedButtonBackgroundColor
+        
+        postLabel.attributedText = viewModel.numberOfPosts
+        followersLabel.attributedText = viewModel.numberOfFollowers
+        followingLabel.attributedText = viewModel.numberOfFollowing
     }
     
-    private func attributedStatText(value: Int, label: String) -> NSAttributedString {
-        let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
-        attributedText.append(NSAttributedString(string: label, attributes:  [.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
-        return attributedText
-    }
 }

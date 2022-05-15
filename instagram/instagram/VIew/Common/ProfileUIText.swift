@@ -10,7 +10,7 @@ import Foundation
 enum ProfileUIText {
     static let nameLabelText: String = "Eddle Brock"
     static let editProfileFollowButtonText: String = "Edit Profile"
-    static let followingLabelText: String = "following"
-    static let followerLabelText: String = "followers"
-    static let postLabelText: String = "posts"
+    static let followingLabelText: String = "팔로잉"
+    static let followerLabelText: String = "팔로워"
+    static let postLabelText: String = "게시물"
 }
