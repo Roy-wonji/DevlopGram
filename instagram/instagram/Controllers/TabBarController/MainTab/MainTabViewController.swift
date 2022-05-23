@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import YPImagePicker
 
 final class MainTabViewController:  UITabBarController {
     //MARK:  - Lifecycle
@@ -27,6 +28,7 @@ final class MainTabViewController:  UITabBarController {
         fetchUser()
         tabBarController?.tabBar.barTintColor = .backgroundColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.defaultLabelColor]
+        updateDelegate()
     }
     
     //MARK: - API
@@ -65,6 +67,11 @@ final class MainTabViewController:  UITabBarController {
         tabBar.barTintColor = .defaultLabelColor
         view.backgroundColor = .backgroundColor
     }
+    
+    private func updateDelegate() {
+        self.delegate = self
+    }
+    
     //MARK: - tabbar 의 이미지가 선택 되었을때랑 안선택 되었을때 이미지 선택 해주는 함수
     private func tempateNavigationController(unselectedImage: UIImage, selectedImage: UIImage , rootViewController: UIViewController) -> UINavigationController {
         let navigation = UINavigationController(rootViewController: rootViewController)
@@ -73,6 +80,15 @@ final class MainTabViewController:  UITabBarController {
         navigation.navigationBar.tintColor = .textColorAsset
         return navigation
     }
+    
+    private func didFinishPickingMedia(_ picker: YPImagePicker) {
+        picker.didFinishPicking { items, cancelled in
+            picker.dismiss(animated: true) {
+                guard let selectedImage = items.singlePhoto?.image else { return }
+                print("DEBUG: selected image is \(selectedImage)")
+            }
+        }
+    }
 }
 
 //MARK: - AuthenticationDelegate
@@ -80,5 +96,31 @@ extension MainTabViewController: AuthenticationDelegate {
     func authenticationDidComplete() {
         fetchUser()
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+//MARK: - UITabBarControllerDelegate
+extension MainTabViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        let index = viewControllers?.firstIndex(of: viewController)
+        
+        if index == 2 {
+            var config = YPImagePickerConfiguration()
+            config.library.mediaType = .photo
+            config.shouldSaveNewPicturesToAlbum = false
+            config.startOnScreen = .library
+            config.screens =  [.library]
+            config.hidesStatusBar = false
+            config.hidesBottomBar = false
+            config.library.maxNumberOfItems = 1
+            
+            let picker  = YPImagePicker(configuration: config)
+            picker.modalPresentationStyle = .fullScreen
+            self.present(picker, animated: true, completion: nil)
+            
+            didFinishPickingMedia(picker)
+        }
+        
+        return true
     }
 }
