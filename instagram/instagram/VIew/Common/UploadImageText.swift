@@ -11,4 +11,5 @@ enum  UploadImageText  {
     static let leftnavigationBarTitle: String = "Upload POST"
     static let rightnavigationBarTitle: String = "Share "
     static let characterCountLabelText: String = "0/100"
+    static let placeHolderLabelText: String = "Enter caption ..."
 }
