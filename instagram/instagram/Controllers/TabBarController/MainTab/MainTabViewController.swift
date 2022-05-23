@@ -85,7 +85,11 @@ final class MainTabViewController:  UITabBarController {
         picker.didFinishPicking { items, cancelled in
             picker.dismiss(animated: true) {
                 guard let selectedImage = items.singlePhoto?.image else { return }
-                print("DEBUG: selected image is \(selectedImage)")
+                
+                let uploadController = UploadPostController()
+                let navigation = UINavigationController(rootViewController: uploadController)
+                navigation.modalPresentationStyle = .fullScreen
+                self.present(navigation, animated: true, completion: nil)
             }
         }
     }
