@@ -11,7 +11,7 @@ import Then
 final class UploadPostController: UIViewController {
     
     //MARK:  - Propeties
-   
+    
     
     
     //MARK: - Lifecycle
@@ -24,7 +24,6 @@ final class UploadPostController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-//        updateView()
     }
     
     //MARK: - Actions
@@ -43,10 +42,7 @@ final class UploadPostController: UIViewController {
         view.backgroundColor = .backgroundColor
         tabBarController?.tabBar.barTintColor = .backgroundColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset]
-     
     }
-    
-    
     
     private func navigationItemUI() {
         navigationItem.title = UploadImageText.leftnavigationBarTitle
@@ -56,5 +52,4 @@ final class UploadPostController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: UploadImageText.rightnavigationBarTitle, style: .done, target: self, action: #selector(didTapDone))
     }
-    
 }

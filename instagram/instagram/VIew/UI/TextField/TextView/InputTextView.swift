@@ -28,6 +28,7 @@ final class InputTextView : UITextView {
     private func configureUI() {
         updateViews()
         setConstrantsPlaceHolderLabel()
+        configureNotificationObservers()
     }
     
     private func updateViews() {
@@ -38,8 +39,17 @@ final class InputTextView : UITextView {
         placeHolderLabel.anchor(top: topAnchor, left: leftAnchor, paddingTop: 6, paddingLeft: 6)
     }
     
+    private func  configureNotificationObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleTextDidChnage),
+                                               name: UITextView.textDidChangeNotification, object: nil)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Actions
+    @objc func handleTextDidChnage() {
+        placeHolderLabel.isHidden = !text.isEmpty
+    }
 }

@@ -10,18 +10,19 @@ import Then
 
 final class UploadView: UIView {
     //MARK: - Properties
-    private let photoImageVIew = UIImageView().then{ imageView in
+    private lazy var photoImageVIew = UIImageView().then{ imageView in
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds  = true
         imageView.image = UIImage(named: "Mini")
     }
     
-    private let captionTextView = InputTextView().then{ textView in
+    private lazy var captionTextView = InputTextView().then{ textView in
         textView.placeHolderText = UploadImageText.placeHolderLabelText
         textView.font = UIFont.systemFont(ofSize: 16)
+        textView.delegate = self
     }
     
-    private let characterCountLabel = UILabel().then{ label in
+    private lazy var characterCountLabel = UILabel().then{ label in
         label.textColor = .lightGray
         label.font = UIFont.systemFont(ofSize: 14)
         label.text = UploadImageText.characterCountLabelText
@@ -39,6 +40,13 @@ final class UploadView: UIView {
         addSubview(captionTextView)
         addSubview(characterCountLabel)
     }
+    
+    private func checkMaxLength(_ textVIew: UITextView) {
+        if (textVIew.text.count) > 100 {
+            textVIew.deleteBackward()
+        }
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -69,7 +77,16 @@ final class UploadView: UIView {
     }
     
     private func setConstraintCharacterCountLabel() {
-        characterCountLabel.anchor(bottom: captionTextView.bottomAnchor,
-                                   right: self.rightAnchor, paddingRight: 12)
+        characterCountLabel.anchor(bottom: captionTextView.bottomAnchor, right: self.rightAnchor,
+                                   paddingBottom: -8 ,paddingRight: 12)
+    }
+}
+
+//MARK: - UITextFieldDelegate
+extension UploadView: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        checkMaxLength(textView)
+        let count = textView.text.count
+        characterCountLabel.text = "\(count)/100"
     }
 }
