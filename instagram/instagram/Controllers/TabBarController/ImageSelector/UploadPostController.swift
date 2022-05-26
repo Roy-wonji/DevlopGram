@@ -35,14 +35,17 @@ final class UploadPostController: UIViewController {
     }
     
     @objc func didTapDone() {
-        DispatchQueue.main.async { [ self]
+        DispatchQueue.main.async {
             guard let image = self.selectedImage else { return }
             guard let caption = self.uploadView.captionTextView.text else { return }
+            self.showLoader(true)
             PostService.uploadPost(caption: caption, image: image) { error  in
+                self.showLoader(false)
                 if let error = error {
                     print("DEBUG: Failed to upload post with error \(error.localizedDescription)")
                     return
                 }
+                
                 self.delegate?.controllerDidFinishUploadingPost(self)
             }
         }
