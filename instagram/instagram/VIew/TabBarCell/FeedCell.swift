@@ -10,6 +10,10 @@ import Then
 
 class FeedCell: UICollectionViewCell {
     //MARK:  - Properties
+    var viewModel:  PostViewModel? {
+        didSet { configure() }
+    }
+    
     private lazy var  profileImageView = UIImageView().then { imageView in
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -53,7 +57,6 @@ class FeedCell: UICollectionViewCell {
     }
     
     private lazy var captionLabel = UILabel().then { label  in
-        label.text = LabelMessage.captionLabelMessage
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .textColorAsset
     }
@@ -133,6 +136,15 @@ class FeedCell: UICollectionViewCell {
     //MARK:  - Actions
     @objc fileprivate func didTapUserName() {
         print("DEBUG: did tap username ")
+    }
+    
+    //MARK:  - Helpers
+    private func configure( ) {
+        DispatchQueue.main.async {
+            guard let viewModel = self.viewModel else { return }
+            self.captionLabel.text = viewModel.caption
+            self.postImageView.sd_setImage(with: viewModel.imageUrl)
+        }
     }
     
     //MARK: - configureActionButtons

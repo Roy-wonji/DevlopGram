@@ -64,6 +64,7 @@ extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.resueIdentifier, for:  indexPath) as! FeedCell
         cell.backgroundColor = .backgroundColor
+        cell.viewModel = PostViewModel(post: posts[indexPath.row])
         return cell
     }
 }
