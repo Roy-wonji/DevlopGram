@@ -11,6 +11,7 @@ struct Constants{
     static let COLLECTION_USERS =  Firestore.firestore().collection("users")
     static let COLLECTION_FOLLOWERS = Firestore.firestore().collection("followers")
     static let COLLECTION_FOLLOWING = Firestore.firestore().collection("following")
+    static let COLLECTION_POST = Firestore.firestore().collection("posts")
 }
 
 

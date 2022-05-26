@@ -10,13 +10,14 @@ import Then
 
 final class UploadView: UIView {
     //MARK: - Properties
-    private lazy var photoImageVIew = UIImageView().then{ imageView in
+
+     lazy var photoImageVIew = UIImageView().then{ imageView in
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds  = true
         imageView.image = UIImage(named: "Mini")
     }
     
-    private lazy var captionTextView = InputTextView().then{ textView in
+     lazy var captionTextView = InputTextView().then{ textView in
         textView.placeHolderText = UploadImageText.placeHolderLabelText
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.delegate = self

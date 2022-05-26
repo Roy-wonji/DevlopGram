@@ -11,8 +11,11 @@ import Then
 final class UploadPostController: UIViewController {
     
     //MARK:  - Propeties
+    var selectedImage: UIImage? {
+        didSet {uploadView.photoImageVIew.image = selectedImage }
+    }
     
-    
+    weak var delegate: UploadPostControllerDelegate?
     
     //MARK: - Lifecycle
     private let uploadView = UploadView()
@@ -32,7 +35,17 @@ final class UploadPostController: UIViewController {
     }
     
     @objc func didTapDone() {
-        print("DEBUG: Share post here ...")
+        DispatchQueue.main.async { [ self]
+            guard let image = self.selectedImage else { return }
+            guard let caption = self.uploadView.captionTextView.text else { return }
+            PostService.uploadPost(caption: caption, image: image) { error  in
+                if let error = error {
+                    print("DEBUG: Failed to upload post with error \(error.localizedDescription)")
+                    return
+                }
+                self.delegate?.controllerDidFinishUploadingPost(self)
+            }
+        }
     }
     
     //MARK:  - UI 관련
@@ -53,3 +66,4 @@ final class UploadPostController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: UploadImageText.rightnavigationBarTitle, style: .done, target: self, action: #selector(didTapDone))
     }
 }
+
