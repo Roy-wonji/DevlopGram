@@ -26,24 +26,29 @@ final class FeedController:  UICollectionViewController {
         naviagationTabBar()
     }
     
-    //MARK: - API
-    func fetchPost() {
-        PostService.fetchPosts { posts in
-            self.posts = posts
-            self.collectionView.reloadData()
-        }
-    }
     
     private func naviagationTabBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title:  FeedUIText.leftBarItemText, style: .plain,
-            target: self, action: #selector(handleLogOut))
-        navigationItem.title = "Feed"
         tabBarController?.tabBar.barTintColor = .backgroundColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset]
+        navigationItem.leftBarButtonItem = UIBarButtonItem( title:  FeedUIText.leftBarItemText,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(handleLogOut))
+        navigationItem.title = "Feed"
+        
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        collectionView.refreshControl = refresher
     }
     
     //MARK: - Actions
+    @objc func handleRefresh() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+            self.fetchPost()
+        }
+    }
+    
     @objc func handleLogOut() {
         do {
             try Auth.auth().signOut()
@@ -54,6 +59,18 @@ final class FeedController:  UICollectionViewController {
             self.present(navigation, animated: true, completion:  nil)
         } catch { print("DEBUG:  Falied  to  sign  out") }
     }
+    //MARK: - API
+    func fetchPost() {
+        DispatchQueue.main.async {
+            PostService.fetchPosts { posts in
+                self.posts = posts
+                self.collectionView.refreshControl?.endRefreshing()
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
+    
 }
 //MARK: - UICollectionViewDataSource
 extension FeedController {
