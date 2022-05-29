@@ -18,12 +18,11 @@ class FeedCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.image = UIImage(named: "Mini")
+        imageView.backgroundColor = .lightGray
     }
     
     private lazy var userNameButton  = UIButton(type: .system).then { button  in
         button.setTitleColor(.textColorAsset, for: .normal)
-        button.setTitle("민니", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
     }
@@ -51,7 +50,6 @@ class FeedCell: UICollectionViewCell {
     }
     
     private lazy var likesLabel = UILabel().then { label  in
-        label.text = LabelMessage.likesLabelMessage
         label.font = UIFont.boldSystemFont(ofSize: 13)
         label.textColor = .textColorAsset
     }
@@ -144,6 +142,10 @@ class FeedCell: UICollectionViewCell {
             guard let viewModel = self.viewModel else { return }
             self.captionLabel.text = viewModel.caption
             self.postImageView.sd_setImage(with: viewModel.imageUrl)
+            
+            self.profileImageView.sd_setImage(with: viewModel.userProfileImageUrl)
+            self.userNameButton.setTitle(viewModel.username, for: .normal)
+            self.likesLabel.text = viewModel.likesLabelText
         }
     }
     

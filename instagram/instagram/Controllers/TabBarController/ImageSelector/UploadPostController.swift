@@ -16,6 +16,7 @@ final class UploadPostController: UIViewController {
     }
     
     weak var delegate: UploadPostControllerDelegate?
+    var currentUser: User?
     
     //MARK: - Lifecycle
     private let uploadView = UploadView()
@@ -38,8 +39,9 @@ final class UploadPostController: UIViewController {
         DispatchQueue.main.async {
             guard let image = self.selectedImage else { return }
             guard let caption = self.uploadView.captionTextView.text else { return }
+            guard let user = self.currentUser else { return }
             self.showLoader(true)
-            PostService.uploadPost(caption: caption, image: image) { error  in
+            PostService.uploadPost(caption: caption, image: image, user: user) { error  in
                 self.showLoader(false)
                 if let error = error {
                     print("DEBUG: Failed to upload post with error \(error.localizedDescription)")
