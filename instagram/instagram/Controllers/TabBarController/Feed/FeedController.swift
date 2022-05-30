@@ -11,8 +11,9 @@ import Firebase
 final class FeedController:  UICollectionViewController {
     
     //MARK: - Properties
-    
     private var posts = [Post]()
+    var post: Post?
+    
     //MARK:  - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,12 @@ final class FeedController:  UICollectionViewController {
     private func naviagationTabBar() {
         tabBarController?.tabBar.barTintColor = .backgroundColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset ??  FeedUIText.colorWrongInput]
-        navigationItem.leftBarButtonItem = UIBarButtonItem( title:  FeedUIText.leftBarItemText,
-                                                            style: .plain,
-                                                            target: self,
-                                                            action: #selector(handleLogOut))
+        if post == nil {
+            navigationItem.leftBarButtonItem = UIBarButtonItem( title:  FeedUIText.leftBarItemText,
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(handleLogOut))
+        }
         navigationItem.title = "Feed"
         let refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
@@ -60,6 +63,8 @@ final class FeedController:  UICollectionViewController {
     //MARK: - API
     func fetchPost() {
         DispatchQueue.main.async {
+            guard self.post ==  nil else { return }
+            
             PostService.fetchPosts { posts in
                 self.posts = posts
                 self.collectionView.refreshControl?.endRefreshing()
@@ -71,13 +76,19 @@ final class FeedController:  UICollectionViewController {
 //MARK: - UICollectionViewDataSource
 extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posts.count
+        return post == nil ?  posts.count : 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.resueIdentifier, for:  indexPath) as! FeedCell
+        
+        
+        if let post = post {
+            cell.viewModel = PostViewModel(post: post)
+        } else {
+            cell.viewModel = PostViewModel(post: posts[indexPath.row])
+        }
         cell.backgroundColor = .backgroundColor
-        cell.viewModel = PostViewModel(post: posts[indexPath.row])
         return cell
     }
 }
