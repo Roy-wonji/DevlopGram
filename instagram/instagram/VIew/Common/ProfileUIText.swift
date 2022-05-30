@@ -13,4 +13,5 @@ struct ProfileUIText {
     static let followingLabelText: String = "팔로잉"
     static let followerLabelText: String = "팔로워"
     static let postLabelText: String = "게시물"
+    static let colorWrongInput: String = ""
 }

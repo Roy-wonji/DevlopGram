@@ -11,7 +11,7 @@ final class ProfileController: UICollectionViewController {
     
     //MARK: - Properties
     private var user: User
-    
+    private var posts = [Post]()
     //MARK: - LifeCycle
     
     init(user: User) {
@@ -30,16 +30,18 @@ final class ProfileController: UICollectionViewController {
         updateAPI()
     }
     
-    
     private func configureUI() {
         tabBarController?.tabBar.barTintColor = .backgroundColor
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset ?? ProfileUIText.colorWrongInput]
     }
     
     //MARK: - API
     private func updateAPI() {
-        checkIfUserIsFollowed()
-        fetchUserStatus()
+        DispatchQueue.main.async {
+            self.checkIfUserIsFollowed()
+            self.fetchUserStatus()
+            self.fetchPosts()
+        }
     }
     
     private func  checkIfUserIsFollowed() {
@@ -53,10 +55,16 @@ final class ProfileController: UICollectionViewController {
         UserService.fetchUserStats(uid: user.uid) { stats in
             self.user.stats = stats
             self.collectionView.reloadData()
-            
-            print("DEBUG: stats \(stats)")
         }
     }
+    
+    private func fetchPosts() {
+        PostService.fetchPost(forUser: user.uid) { posts in
+            self.posts = posts
+            self.collectionView.reloadData()
+        }
+    }
+    
     //MARK:  - UI 관련
     private func configureCollectionVIew() {
         navigationItem.title = user.username
@@ -73,11 +81,12 @@ final class ProfileController: UICollectionViewController {
 extension ProfileController {
     //MARK: - collectionView셀 구현
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return posts.count
     }
     //MARK: - collectionView  ProfileCell 셀 등록
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.profileCellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.profileCellIdentifier, for: indexPath) as! ProfileCell
+        cell.viewModel = PostViewModel(post: posts[indexPath.row])
         return cell
     }
     //MARK: - collectionView  ProfileHeader 셀 등록

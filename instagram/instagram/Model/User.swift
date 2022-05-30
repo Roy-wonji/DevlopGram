@@ -27,6 +27,6 @@ struct User {
         self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? UserText.wrongInput
         self.username = dictionary["username"] as? String ?? UserText.wrongInput
         self.uid = dictionary["uid"] as? String ?? UserText.wrongInput
-        self.stats = UserStats(followers: .zero, following: .zero)
+        self.stats = UserStats(followers: .zero, following: .zero, posts: .zero)
     }
 }
