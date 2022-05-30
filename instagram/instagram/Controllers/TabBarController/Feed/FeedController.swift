@@ -26,16 +26,14 @@ final class FeedController:  UICollectionViewController {
         naviagationTabBar()
     }
     
-    
     private func naviagationTabBar() {
         tabBarController?.tabBar.barTintColor = .backgroundColor
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset ??  FeedUIText.colorWrongInput]
         navigationItem.leftBarButtonItem = UIBarButtonItem( title:  FeedUIText.leftBarItemText,
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(handleLogOut))
         navigationItem.title = "Feed"
-        
         let refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         collectionView.refreshControl = refresher
@@ -69,8 +67,6 @@ final class FeedController:  UICollectionViewController {
             }
         }
     }
-    
-    
 }
 //MARK: - UICollectionViewDataSource
 extension FeedController {

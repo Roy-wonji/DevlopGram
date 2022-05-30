@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum FeedUIText {
+struct FeedUIText {
     static let leftBarItemText: String = "Logout"
+    static let colorWrongInput: String = ""
 }

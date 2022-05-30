@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ProfileUIText {
+struct ProfileUIText {
     static let nameLabelText: String = "Eddle Brock"
     static let editProfileFollowButtonText: String = "Edit Profile"
     static let followingLabelText: String = "팔로잉"

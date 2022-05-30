@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CellIdentifier {
+struct CellIdentifier {
     static  let resueIdentifier = "Cell"
     static let profileCellIdentifier = "ProfileCell"
     static let headerIdentifier = "ProfileHeader"

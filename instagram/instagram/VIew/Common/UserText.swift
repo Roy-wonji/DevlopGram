@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum UserText {
+struct UserText {
     static let wrongInput : String = ""
 }

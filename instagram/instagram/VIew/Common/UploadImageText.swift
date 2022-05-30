@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum  UploadImageText  {
+struct UploadImageText  {
     static let leftnavigationBarTitle: String = "Upload POST"
     static let rightnavigationBarTitle: String = "Share "
     static let characterCountLabelText: String = "0/100"

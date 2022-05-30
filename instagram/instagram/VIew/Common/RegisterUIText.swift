@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RegisterUIText {
+struct RegisterUIText {
     static let emailTextFieldText: String = "Email"
     static let passwordTextFieldText: String = "Password"
     static let  fullNameTextFieldText: String = "FullName"

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum LoginUiText {
+struct LoginUiText {
     static let emailTextFieldText: String = "Email"
     static let passwordTextFieldText: String = "Password"
     static let attributedTitleText: String = "Don't have an account?  "
