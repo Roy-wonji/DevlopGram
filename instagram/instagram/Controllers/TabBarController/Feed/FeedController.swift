@@ -28,15 +28,15 @@ final class FeedController:  UICollectionViewController {
     }
     
     private func naviagationTabBar() {
+        navigationItem.title = "Feed"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textColorAsset ?? FeedUIText.colorWrongInput]
         tabBarController?.tabBar.barTintColor = .backgroundColor
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset ??  FeedUIText.colorWrongInput]
         if post == nil {
             navigationItem.leftBarButtonItem = UIBarButtonItem( title:  FeedUIText.leftBarItemText,
                                                                 style: .plain,
                                                                 target: self,
                                                                 action: #selector(handleLogOut))
         }
-        navigationItem.title = "Feed"
         let refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         collectionView.refreshControl = refresher
@@ -81,7 +81,7 @@ extension FeedController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.resueIdentifier, for:  indexPath) as! FeedCell
-        
+        cell.delegate = self
         
         if let post = post {
             cell.viewModel = PostViewModel(post: post)
@@ -100,5 +100,13 @@ extension FeedController: UICollectionViewDelegateFlowLayout {
         height += 50
         height += 60
         return CGSize(width: width, height: height)
+    }
+}
+
+//MARK: - FeedCellDelegate
+extension FeedController: FeedCellDelegate {
+    func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post) {
+        let controller  = CommentController(collectionViewLayout: UICollectionViewFlowLayout( ))
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
