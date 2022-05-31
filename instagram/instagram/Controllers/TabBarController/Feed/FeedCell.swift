@@ -14,6 +14,8 @@ class FeedCell: UICollectionViewCell {
         didSet { configure() }
     }
     
+    weak var delegate: FeedCellDelegate?
+    
     private lazy var  profileImageView = UIImageView().then { imageView in
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -42,6 +44,7 @@ class FeedCell: UICollectionViewCell {
     private lazy var commentButton = UIButton(type: .system).then { button  in
         button.setImage(UIImage(named: "comment"), for: .normal)
         button.tintColor = .textColorAsset
+        button.addTarget(self, action: #selector(didTapComment), for: .touchUpInside)
     }
     
     private lazy var sharedButton = UIButton(type: .system).then { button  in
@@ -132,8 +135,13 @@ class FeedCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     //MARK:  - Actions
-    @objc fileprivate func didTapUserName() {
+    @objc func didTapUserName() {
         print("DEBUG: did tap username ")
+    }
+    
+    @objc func didTapComment() {
+        guard let viewModel = viewModel else { return }
+        delegate?.cell(self, wantsToShowCommentsFor: viewModel.post)
     }
     
     //MARK:  - Helpers
