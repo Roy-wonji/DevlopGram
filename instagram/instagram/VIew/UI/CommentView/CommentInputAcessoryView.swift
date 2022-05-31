@@ -11,6 +11,9 @@ import Then
 final class CommentInputAcessoryView: UIView {
     
     //MARK:  - Properties
+    
+    weak var delegate: CommentInputAcessoryViewDelegate?
+    
     private lazy var commentTextView = InputTextView().then { textView in
         textView.placeHolderText =  "Enter comment ..."
         textView.font = UIFont.systemFont(ofSize: 15)
@@ -34,14 +37,12 @@ final class CommentInputAcessoryView: UIView {
         configureUI()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        commentTextView.becomeFirstResponder()
-    }
     //MARK: - UI
     private func configureUI() {
         updateVIew()
         updateConstraints()
         autoresizingMask = .flexibleHeight
+        backgroundColor = .backgroundColorAsset
     }
     
     private func updateVIew() {
@@ -60,8 +61,14 @@ final class CommentInputAcessoryView: UIView {
     //MARK:  - Actions
     
     @objc func handlePostTapped( ) {
-        
+        delegate?.inputView(self, wnantTouploadComment: commentTextView.text)
     }
+    
+    public func clearCommentTextView() {
+        commentTextView.text = nil
+        commentTextView.placeHolderLabel.isHidden = false
+    }
+    
     //MARK: - 오토레이아웃
     override func updateConstraints() {
         setConstraints()

@@ -36,6 +36,7 @@
 		7FEB817C28465C3100ED886F /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817528465C3100ED886F /* AuthCredentials.swift */; };
 		7FEB817D28465C3100ED886F /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817628465C3100ED886F /* ImageUploader.swift */; };
 		7FEB8180284661AD00ED886F /* CommentInputAcessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817F284661AD00ED886F /* CommentInputAcessoryView.swift */; };
+		7FEB81822846755700ED886F /* CommentInputAcessoryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB81812846755700ED886F /* CommentInputAcessoryViewDelegate.swift */; };
 		7FED837328250F0800A4847A /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED837228250F0800A4847A /* FeedCell.swift */; };
 		7FED837628250F1500A4847A /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED837428250F1400A4847A /* ProfileHeader.swift */; };
 		7FED837728250F1500A4847A /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED837528250F1500A4847A /* ProfileCell.swift */; };
@@ -108,6 +109,7 @@
 		7FEB817528465C3100ED886F /* AuthCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
 		7FEB817628465C3100ED886F /* ImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		7FEB817F284661AD00ED886F /* CommentInputAcessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAcessoryView.swift; sourceTree = "<group>"; };
+		7FEB81812846755700ED886F /* CommentInputAcessoryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAcessoryViewDelegate.swift; sourceTree = "<group>"; };
 		7FED837228250F0800A4847A /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; usesTabs = 0; };
 		7FED837428250F1400A4847A /* ProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		7FED837528250F1500A4847A /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				7FFE5276282EC9FD00AD07CC /* ProfileHeaderDelegate.swift */,
 				7F9B2EF1283FBE120055D47C /* UploadPostControllerDelegate.swift */,
 				7FEB815C284650B900ED886F /* FeedCellDelegate.swift */,
+				7FEB81812846755700ED886F /* CommentInputAcessoryViewDelegate.swift */,
 			);
 			path = Protocool;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				7F9B2EF2283FBE120055D47C /* UploadPostControllerDelegate.swift in Sources */,
 				7FFAB64E281AEFBF006AC4AF /* LoginUiText.swift in Sources */,
 				7FEB815D284650B900ED886F /* FeedCellDelegate.swift in Sources */,
+				7FEB81822846755700ED886F /* CommentInputAcessoryViewDelegate.swift in Sources */,
 				7FED837328250F0800A4847A /* FeedCell.swift in Sources */,
 				7FFAB66D281D6826006AC4AF /* RegisterUIText.swift in Sources */,
 				7FBDBCD3282C125F00E258EF /* UserCell.swift in Sources */,

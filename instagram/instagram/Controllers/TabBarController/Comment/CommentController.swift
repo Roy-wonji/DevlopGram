@@ -13,6 +13,7 @@ final class CommentController: UICollectionViewController {
     private lazy var commnetInputView: CommentInputAcessoryView = {
         let frame = CGRect(x: .zero, y: .zero, width: view.frame.width, height: 50)
         let commentView = CommentInputAcessoryView(frame: frame)
+        commentView.delegate = self
         return commentView
     }()
     //MARK:  - Lifecycle
@@ -50,13 +51,15 @@ final class CommentController: UICollectionViewController {
         collectionView.backgroundColor = .backgroundColor
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textColorAsset ?? CommentUIText.colorWrongInput]
         collectionView.register(CommentCell.self, forCellWithReuseIdentifier: CellIdentifier.commentResueIdentifier)
+        collectionView.alwaysBounceVertical = true
+        collectionView.keyboardDismissMode = .interactive
     }
 }
 
 //MARK: - UICollectionViewController
 extension CommentController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 2
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -70,5 +73,12 @@ extension CommentController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: view.frame.width, height: 80)
+    }
+}
+
+//MARK: - CommentInputAcessoryViewDelegate
+extension CommentController: CommentInputAcessoryViewDelegate {
+    func inputView(_ inputView: CommentInputAcessoryView, wnantTouploadComment comment: String) {
+        inputView.clearCommentTextView()
     }
 }
