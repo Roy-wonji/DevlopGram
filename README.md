@@ -1,4 +1,4 @@
-# ⛺️개발그램(출시 예정)
+## ⛺️개발그램(출시 예정)
 
 ### 목차
 - [프로젝트](#projects)
@@ -10,12 +10,11 @@
 - [배운개념](#배운개념)
 
 
-## 개발환경 및 라이브러리
+### 개발환경 및 라이브러리
 [![swift](https://img.shields.io/badge/swift-5.0-orange)]()
 [![xcode](https://img.shields.io/badge/Xcode-13.0-blue)]()
-![iOS](https://img.shields.io/badge/iOS-13.0-yellow)
 
-## Projects
+### Projects
 ### 개발자를 위한 인스타그램 프로젝트  
 🗓 프로젝트 소개 :개발자를 위한 인스타그램 프로젝트 !</br>
 🗓 기간 : 2022.04.26 ~   </br>
@@ -33,12 +32,8 @@
 
 </br>
 
-## 키워드 
+### 키워드 
  - `코드베이스UI`
- - `git flow`
- - `json`
- - `HTTP method`
- - `escaping closure`
  - `UICOLLECTIONVIEW`
  - `UINAVIGATION`
  - `비동기 , 동기`
@@ -52,22 +47,34 @@
  - `GCD`
      - `DispatchQueue`
      - `DispatchGroup`
+- `searchbar`
+- `로그인 / 로그아웃`
+- `다크모드`
 
-## 구현내용
+### 구현내용
 - 코드 베이스로 UI구현
 - 앱을 비동기 동기 과정을 사용해서 구현 
 - MVVM 디자인 패턴을 사용해서 앱을 최대한 클린 아키텍쳐로 구현
 - UICollectioview를 코드로 구현 
 - 파이어 베이스 연동 및  podfile을 사용해서 앱에 추가하는 걸 구현 
+- 검색창에 등록한 프로필 구현 
+- 프로필을 누르면 업로드한 사진 별로 올라가게 구현 
+- 검색할때 이름 순으로 필터를 걸어서 구현 
+- 다크모드 구현 
+- 로그인 한 계정이 다른경우 프로필 사진및 이름이 변경하게 구현 
 
-## 고민했던점 && 로직구현 
+### 고민했던점 && 로직구현 
  - 처음으로 mvc 말고 mvvm 디자인 패턴으로 구현을 하려고 하니까 view model안에는 어떤 로직을 구현을 해야 하는 어려웠습니다 . ㅠㅠㅠㅠ
  - 앱을 동작을 했을때 로그인이 되면 메인 화면으로 보이고 아니면 로그인 화면으로 구현 하는 방식을 어떨게 할지 고민을 했습니다.
  - 메인쓰레드에서 앱에 정보가 많아지면  앱이 버벅일수 있어서  버벅이는 걸  방지 하기 위해서 비동기 동기 프로그램을 사용해서 앱이 버벅이지 않고 구현을 하도록 했습니다.
  - 파이어베이스 연동및 로그인했을때 api를 연동을 하면서 데이터를 받아오고 넘겨주는 부분은  네트워킹에  api 라는 파일  구현 해서 최대한 분리 하면서 구현을 했습니다 .
- - 최대한 한 파일안에  한 구조체 및 클래스가 사용하려고 노력을 하면서 , 하드코딩을 피하면서 최대한 클린 아키텍쳐로 구현을 했습니다 .
+ - 최대한 한 파일안에  한 구조체 및 클래스가 사용하려고 노력을 하면서 , 하드코딩을 피하면서 최대한 클린 아키텍쳐로 구현을 했습니다.
+ - 프로필로 가서 사진 이 다르게 나오게 구현을 할려면  사진이 조금 늦게 올라오는건 사진이 업로드 하는과정에서 비동기적이 작업을 해야되서 비동기적인 작업을 구현을 했습니다.
+ - table뷰에 가입한 계정및 이름이 순서대로 나오게 구현 및 이름을 순서대로 구현하면서 map을 핕터를 걸면서 구현을 했습니다.
+ - 다크 모드를 구현을 할때 각 컬러의 set을 설정해주면서 컬러를 구현을 했습니다 
+ - 다른계정으로 로그인을 하면 로그인 한 계정이름 , 사진 이 업로드 하게 되게 구현및 사진이 업로드 할때는 비동기 처리로 구현을 했습니다. 
 
-## 배운개념
+### 배운개념
 #### DispatchQueue를 사용하면서  작업량이 많은 코드는 GCD로 구현을 했습니다 
 
 ```swift=
@@ -83,7 +90,7 @@
     }
 ```
 
-#### 코드로 tababrcontroller 구현을 할때   tabbar를 눌렀을떄와 안눌렀을때 아이콘을 다르게 구현을 했습니다
+#### 코드로 tababrcontroller 구현을 할때  tabbar를 눌렀을떄와 안눌렀을때 아이콘을 다르게 구현을 했습니다
 
 ```swift=
  private func configureViewControllers() {
@@ -144,8 +151,121 @@
         }
     }
 ```
+## Step2
+### 유저 업데이트 및 데이터 받아오기 
+```swift=
+struct UserService {
+    static func fetchUser(completion: @escaping(User) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        COLLECTION_USERS.document(uid).getDocument { snapshot, error in
+            print("\(String(describing: snapshot?.data()))")
+            guard let dictionary = snapshot?.data() else { return }
+            let user = User(dictionary: dictionary)
+            completion(user)
+        }
+    }
+}
+```
 
-## Commit 규칙
+### 로그인 했을때  사용자가 다르면  프로필에  업데이트 하게 구현
+```swift=
+
+protocol AuthenticationDelegate: class {
+    func authenticationDidComplete()
+}
+
+extension MainTabViewController: AuthenticationDelegate {
+    func authenticationDidComplete() {
+        fetchUser()
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+```
+
+###  검색  탭에  searchCell 구현
+
+```swift=
+final class SearchController:  UITableViewController {
+    //MARK: - Properties
+    
+    //MARK:  - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .lightGray
+        configureTableView()
+        
+    }
+    
+    private func configureTableView() {
+        view.backgroundColor = .backgroundColor
+        tableView.register(UserCell.self, forCellReuseIdentifier: CellIdentifier.searchReuseIdentifier)
+        tableView.rowHeight = 64
+    }
+}
+
+//MARK: - UITableViewDataSource
+extension SearchController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier.searchReuseIdentifier, for:  indexPath)
+        cell.backgroundColor = .backgroundColor
+        return cell
+    }
+}
+
+```
+
+### 사용자들 수 만큼 테이블뷰에 나오게 구현
+
+```swift=
+//MARK: - firebase 에서 사용자 정보 받아 오기
+    static func fetchUsers(completion: @escaping ([User]) -> Void) {
+        COLLECTION_USERS.getDocuments { (snapshot, error) in
+            guard let snapshot = snapshot else { return }
+            
+            let users = snapshot.documents.map({ User (dictionary: $0.data() )  })
+            completion(users)
+        }
+    }
+
+```
+
+### 테이블 뷰에 현재 등록 되있는 계정 사진및 정보 구현
+```swift=
+truct UserCellViewModel {
+    private let user: User
+    
+    var profileImageUrl: URL? {
+        return URL(string: user.profileImageUrl)
+    }
+    
+    var username: String {
+        return user.username
+    }
+    
+    var fullname: String {
+        return user.fullname
+    }
+    
+    init(user: User) {
+        self.user = user
+    }
+}
+
+```
+
+### 검색창 구현
+```swift=
+private var inSearchMode: Bool {
+        return searchController.isActive && !searchController.searchBar.text!.isEmpty
+    }
+```
+
+### Commit 규칙
 > 커밋 제목은 최대 50자 입력 </br>
 본문은 한 줄 최대 72자 입력 </br>
 Commit 메세지 </br>
@@ -173,4 +293,3 @@ Commit 메세지 </br>
 브랜치 이름 규칙
 
 - `STEP1`, `STEP2`, `STEP3`
-
