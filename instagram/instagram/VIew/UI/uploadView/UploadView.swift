@@ -21,6 +21,7 @@ final class UploadView: UIView {
         textView.placeHolderText = UploadImageText.placeHolderLabelText
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.delegate = self
+         textView.placholderShouldCenter = false
     }
     
     private lazy var characterCountLabel = UILabel().then{ label in
