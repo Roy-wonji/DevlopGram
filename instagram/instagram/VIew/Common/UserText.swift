@@ -10,4 +10,3 @@ import Foundation
 struct UserText {
     static let wrongInput : String = ""
 }
-
