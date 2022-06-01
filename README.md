@@ -236,7 +236,7 @@ extension SearchController {
 
 ### 테이블 뷰에 현재 등록 되있는 계정 사진및 정보 구현
 ```swift=
-truct UserCellViewModel {
+struct UserCellViewModel {
     private let user: User
     
     var profileImageUrl: URL? {
