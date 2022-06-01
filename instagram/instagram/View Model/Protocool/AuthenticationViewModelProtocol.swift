@@ -11,5 +11,4 @@ protocol AuthenticationViewModel {
     var formIsValid: Bool { get }
     var buttonBackground: UIColor { get }
     var buttonTitleColor: UIColor { get }
-    
 }

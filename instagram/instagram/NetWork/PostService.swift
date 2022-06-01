@@ -23,12 +23,12 @@ struct PostService {
                           "ownerImageUrl": user.profileImageUrl,
                           "ownerUsername": user.username] as [String : Any]
             
-            Constants.COLLECTION_POST.addDocument(data: data, completion: completion)
+            Constants.COLLECTION_POSTS.addDocument(data: data, completion: completion)
         }
     }
     
     static func fetchPosts(completion: @escaping([Post]) -> Void) {
-        Constants.COLLECTION_POST.order(by: "timestamp", descending: true).getDocuments { (snapshot, error) in
+        Constants.COLLECTION_POSTS.order(by: "timestamp", descending: true).getDocuments { (snapshot, error) in
             guard let documents = snapshot?.documents else { return }
             
             let posts = documents.map({ Post(postId: $0.documentID, dictionary: $0.data()) })
@@ -37,7 +37,7 @@ struct PostService {
     }
     
     static func fetchPost(forUser uid: String, completion: @escaping([Post]) -> Void) {
-        let query = Constants.COLLECTION_POST.whereField("ownerUid", isEqualTo: uid)
+        let query = Constants.COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid)
         
         query.getDocuments { (snapshot, error) in
             guard let documents = snapshot?.documents else { return }

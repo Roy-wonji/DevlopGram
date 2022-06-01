@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol AuthenticationDelegate: class {
+protocol AuthenticationDelegate: AnyObject {
     func authenticationDidComplete()
 }
