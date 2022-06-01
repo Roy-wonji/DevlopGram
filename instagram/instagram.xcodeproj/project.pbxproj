@@ -38,6 +38,7 @@
 		7FEB8180284661AD00ED886F /* CommentInputAcessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817F284661AD00ED886F /* CommentInputAcessoryView.swift */; };
 		7FEB81822846755700ED886F /* CommentInputAcessoryViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB81812846755700ED886F /* CommentInputAcessoryViewDelegate.swift */; };
 		7FEB8184284799BC00ED886F /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB8183284799BC00ED886F /* CommentService.swift */; };
+		7FEB81862847A18F00ED886F /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB81852847A18F00ED886F /* Comment.swift */; };
 		7FED837328250F0800A4847A /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED837228250F0800A4847A /* FeedCell.swift */; };
 		7FED837628250F1500A4847A /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED837428250F1400A4847A /* ProfileHeader.swift */; };
 		7FED837728250F1500A4847A /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED837528250F1500A4847A /* ProfileCell.swift */; };
@@ -112,6 +113,7 @@
 		7FEB817F284661AD00ED886F /* CommentInputAcessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAcessoryView.swift; sourceTree = "<group>"; };
 		7FEB81812846755700ED886F /* CommentInputAcessoryViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAcessoryViewDelegate.swift; sourceTree = "<group>"; };
 		7FEB8183284799BC00ED886F /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		7FEB81852847A18F00ED886F /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		7FED837228250F0800A4847A /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; usesTabs = 0; };
 		7FED837428250F1400A4847A /* ProfileHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		7FED837528250F1500A4847A /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
@@ -196,7 +198,6 @@
 			isa = PBXGroup;
 			children = (
 				7FEB816028465BAF00ED886F /* API */,
-				7F9B2EEF283FB2D60055D47C /* PostService.swift */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -245,14 +246,6 @@
 		7FEB816028465BAF00ED886F /* API */ = {
 			isa = PBXGroup;
 			children = (
-				7FEB816128465BFB00ED886F /* FireBaseAPI */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		7FEB816128465BFB00ED886F /* FireBaseAPI */ = {
-			isa = PBXGroup;
-			children = (
 				7FEB817328465C3000ED886F /* APIError.swift */,
 				7FEB817528465C3100ED886F /* AuthCredentials.swift */,
 				7FEB817228465C3000ED886F /* AuthService.swift */,
@@ -261,8 +254,9 @@
 				7FEB817628465C3100ED886F /* ImageUploader.swift */,
 				7FEB817128465C3000ED886F /* UserService.swift */,
 				7FEB8183284799BC00ED886F /* CommentService.swift */,
+				7F9B2EEF283FB2D60055D47C /* PostService.swift */,
 			);
-			path = FireBaseAPI;
+			path = API;
 			sourceTree = "<group>";
 		};
 		7FEB817E2846618200ED886F /* CommentView */ = {
@@ -314,6 +308,7 @@
 				7F14C6CC2827EA6F00C4A1A7 /* User.swift */,
 				7FCEB43D2831416A00BB79B0 /* UserStats.swift */,
 				7F9B2EF3283FCA260055D47C /* Post.swift */,
+				7FEB81852847A18F00ED886F /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -668,6 +663,7 @@
 				7F9B2EF7283FD2620055D47C /* PostViewModel.swift in Sources */,
 				7FFAB64C281AE81C006AC4AF /* RegistrationController.swift in Sources */,
 				7FFAB60528185BEE006AC4AF /* SearchController.swift in Sources */,
+				7FEB81862847A18F00ED886F /* Comment.swift in Sources */,
 				7FEB815B28464E4E00ED886F /* CommentCell.swift in Sources */,
 				7FFAB5EC28185478006AC4AF /* MainTabViewController.swift in Sources */,
 				7FEB817D28465C3100ED886F /* ImageUploader.swift in Sources */,
