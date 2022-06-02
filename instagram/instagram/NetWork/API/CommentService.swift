@@ -16,7 +16,7 @@ struct CommentService {
                                     "comment" : comment,
                                     "timestamp": Timestamp(date: Date( ) ),
                                     "username": user.username,
-                                    "profileImage" : user.profileImageUrl ]
+                                    "profileImageUrl" : user.profileImageUrl ]
         
         Constants.COLLECTION_POSTS.document(postID).collection("comments").addDocument(data: data,
                                                                                        completion: completion)

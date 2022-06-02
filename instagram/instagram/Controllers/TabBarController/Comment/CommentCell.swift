@@ -64,11 +64,13 @@ final  class CommentCell: UICollectionViewCell {
         commentLabel.centerY(inView: profileImageView,
                              leftAnchor: profileImageView.rightAnchor,
                              paddingLeft: 8)
+        commentLabel.anchor(right: rightAnchor, paddingRight: 8)
+        commentLabel.numberOfLines = .zero
     }
     
-   private func configure() {
-       guard let viewModel = viewModel else { return }
-       profileImageView.sd_setImage(with: viewModel.profileImageUrl)
-      commentLabel.attributedText = viewModel.commentLabelText()
+    private func configure() {
+        guard let viewModel = viewModel else { return }
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+        commentLabel.attributedText = viewModel.commentLabelText()
     }
 }
