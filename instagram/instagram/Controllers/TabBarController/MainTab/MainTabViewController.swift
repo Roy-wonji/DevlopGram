@@ -11,7 +11,7 @@ import YPImagePicker
 
 final class MainTabViewController:  UITabBarController {
     //MARK:  - Lifecycle
-     var user : User? {
+    var user : User? {
         didSet {
             guard let user = user else { return }
             configureViewControllers(withUser: user)
@@ -33,8 +33,11 @@ final class MainTabViewController:  UITabBarController {
     
     //MARK: - API
     private func fetchUser() {
-        UserService.fetchUser { user in
-            self.user = user
+        DispatchQueue.main.async {
+            guard let uid  = Auth.auth().currentUser?.uid else { return }
+            UserService.fetchUser(withUid: uid) { user in
+                self.user = user
+            }
         }
     }
     
@@ -136,7 +139,7 @@ extension MainTabViewController : UploadPostControllerDelegate {
     func controllerDidFinishUploadingPost(_ controller: UploadPostController) {
         selectedIndex = .zero
         controller.dismiss(animated: true, completion: nil)
-       
+        
         guard let feedNavigation = viewControllers?.first as? UINavigationController else { return }
         guard let feed = feedNavigation.viewControllers.first as? FeedController else { return }
         feed.handleRefresh()

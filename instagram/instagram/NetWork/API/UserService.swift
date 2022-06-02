@@ -11,10 +11,8 @@ import UIKit
 typealias FirestoreCompletion = (Error?) -> Void
 
 struct UserService {
-    static func fetchUser(completion: @escaping(User) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+    static func fetchUser(withUid uid: String, completion: @escaping(User) -> Void) {
         Constants.COLLECTION_USERS.document(uid).getDocument { snapshot, error in
-            //            print("\(String(describing: snapshot?.data()))")
             guard let dictionary = snapshot?.data() else { return }
             let user = User(dictionary: dictionary)
             completion(user)
@@ -44,17 +42,15 @@ struct UserService {
             Constants.COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUid).delete(completion: completion)
         }
     }
-    
+    //MARK: - firebase에 유져 팔로우 하는 유저 체크
     static func checkUserIsFollowed(uid: String , completion: @escaping(Bool) -> Void) {
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
-        
-        Constants.COLLECTION_FOLLOWING.document(currentUid).collection("user-following").document(uid).getDocument
-        { (snapshot, error) in
+        Constants.COLLECTION_FOLLOWING.document(currentUid).collection("user-following").document(uid).getDocument { (snapshot, error) in
             guard let isFollowed = snapshot?.exists else {return}
             completion(isFollowed)
         }
     }
-    
+    //MARK: 유저를 매칭하는
     static func fetchUserStats(uid: String, completion: @escaping(UserStats) -> Void) {
         Constants.COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments { (snapshot, error)  in
             let followers = snapshot?.documents.count ??  .zero

@@ -22,7 +22,7 @@ struct CommentViewModel {
     }
     
     func  commentLabelText() -> NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: "\(username)", attributes: [.font: UIFont.boldSystemFont(ofSize: 14) ] )
+        let attributedString = NSMutableAttributedString(string: "\(username) ", attributes: [.font: UIFont.boldSystemFont(ofSize: 14) ] )
         
         attributedString.append(NSAttributedString(string: commentText, attributes: [.font: UIFont.systemFont(ofSize: 14) ] ) )
         return attributedString
