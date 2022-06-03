@@ -9,4 +9,5 @@ import Foundation
 
 protocol FeedCellDelegate: AnyObject {
     func cell(_ cell: FeedCell, wantsToShowCommentsFor  post: Post)
+    func cell(_ cell: FeedCell, didLike post: Post)
 }

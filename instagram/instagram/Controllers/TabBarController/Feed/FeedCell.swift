@@ -39,6 +39,7 @@ class FeedCell: UICollectionViewCell {
     private lazy var likeButton = UIButton(type: .system).then { button  in
         button.setImage(UIImage(named: "like_unselected"), for: .normal)
         button.tintColor = .textColorAsset
+        button.addTarget(self, action: #selector(didTapLIke), for: .touchUpInside)
     }
     
     private lazy var commentButton = UIButton(type: .system).then { button  in
@@ -142,6 +143,11 @@ class FeedCell: UICollectionViewCell {
     @objc func didTapComment() {
         guard let viewModel = viewModel else { return }
         delegate?.cell(self, wantsToShowCommentsFor: viewModel.post)
+    }
+    
+    @objc func didTapLIke() {
+        guard let viewModel = viewModel else { return }
+        delegate?.cell(self, didLike: viewModel.post)
     }
     
     //MARK:  - Helpers

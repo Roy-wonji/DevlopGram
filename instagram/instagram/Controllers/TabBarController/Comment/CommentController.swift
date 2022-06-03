@@ -19,7 +19,7 @@ final class CommentController: UICollectionViewController {
         return commentView
     }()
     //MARK:  - Lifecycle
-    
+
     init(post: Post) {
         self.post = post
         super.init(collectionViewLayout: UICollectionViewFlowLayout( ) )
@@ -80,14 +80,13 @@ final class CommentController: UICollectionViewController {
 
 //MARK: - UICollectionViewController
 extension CommentController {
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int)
-    -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return comments.count
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
-    -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.commentResueIdentifier, for: indexPath) as! CommentCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.commentResueIdentifier, for: indexPath)
+        as! CommentCell
         cell.viewModel = CommentViewModel(comment: comments[indexPath.row])
         return cell
     }
