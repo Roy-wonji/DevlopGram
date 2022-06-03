@@ -49,18 +49,22 @@ struct PostService {
             completion(posts)
         }
     }
-    
+    //MARK:  포스트에 좋아요 눌른 함수
     static func likePost(post: Post, completion: @escaping(FirestoreCompletion)) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        
         Constants.COLLECTION_POSTS.document(post.postId).updateData(["likes": post.likes + 1])
         Constants.COLLECTION_POSTS.document(post.postId).collection("post-likes").document(uid)
             .setData([ : ]) { _ in
                 Constants.COLLECTION_POSTS.document(uid).collection("user-likes").document(post.postId).setData([ : ], completion: completion)
             }
     }
-    
-    static func unlikePost() {
-        
+    //MARK: 포스트에 좋아요 안눌른 함수
+    static func unlikePost(post: Post, completion: @escaping(FirestoreCompletion)) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        guard post.likes > .zero else { return }
+        Constants.COLLECTION_POSTS.document(post.postId).updateData(["likes" : post.likes - 1])
+        Constants.COLLECTION_POSTS.document(post.postId).collection("post-likes").document(uid).delete { _ in
+            Constants.COLLECTION_USERS.document(uid).collection("user-likes").document(post.postId).delete(completion: completion)
+        }
     }
 }

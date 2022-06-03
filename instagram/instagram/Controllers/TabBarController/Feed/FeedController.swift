@@ -112,10 +112,19 @@ extension FeedController: FeedCellDelegate {
     
     func cell(_ cell: FeedCell, didLike post: Post) {
         cell.viewModel?.post.didLike.toggle()
+        print("DEBUG: UnLike post did complete...")
         if post.didLike {
-            print("DEBUG: Unliker post here ")
+            print("DEBUG: UnLike post did complete...")
+            PostService.unlikePost(post: post) { error in
+                cell.likeButton.setImage(UIImage(named: "like_unselected"), for: .normal)
+                cell.likeButton.tintColor = .textColorAsset
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
         } else {
             PostService.likePost(post: post) { error in
+                print("DEBUG: Like post did complete...")
                 cell.likeButton.setImage(UIImage(named: "like_selected"), for: .normal)
                 cell.likeButton.tintColor = .red
                 if let error = error {
