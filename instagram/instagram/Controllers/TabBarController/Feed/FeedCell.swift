@@ -36,7 +36,7 @@ class FeedCell: UICollectionViewCell {
         imageView.image = UIImage(named: "Mini2")
     }
     
-    private lazy var likeButton = UIButton(type: .system).then { button  in
+     lazy var likeButton = UIButton(type: .system).then { button  in
         button.setImage(UIImage(named: "like_unselected"), for: .normal)
         button.tintColor = .textColorAsset
         button.addTarget(self, action: #selector(didTapLIke), for: .touchUpInside)
