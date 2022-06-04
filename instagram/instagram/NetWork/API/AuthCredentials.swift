@@ -13,5 +13,4 @@ struct AuthCredentials {
     let fullname: String
     let username: String
     let profileImage: UIImage
-    
 }
