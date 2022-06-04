@@ -8,7 +8,5 @@
 import Foundation
 
 struct CommentUIText {
-    static let commentUser: String = "Mini "
-    static let commentText: String = " Some text comment for now ..."
     static let colorWrongInput: String = ""
 }

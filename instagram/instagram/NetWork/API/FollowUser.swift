@@ -10,5 +10,5 @@ import Foundation
 enum FollowUser {
     static let followingUserSetData: [String: String] = [ : ]
     static let followerUserSetData: [String: String] = [ : ]
-    
+    static let postLikeUserSetData: [String: String] =  [ : ]
 }
