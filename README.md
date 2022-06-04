@@ -29,6 +29,9 @@
 
 ### 실행 화면
 
+![화면 기록 2022-06-05 오전 12 16 04](https://user-images.githubusercontent.com/75601594/172011478-cd71badc-6fd3-4fff-8691-e234dcedd028.gif)
+
+
 
 </br>
 
