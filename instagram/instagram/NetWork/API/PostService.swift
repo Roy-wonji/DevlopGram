@@ -61,10 +61,18 @@ struct PostService {
     //MARK: 포스트에 좋아요 안눌른 함수
     static func unlikePost(post: Post, completion: @escaping(FirestoreCompletion)) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-//        guard post.likes > .zero else { return }
+        guard post.likes > .zero else { return }
         Constants.COLLECTION_POSTS.document(post.postId).updateData(["likes" : post.likes - 1])
         Constants.COLLECTION_POSTS.document(post.postId).collection("post-likes").document(uid).delete { _ in
             Constants.COLLECTION_USERS.document(uid).collection("user-likes").document(post.postId).delete(completion: completion)
+        }
+    }
+    
+    static func checkIfUserLikedPost(post: Post, completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Constants.COLLECTION_USERS.document(uid).collection("user-likes").document(post.postId).getDocument { (snapshot, error) in
+            guard let didLike = snapshot?.exists else { return }
+            completion(didLike)
         }
     }
 }

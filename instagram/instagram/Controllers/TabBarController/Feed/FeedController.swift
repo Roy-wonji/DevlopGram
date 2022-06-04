@@ -11,7 +11,9 @@ import Firebase
 final class FeedController:  UICollectionViewController {
     
     //MARK: - Properties
-    private var posts = [Post]()
+    private var posts = [Post]() {
+        didSet{ collectionView.reloadData() }
+    }
     var post: Post?
     
     //MARK:  - Lifecycle
@@ -21,8 +23,31 @@ final class FeedController:  UICollectionViewController {
         fetchPost()
     }
     
+    //MARK: - API
+    private func fetchPost() {
+        DispatchQueue.main.async {
+            guard self.post ==  nil else { return }
+            PostService.fetchPosts { posts in
+                self.posts = posts
+                self.collectionView.refreshControl?.endRefreshing()
+                self.checkIfUserLikedPosts()
+            }
+        }
+    }
+    
+    private func checkIfUserLikedPosts() {
+        self.posts.forEach { post in
+            PostService.checkIfUserLikedPost(post: post) { didLike in
+                if let index = self.posts.firstIndex(where: { $0.postId == post.postId }) {
+                    self.posts[index].didLike = didLike
+                }
+            }
+        }
+    }
+    
+    
     //MARK: - UI 설정 하는 함수
-    func configureUI() {
+    private func configureUI() {
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: CellIdentifier.resueIdentifier)
         naviagationTabBar()
     }
@@ -59,18 +84,6 @@ final class FeedController:  UICollectionViewController {
             navigation.modalPresentationStyle = .fullScreen
             self.present(navigation, animated: true, completion:  nil)
         } catch { print("DEBUG:  Falied  to  sign  out") }
-    }
-    //MARK: - API
-    func fetchPost() {
-        DispatchQueue.main.async {
-            guard self.post ==  nil else { return }
-            
-            PostService.fetchPosts { posts in
-                self.posts = posts
-                self.collectionView.refreshControl?.endRefreshing()
-                self.collectionView.reloadData()
-            }
-        }
     }
 }
 //MARK: - UICollectionViewDataSource
@@ -112,21 +125,20 @@ extension FeedController: FeedCellDelegate {
     
     func cell(_ cell: FeedCell, didLike post: Post) {
         cell.viewModel?.post.didLike.toggle()
-        print("DEBUG: UnLike post did complete...")
         if post.didLike {
-            print("DEBUG: UnLike post did complete...")
             PostService.unlikePost(post: post) { error in
                 cell.likeButton.setImage(UIImage(named: "like_unselected"), for: .normal)
                 cell.likeButton.tintColor = .textColorAsset
+                cell.viewModel?.post.likes = post.likes - 1
                 if let error = error {
                     print(error.localizedDescription)
                 }
             }
         } else {
             PostService.likePost(post: post) { error in
-                print("DEBUG: Like post did complete...")
                 cell.likeButton.setImage(UIImage(named: "like_selected"), for: .normal)
                 cell.likeButton.tintColor = .red
+                cell.viewModel?.post.likes = post.likes + 1
                 if let error = error {
                     print(error.localizedDescription)
                 }
