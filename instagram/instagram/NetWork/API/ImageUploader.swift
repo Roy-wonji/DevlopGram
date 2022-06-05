@@ -17,7 +17,6 @@ struct ImageUploader {
                 print("DEBUG: Falid to upload image \(error.localizedDescription)")
                 return
             }
-            
             repo.downloadURL { (url , error ) in
                 guard let imageUrl = url?.absoluteString else { return }
                 complection(imageUrl)

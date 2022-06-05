@@ -19,7 +19,6 @@ final class CommentController: UICollectionViewController {
         return commentView
     }()
     //MARK:  - Lifecycle
-
     init(post: Post) {
         self.post = post
         super.init(collectionViewLayout: UICollectionViewFlowLayout( ) )

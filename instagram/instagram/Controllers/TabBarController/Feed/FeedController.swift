@@ -45,7 +45,6 @@ final class FeedController:  UICollectionViewController {
         }
     }
     
-    
     //MARK: - UI 설정 하는 함수
     private func configureUI() {
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: CellIdentifier.resueIdentifier)
@@ -95,7 +94,6 @@ extension FeedController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.resueIdentifier, for:  indexPath) as! FeedCell
         cell.delegate = self
-        
         if let post = post {
             cell.viewModel = PostViewModel(post: post)
         } else {

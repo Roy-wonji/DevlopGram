@@ -30,7 +30,6 @@ final class MainTabViewController:  UITabBarController {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.defaultLabelColor]
         updateDelegate()
     }
-    
     //MARK: - API
     private func fetchUser() {
         DispatchQueue.main.async {
@@ -53,7 +52,7 @@ final class MainTabViewController:  UITabBarController {
         }
     }
     
-    //MARK:  - Helpers
+    //MARK:  - UI관련
     private func configureViewControllers(withUser user: User) {
         view.backgroundColor = .white
         let layout =  UICollectionViewFlowLayout( )
@@ -112,7 +111,6 @@ extension MainTabViewController: AuthenticationDelegate {
 extension MainTabViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         let index = viewControllers?.firstIndex(of: viewController)
-        
         if index == 2 {
             var config = YPImagePickerConfiguration()
             config.library.mediaType = .photo
@@ -122,24 +120,19 @@ extension MainTabViewController: UITabBarControllerDelegate {
             config.hidesStatusBar = false
             config.hidesBottomBar = false
             config.library.maxNumberOfItems = 1
-            
             let picker  = YPImagePicker(configuration: config)
             picker.modalPresentationStyle = .fullScreen
             self.present(picker, animated: true, completion: nil)
-            
             didFinishPickingMedia(picker)
         }
-        
         return true
     }
 }
-
 //MARK: - UploadPostControllerDelegate
 extension MainTabViewController : UploadPostControllerDelegate {
     func controllerDidFinishUploadingPost(_ controller: UploadPostController) {
         selectedIndex = .zero
         controller.dismiss(animated: true, completion: nil)
-        
         guard let feedNavigation = viewControllers?.first as? UINavigationController else { return }
         guard let feed = feedNavigation.viewControllers.first as? FeedController else { return }
         feed.handleRefresh()

@@ -81,11 +81,9 @@ extension SearchController {
 extension SearchController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text?.lowercased() else { return }
-        
         fillterUsers = users.filter({ $0.username.contains(searchText) ||
             $0.fullname.lowercased().contains(searchText)
         })
-        
         print("DEBUG: filltered users \(fillterUsers)")
         self.tableView.reloadData()
     }

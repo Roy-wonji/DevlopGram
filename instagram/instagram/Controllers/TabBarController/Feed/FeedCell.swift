@@ -169,7 +169,6 @@ class FeedCell: UICollectionViewCell {
         let stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, sharedButton])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        
         addSubview(stackView)
         stackView.anchor(top: postImageView.bottomAnchor, width: 120, height: 50)
     }

@@ -124,17 +124,13 @@ final class ProfileHeader: UICollectionReusableView {
     private func setBottomStackView() {
         let topDivider = UIView()
         topDivider.backgroundColor = .lightGray
-        
         let bottomDivider = UIView()
         bottomDivider.backgroundColor = .lightGray
-        
         let bottomStackView = UIStackView(arrangedSubviews: [gridButton, listButton, bookmarkButton])
         bottomStackView.distribution = .fillEqually
-        
         addSubview(bottomStackView)
         addSubview(topDivider)
         addSubview(bottomDivider)
-        
         bottomStackView.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height: 50)
         topDivider.anchor(top: bottomStackView.bottomAnchor, left: leftAnchor, right: rightAnchor, height: 0.5)
         bottomDivider.anchor(top: bottomStackView.bottomAnchor, left: leftAnchor, right: rightAnchor, height: 0.5)
@@ -155,14 +151,11 @@ final class ProfileHeader: UICollectionReusableView {
         guard let viewModel = viewModel else  { return }
         nameLabel.text = viewModel.fullname
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
-        
         editProfileFollowButton.setTitle(viewModel.followedButtonText, for: .normal)
         editProfileFollowButton.setTitleColor(viewModel.followedButtonTextColor, for: .normal)
         editProfileFollowButton.backgroundColor = viewModel.followedButtonBackgroundColor
-        
         postLabel.attributedText = viewModel.numberOfPosts
         followersLabel.attributedText = viewModel.numberOfFollowers
         followingLabel.attributedText = viewModel.numberOfFollowing
     }
-    
 }

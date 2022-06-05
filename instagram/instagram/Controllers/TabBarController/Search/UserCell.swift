@@ -43,7 +43,6 @@ final class UserCell: UITableViewCell {
         
     }
     //MARK:  - Lifecycle
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureUI()
@@ -75,7 +74,6 @@ final class UserCell: UITableViewCell {
     private func setConstranitsStackView() {
         stackView.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8 )
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

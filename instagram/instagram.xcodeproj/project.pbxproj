@@ -70,18 +70,7 @@
 		D4E6EED4F17A3FE251222C0C /* Pods_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3CFF97BAF0BE9CEC332BEB /* Pods_instagram.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		7FFAB665281CE15A006AC4AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7FFAB5DC28185478006AC4AF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7FFAB5E328185478006AC4AF;
-			remoteInfo = instagram;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		7F060674282981FF00E0744A /* instagramDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = instagramDebug.entitlements; sourceTree = "<group>"; };
 		7F06069F282BF96E00E0744A /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
 		7F06F0EF2848C5600054022A /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		7F14C6CC2827EA6F00C4A1A7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -138,7 +127,6 @@
 		7FFAB64B281AE81C006AC4AF /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		7FFAB64D281AEFBF006AC4AF /* LoginUiText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUiText.swift; sourceTree = "<group>"; };
 		7FFAB651281AF912006AC4AF /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		7FFAB661281CE15A006AC4AF /* instagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFAB66C281D6826006AC4AF /* RegisterUIText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUIText.swift; sourceTree = "<group>"; };
 		7FFAB66E281D7037006AC4AF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7FFAB670281D70B4006AC4AF /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
@@ -156,13 +144,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4E6EED4F17A3FE251222C0C /* Pods_instagram.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7FFAB65E281CE15A006AC4AF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				7FFAB5E428185478006AC4AF /* instagram.app */,
-				7FFAB661281CE15A006AC4AF /* instagramTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -297,7 +277,6 @@
 		7FFAB5E628185478006AC4AF /* instagram */ = {
 			isa = PBXGroup;
 			children = (
-				7F060674282981FF00E0744A /* instagramDebug.entitlements */,
 				7FFAB5FF28185506006AC4AF /* Utills */,
 				7FFAB5FE281854F9006AC4AF /* View Model */,
 				7FFAB5FB281854DE006AC4AF /* Model */,
@@ -544,24 +523,6 @@
 			productReference = 7FFAB5E428185478006AC4AF /* instagram.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7FFAB660281CE15A006AC4AF /* instagramTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7FFAB669281CE15A006AC4AF /* Build configuration list for PBXNativeTarget "instagramTests" */;
-			buildPhases = (
-				7FFAB65D281CE15A006AC4AF /* Sources */,
-				7FFAB65E281CE15A006AC4AF /* Frameworks */,
-				7FFAB65F281CE15A006AC4AF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7FFAB666281CE15A006AC4AF /* PBXTargetDependency */,
-			);
-			name = instagramTests;
-			productName = instagramTests;
-			productReference = 7FFAB661281CE15A006AC4AF /* instagramTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -574,10 +535,6 @@
 				TargetAttributes = {
 					7FFAB5E328185478006AC4AF = {
 						CreatedOnToolsVersion = 13.3.1;
-					};
-					7FFAB660281CE15A006AC4AF = {
-						CreatedOnToolsVersion = 13.3.1;
-						TestTargetID = 7FFAB5E328185478006AC4AF;
 					};
 				};
 			};
@@ -595,7 +552,6 @@
 			projectRoot = "";
 			targets = (
 				7FFAB5E328185478006AC4AF /* instagram */,
-				7FFAB660281CE15A006AC4AF /* instagramTests */,
 			);
 		};
 /* End PBXProject section */
@@ -608,13 +564,6 @@
 				7FFAB5F42818547A006AC4AF /* LaunchScreen.storyboard in Resources */,
 				7F14C6D828280E3A00C4A1A7 /* GoogleService-Info.plist in Resources */,
 				7FFAB5F12818547A006AC4AF /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7FFAB65F281CE15A006AC4AF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,22 +676,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7FFAB65D281CE15A006AC4AF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7FFAB666281CE15A006AC4AF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7FFAB5E328185478006AC4AF /* instagram */;
-			targetProxy = 7FFAB665281CE15A006AC4AF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7FFAB5F22818547A006AC4AF /* LaunchScreen.storyboard */ = {
@@ -938,42 +872,6 @@
 			};
 			name = Release;
 		};
-		7FFAB667281CE15A006AC4AF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N94CS4N6VR;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Roy.com.instagramTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/instagram.app/instagram";
-			};
-			name = Debug;
-		};
-		7FFAB668281CE15A006AC4AF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = N94CS4N6VR;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Roy.com.instagramTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/instagram.app/instagram";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -991,15 +889,6 @@
 			buildConfigurations = (
 				7FFAB5F92818547A006AC4AF /* Debug */,
 				7FFAB5FA2818547A006AC4AF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7FFAB669281CE15A006AC4AF /* Build configuration list for PBXNativeTarget "instagramTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7FFAB667281CE15A006AC4AF /* Debug */,
-				7FFAB668281CE15A006AC4AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
