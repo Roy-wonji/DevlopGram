@@ -51,7 +51,6 @@ final class MainTabViewController:  UITabBarController {
             }
         }
     }
-    
     //MARK:  - UI관련
     private func configureViewControllers(withUser user: User) {
         view.backgroundColor = .white
@@ -98,7 +97,6 @@ final class MainTabViewController:  UITabBarController {
         }
     }
 }
-
 //MARK: - AuthenticationDelegate
 extension MainTabViewController: AuthenticationDelegate {
     func authenticationDidComplete() {
@@ -106,7 +104,6 @@ extension MainTabViewController: AuthenticationDelegate {
         self.dismiss(animated: true, completion: nil)
     }
 }
-
 //MARK: - UITabBarControllerDelegate
 extension MainTabViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
