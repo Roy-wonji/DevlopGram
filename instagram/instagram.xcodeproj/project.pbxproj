@@ -183,6 +183,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		7F23086C284CCFB8004574B0 /* GoogleInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7F14C6D728280E3900C4A1A7 /* GoogleService-Info.plist */,
+			);
+			path = GoogleInfo;
+			sourceTree = "<group>";
+		};
 		7F625E78281E6FDB00DF3DEC /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,7 +292,7 @@
 				7FFAB5FC281854EA006AC4AF /* VIew */,
 				7F625E78281E6FDB00DF3DEC /* NetWork */,
 				7FFAB5F52818547A006AC4AF /* Info.plist */,
-				7F14C6D728280E3900C4A1A7 /* GoogleService-Info.plist */,
+				7F23086C284CCFB8004574B0 /* GoogleInfo */,
 			);
 			path = instagram;
 			sourceTree = "<group>";
