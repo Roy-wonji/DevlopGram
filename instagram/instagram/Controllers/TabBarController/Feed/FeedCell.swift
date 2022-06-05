@@ -165,7 +165,7 @@ class FeedCell: UICollectionViewCell {
     }
     
     //MARK: - configureActionButtons
-    func configureActionButtons() {
+   private  func configureActionButtons() {
         let stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, sharedButton])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
