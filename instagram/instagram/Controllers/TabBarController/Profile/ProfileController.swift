@@ -77,7 +77,6 @@ final class ProfileController: UICollectionViewController {
 }
 
 //MARK: - UICollectionViewDataSource
-
 extension ProfileController {
     //MARK: - collectionView셀 구현
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -110,7 +109,6 @@ extension ProfileController {
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
-
 extension ProfileController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
