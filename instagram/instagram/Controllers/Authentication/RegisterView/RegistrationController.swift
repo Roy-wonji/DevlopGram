@@ -112,7 +112,7 @@ final class RegistrationController: UIViewController {
     //MARK: 오토레이아웃 관련
     private func setConstrants() {
         setConstrantsPlusPhotoButton()
-        setConstrantsStackVIew()
+        setContraintStackVIew()
         setConstrantsalreadyHaveAccountButton()
     }
     
@@ -123,7 +123,7 @@ final class RegistrationController: UIViewController {
         plusPhotoButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
     }
     
-    private func setConstrantsStackVIew() {
+    private func setContraintStackVIew() {
         let stack = UIStackView(arrangedSubviews: [ emailTextField, passwordTextField,
                                                     fullNameTextField, userNameTextField, signUpButton])
         stack.axis = .vertical

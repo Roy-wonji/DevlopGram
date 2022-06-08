@@ -207,14 +207,6 @@
 			path = TextView;
 			sourceTree = "<group>";
 		};
-		7F9B2EC0283BD8460055D47C /* UploadView */ = {
-			isa = PBXGroup;
-			children = (
-				7F9B2EC1283BD86D0055D47C /* UploadView.swift */,
-			);
-			path = UploadView;
-			sourceTree = "<group>";
-		};
 		7F9B2EF5283FD24B0055D47C /* Post */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				7FEB815728463A0600ED886F /* CommentController.swift */,
+				7FEB817F284661AD00ED886F /* CommentInputAcessoryView.swift */,
 				7FEB815A28464E4E00ED886F /* CommentCell.swift */,
 			);
 			path = Comment;
@@ -254,14 +247,6 @@
 				7F9B2EEF283FB2D60055D47C /* PostService.swift */,
 			);
 			path = API;
-			sourceTree = "<group>";
-		};
-		7FEB817E2846618200ED886F /* CommentView */ = {
-			isa = PBXGroup;
-			children = (
-				7FEB817F284661AD00ED886F /* CommentInputAcessoryView.swift */,
-			);
-			path = CommentView;
 			sourceTree = "<group>";
 		};
 		7FFAB5DB28185478006AC4AF = {
@@ -312,7 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				7FFAB615281997C7006AC4AF /* Common */,
-				7FFAB6002818551D006AC4AF /* UI */,
+				7FFAB653281AFFB0006AC4AF /* TextField */,
 				7FFAB5F02818547A006AC4AF /* Assets.xcassets */,
 				7FFAB5F22818547A006AC4AF /* LaunchScreen.storyboard */,
 			);
@@ -349,16 +334,6 @@
 				7FFAB5E928185478006AC4AF /* SceneDelegate.swift */,
 			);
 			path = Utills;
-			sourceTree = "<group>";
-		};
-		7FFAB6002818551D006AC4AF /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				7F9B2EC0283BD8460055D47C /* UploadView */,
-				7FEB817E2846618200ED886F /* CommentView */,
-				7FFAB653281AFFB0006AC4AF /* TextField */,
-			);
-			path = UI;
 			sourceTree = "<group>";
 		};
 		7FFAB60C28197B9B006AC4AF /* TabBarController */ = {
@@ -496,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				7FFAB60628185C1A006AC4AF /* ImageSelectorController.swift */,
+				7F9B2EC1283BD86D0055D47C /* UploadView.swift */,
 				7F9B2EB6283BC9510055D47C /* UploadPostController.swift */,
 			);
 			path = ImageSelector;

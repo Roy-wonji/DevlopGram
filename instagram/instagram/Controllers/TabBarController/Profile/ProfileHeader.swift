@@ -100,8 +100,8 @@ final class ProfileHeader: UICollectionReusableView {
     
     private func setNameLabel() {
         addSubview(nameLabel)
-        nameLabel.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, paddingTop: 12,
-                         paddingLeft: 12)
+        nameLabel.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,
+                         paddingTop: 12, paddingLeft: 12)
     }
     
     private func setEditProfileFollowButton() {

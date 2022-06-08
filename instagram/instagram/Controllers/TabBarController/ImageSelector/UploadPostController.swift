@@ -36,7 +36,7 @@ final class UploadPostController: UIViewController {
     }
     
     @objc func didTapDone() {
-        DispatchQueue.main.async {
+        DispatchQueue.global().async {
             guard let image = self.selectedImage else { return }
             guard let caption = self.uploadView.captionTextView.text else { return }
             guard let user = self.currentUser else { return }
@@ -54,12 +54,11 @@ final class UploadPostController: UIViewController {
     }
     
     //MARK:  - UI 관련
-    
     private func configureUI() {
         navigationItemUI()
         view.backgroundColor = .backgroundColor
         tabBarController?.tabBar.barTintColor = .backgroundColor
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset ?? UserText.wrongInput]
     }
     
     private func navigationItemUI() {

@@ -8,7 +8,7 @@
 import Foundation
 
 struct CellIdentifier {
-    static  let resueIdentifier = "Cell"
+    static let resueIdentifier = "\(CellIdentifier.self)"
     static let profileCellIdentifier = "ProfileCell"
     static let headerIdentifier = "ProfileHeader"
     static let searchReuseIdentifier = "UserCell"

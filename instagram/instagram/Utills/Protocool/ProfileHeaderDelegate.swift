@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ProfileHeaderDelegate:  class {
+protocol ProfileHeaderDelegate:  AnyObject {
     func header(_ profileHeader: ProfileHeader, didTapActionButton user: User)
 }

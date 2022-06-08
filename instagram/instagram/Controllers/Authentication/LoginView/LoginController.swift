@@ -14,7 +14,6 @@ import CommonCrypto
 final class LoginController: UIViewController {
     //MARK:  - Properties
     private var viewModel = LoginVIewModel()
-    fileprivate var currentNonce: String?
     weak var delegate : AuthenticationDelegate?
     
     private let iconImage = UIImageView(image: UIImage(named: "Instagram_logo_white")).then { imageView in

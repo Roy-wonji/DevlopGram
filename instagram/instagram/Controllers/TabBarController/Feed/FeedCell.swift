@@ -75,7 +75,7 @@ class FeedCell: UICollectionViewCell {
         configureUI()
     }
     
-    func configureUI() {
+    private func configureUI() {
         backgroundColor = .white
         setLayout()
     }

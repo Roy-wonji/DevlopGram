@@ -25,9 +25,15 @@ final class ProfileController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCollectionVIew()
-        configureUI()
-        updateAPI()
+        configure()
+    }
+    
+    private func configure() {
+        DispatchQueue.main.async {
+            self.configureCollectionVIew()
+            self.configureUI()
+            self.updateAPI()
+        }
     }
     
     private func configureUI() {
@@ -37,24 +43,23 @@ final class ProfileController: UICollectionViewController {
     
     //MARK: - API
     private func updateAPI() {
-        DispatchQueue.main.async {
+        DispatchQueue.global().async {
             self.checkIfUserIsFollowed()
             self.fetchUserStatus()
             self.fetchPosts()
+            self.collectionView.reloadData()
         }
     }
     
-    private func  checkIfUserIsFollowed() {
+    private func checkIfUserIsFollowed() {
         UserService.checkUserIsFollowed(uid: user.uid) { isFollowed in
             self.user.isFollowed = isFollowed
-            self.collectionView.reloadData()
         }
     }
     
     private func fetchUserStatus() {
         UserService.fetchUserStats(uid: user.uid) { stats in
             self.user.stats = stats
-            self.collectionView.reloadData()
         }
     }
     
@@ -102,7 +107,7 @@ extension ProfileController {
 //MARK: - UICollectionViewDelegate
 extension ProfileController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       let controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout() )
+        let controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout() )
         controller.post = posts[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }

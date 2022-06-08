@@ -72,7 +72,6 @@ extension SearchController {
 //MARK: - UITableViewDataSource
 extension SearchController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("DEBUG : user is \(users[indexPath.row].username)")
         let controller  = ProfileController(user: users[indexPath.row])
         navigationController?.pushViewController(controller, animated: true)
     }
