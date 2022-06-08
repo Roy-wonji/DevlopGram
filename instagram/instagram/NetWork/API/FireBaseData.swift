@@ -7,7 +7,7 @@
 
 import Firebase
 
-struct Constants{
+struct FireBaseData{
     static let COLLECTION_USERS =  Firestore.firestore().collection("users")
     static let COLLECTION_FOLLOWERS = Firestore.firestore().collection("followers")
     static let COLLECTION_FOLLOWING = Firestore.firestore().collection("following")

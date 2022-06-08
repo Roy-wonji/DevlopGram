@@ -17,13 +17,13 @@ struct CommentService {
                                     "username": user.username,
                                     "profileImageUrl" : user.profileImageUrl ]
         
-        Constants.COLLECTION_POSTS.document(postID).collection("comments").addDocument(data: data,
+        FireBaseData.COLLECTION_POSTS.document(postID).collection("comments").addDocument(data: data,
                                                                                        completion: completion)
     }
     
     static func fetchComments(forPost postID: String, completion: @escaping([Comment]) -> Void) {
         var comments = [Comment]()
-        let query = Constants.COLLECTION_POSTS.document(postID).collection("comments")
+        let query = FireBaseData.COLLECTION_POSTS.document(postID).collection("comments")
             .order(by: "timestamp",descending: true)
         query.addSnapshotListener { (snapshot, error) in
             snapshot?.documentChanges.forEach({ change in

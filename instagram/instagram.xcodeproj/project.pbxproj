@@ -33,7 +33,7 @@
 		7FEB817828465C3100ED886F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817128465C3000ED886F /* UserService.swift */; };
 		7FEB817928465C3100ED886F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817228465C3000ED886F /* AuthService.swift */; };
 		7FEB817A28465C3100ED886F /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817328465C3000ED886F /* APIError.swift */; };
-		7FEB817B28465C3100ED886F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817428465C3000ED886F /* Constants.swift */; };
+		7FEB817B28465C3100ED886F /* FireBaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817428465C3000ED886F /* FireBaseData.swift */; };
 		7FEB817C28465C3100ED886F /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817528465C3100ED886F /* AuthCredentials.swift */; };
 		7FEB817D28465C3100ED886F /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817628465C3100ED886F /* ImageUploader.swift */; };
 		7FEB8180284661AD00ED886F /* CommentInputAcessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEB817F284661AD00ED886F /* CommentInputAcessoryView.swift */; };
@@ -97,7 +97,7 @@
 		7FEB817128465C3000ED886F /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		7FEB817228465C3000ED886F /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7FEB817328465C3000ED886F /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		7FEB817428465C3000ED886F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7FEB817428465C3000ED886F /* FireBaseData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FireBaseData.swift; sourceTree = "<group>"; };
 		7FEB817528465C3100ED886F /* AuthCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
 		7FEB817628465C3100ED886F /* ImageUploader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		7FEB817F284661AD00ED886F /* CommentInputAcessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAcessoryView.swift; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 				7FEB817328465C3000ED886F /* APIError.swift */,
 				7FEB817528465C3100ED886F /* AuthCredentials.swift */,
 				7FEB817228465C3000ED886F /* AuthService.swift */,
-				7FEB817428465C3000ED886F /* Constants.swift */,
+				7FEB817428465C3000ED886F /* FireBaseData.swift */,
 				7FEB817028465C2F00ED886F /* FollowUser.swift */,
 				7FEB817628465C3100ED886F /* ImageUploader.swift */,
 				7FEB817128465C3000ED886F /* UserService.swift */,
@@ -629,7 +629,7 @@
 				7F625E89281EE1DB00DF3DEC /* FeedUIText.swift in Sources */,
 				7FFE5277282EC9FD00AD07CC /* ProfileHeaderDelegate.swift in Sources */,
 				7FEB817828465C3100ED886F /* UserService.swift in Sources */,
-				7FEB817B28465C3100ED886F /* Constants.swift in Sources */,
+				7FEB817B28465C3100ED886F /* FireBaseData.swift in Sources */,
 				7F9B2EC2283BD86D0055D47C /* UploadView.swift in Sources */,
 				7FEB815F2846597800ED886F /* CommentUIText.swift in Sources */,
 				7FEB817728465C3100ED886F /* FollowUser.swift in Sources */,
