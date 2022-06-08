@@ -45,9 +45,7 @@ struct ProfileHeaderViewModel {
         return attributedStatText(value: user.stats.posts, label: ProfileUIText.postLabelText)
     }
     
-    var isFollwed: Bool {
-        return user.isFollowed
-    }
+    var isFollwed = false
     
     init(user: User) {
         self.user = user

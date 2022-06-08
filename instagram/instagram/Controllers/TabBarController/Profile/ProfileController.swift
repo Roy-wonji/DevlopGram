@@ -12,6 +12,8 @@ final class ProfileController: UICollectionViewController {
     //MARK: - Properties
     private var user: User
     private var posts = [Post]()
+    private var header = ProfileHeader()
+    
     //MARK: - LifeCycle
     
     init(user: User) {
@@ -53,7 +55,7 @@ final class ProfileController: UICollectionViewController {
     
     private func checkIfUserIsFollowed() {
         UserService.checkUserIsFollowed(uid: user.uid) { isFollowed in
-            self.user.isFollowed = isFollowed
+            self.header.viewModel?.isFollwed = isFollowed
         }
     }
     
