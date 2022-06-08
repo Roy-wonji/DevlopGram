@@ -31,11 +31,9 @@ final class ProfileController: UICollectionViewController {
     }
     
     private func configure() {
-        DispatchQueue.main.async {
-            self.configureCollectionVIew()
-            self.configureUI()
-            self.updateAPI()
-        }
+        configureCollectionVIew()
+        configureUI()
+        updateAPI()
     }
     
     private func configureUI() {
@@ -45,7 +43,7 @@ final class ProfileController: UICollectionViewController {
     
     //MARK: - API
     private func updateAPI() {
-        DispatchQueue.global().async {
+        DispatchQueue.main.async {
             self.checkIfUserIsFollowed()
             self.fetchUserStatus()
             self.fetchPosts()
@@ -68,7 +66,6 @@ final class ProfileController: UICollectionViewController {
     private func fetchPosts() {
         PostService.fetchPost(forUser: user.uid) { posts in
             self.posts = posts
-            self.collectionView.reloadData()
         }
     }
     

@@ -36,7 +36,7 @@ final class UploadPostController: UIViewController {
     }
     
     @objc func didTapDone() {
-        DispatchQueue.global().async {
+        DispatchQueue.main.async {
             guard let image = self.selectedImage else { return }
             guard let caption = self.uploadView.captionTextView.text else { return }
             guard let user = self.currentUser else { return }
