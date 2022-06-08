@@ -13,9 +13,7 @@ final class ProfileController: UICollectionViewController {
     private var user: User
     private var posts = [Post]()
     private var header = ProfileHeader()
-    
     //MARK: - LifeCycle
-    
     init(user: User) {
         self.user = user
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -97,9 +95,7 @@ extension ProfileController {
         
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CellIdentifier.headerIdentifier, for: indexPath) as! ProfileHeader
         header.delegate = self
-        
         header.viewModel = ProfileHeaderViewModel(user: user)
-        
         return header
     }
 }
