@@ -21,12 +21,15 @@ class FeedCell: UICollectionViewCell {
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
         imageView.backgroundColor = .lightGray
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showUserProfile))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tap)
     }
     
     private lazy var userNameButton  = UIButton(type: .system).then { button  in
         button.setTitleColor(.textColorAsset, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
-        button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showUserProfile), for: .touchUpInside)
     }
     
     private lazy var postImageView = UIImageView().then { imageView in
@@ -136,8 +139,9 @@ class FeedCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     //MARK:  - Actions
-    @objc func didTapUserName() {
-        print("DEBUG: did tap username ")
+    @objc func showUserProfile() {
+        guard let viewModel = viewModel else { return }
+        delegate?.cell(self, wantsToShowProfileFor: viewModel.post.ownerUid)
     }
     
     @objc func didTapComment() {
