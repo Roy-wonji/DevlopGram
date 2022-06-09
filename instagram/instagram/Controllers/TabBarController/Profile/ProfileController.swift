@@ -45,7 +45,6 @@ final class ProfileController: UICollectionViewController {
             self.checkIfUserIsFollowed()
             self.fetchUserStatus()
             self.fetchPosts()
-            self.collectionView.reloadData()
         }
     }
     
@@ -58,12 +57,14 @@ final class ProfileController: UICollectionViewController {
     private func fetchUserStatus() {
         UserService.fetchUserStats(uid: user.uid) { stats in
             self.user.stats = stats
+            self.collectionView.reloadData()
         }
     }
     
     private func fetchPosts() {
         PostService.fetchPost(forUser: user.uid) { posts in
             self.posts = posts
+            self.collectionView.reloadData()
         }
     }
     
