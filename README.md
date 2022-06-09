@@ -370,6 +370,37 @@ extension ProfileController: ProfileHeaderDelegate {
     }
 }
 ```
+### 파일업로드 및 팔로우수 구현 
+```swift
+    private func updateAPI() {
+        DispatchQueue.main.async {
+            self.checkIfUserIsFollowed()
+            self.fetchUserStatus()
+            self.fetchPosts()
+        }
+    }
+    
+    private func checkIfUserIsFollowed() {
+        UserService.checkUserIsFollowed(uid: user.uid) { isFollowed in
+            self.header.viewModel?.isFollwed = isFollowed
+        }
+    }
+    
+    private func fetchUserStatus() {
+        UserService.fetchUserStats(uid: user.uid) { stats in
+            self.user.stats = stats
+            self.collectionView.reloadData()
+        }
+    }
+    
+    private func fetchPosts() {
+        PostService.fetchPost(forUser: user.uid) { posts in
+            self.posts = posts
+            self.collectionView.reloadData()
+        }
+    }
+```
+
 
 ## 고민했던점 && 궁금한점 
 
