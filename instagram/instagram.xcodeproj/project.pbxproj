@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7F0606A0282BF96E00E0744A /* AuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06069F282BF96E00E0744A /* AuthenticationDelegate.swift */; };
 		7F06F0F02848C5600054022A /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F06F0EF2848C5600054022A /* CommentViewModel.swift */; };
+		7F0B56E5285243DD008FF39B /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B56E4285243DD008FF39B /* NotificationCell.swift */; };
+		7F0B56E728524979008FF39B /* NotificationText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B56E628524979008FF39B /* NotificationText.swift */; };
 		7F14C6CD2827EA6F00C4A1A7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6CC2827EA6F00C4A1A7 /* User.swift */; };
 		7F14C6CF2827F2A300C4A1A7 /* UserText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6CE2827F2A300C4A1A7 /* UserText.swift */; };
 		7F14C6D52828060F00C4A1A7 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6D42828060F00C4A1A7 /* ProfileHeaderViewModel.swift */; };
@@ -73,6 +75,8 @@
 /* Begin PBXFileReference section */
 		7F06069F282BF96E00E0744A /* AuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDelegate.swift; sourceTree = "<group>"; };
 		7F06F0EF2848C5600054022A /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		7F0B56E4285243DD008FF39B /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		7F0B56E628524979008FF39B /* NotificationText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationText.swift; sourceTree = "<group>"; };
 		7F14C6CC2827EA6F00C4A1A7 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7F14C6CE2827F2A300C4A1A7 /* UserText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserText.swift; sourceTree = "<group>"; };
 		7F14C6D42828060F00C4A1A7 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
@@ -370,6 +374,7 @@
 				7F14C6CE2827F2A300C4A1A7 /* UserText.swift */,
 				7F9B2EB8283BCA230055D47C /* UploadImageText.swift */,
 				7FEB815E2846597800ED886F /* CommentUIText.swift */,
+				7F0B56E628524979008FF39B /* NotificationText.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -463,6 +468,7 @@
 			isa = PBXGroup;
 			children = (
 				7FFAB60828185C20006AC4AF /* NotificationController.swift */,
+				7F0B56E4285243DD008FF39B /* NotificationCell.swift */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -650,7 +656,9 @@
 				7FFAB66D281D6826006AC4AF /* RegisterUIText.swift in Sources */,
 				7FBDBCD3282C125F00E258EF /* UserCell.swift in Sources */,
 				7FFAB60728185C1A006AC4AF /* ImageSelectorController.swift in Sources */,
+				7F0B56E5285243DD008FF39B /* NotificationCell.swift in Sources */,
 				7F06F0F02848C5600054022A /* CommentViewModel.swift in Sources */,
+				7F0B56E728524979008FF39B /* NotificationText.swift in Sources */,
 				7F9B2EBF283BD16C0055D47C /* InputTextView.swift in Sources */,
 				7F0606A0282BF96E00E0744A /* AuthenticationDelegate.swift in Sources */,
 				7FFAB617281997EA006AC4AF /* LabelMessage.swift in Sources */,

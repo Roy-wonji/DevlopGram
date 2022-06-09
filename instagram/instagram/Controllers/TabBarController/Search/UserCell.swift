@@ -60,7 +60,7 @@ final class UserCell: UITableViewCell {
         
     }
     
-    private  func setConstranits() {
+    private func setConstranits() {
         setConstranitsProfileImageView()
         setConstranitsStackView()
     }

@@ -13,4 +13,5 @@ struct CellIdentifier {
     static let headerIdentifier = "ProfileHeader"
     static let searchReuseIdentifier = "UserCell"
     static let commentResueIdentifier = "CommentCell"
+    static let notificationCellIdentifier = "\(CellIdentifier.self)"
 }
