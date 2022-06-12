@@ -37,7 +37,6 @@ final class ProfileController: UICollectionViewController {
     private func configureUI() {
         tabBarController?.tabBar.barTintColor = .backgroundColor
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textColorAsset ?? ProfileUIText.colorWrongInput]
-        navigationController?.navigationBar.isHidden = true
     }
     
     //MARK: - API

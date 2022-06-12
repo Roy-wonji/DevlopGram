@@ -25,8 +25,15 @@ struct NotificationService {
         docReference.setData(data)
     }
     
-    static func fetchNotifications() {
+    static func fetchNotifications(completion: @escaping([Notification]) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
         
+        FireBaseData.COLLECTION_NOTIFICATION.document(uid).collection("user-notifcations").getDocuments { snapshot,
+            _  in
+            guard let documents = snapshot?.documents else { return }
+            let notificaitons = documents.map({ Notification(dictionary: $0.data()) })
+            completion(notificaitons)
+        }
     }
 }
 
