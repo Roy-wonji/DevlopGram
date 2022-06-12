@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum NotificationType: Int, CustomStringConvertible {
+ enum NotificationType: Int, CustomStringConvertible {
     case like
     case follow
     case comment

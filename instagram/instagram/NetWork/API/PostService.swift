@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-struct PostService {
+ struct PostService {
     
     static func  uploadPost(caption: String, image: UIImage, user: User,
                             completion: @escaping (FirestoreCompletion) ) {

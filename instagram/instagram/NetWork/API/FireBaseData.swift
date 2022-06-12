@@ -12,6 +12,7 @@ struct FireBaseData{
     static let COLLECTION_FOLLOWERS = Firestore.firestore().collection("followers")
     static let COLLECTION_FOLLOWING = Firestore.firestore().collection("following")
     static let COLLECTION_POSTS = Firestore.firestore().collection("posts")
+    static let COLLECTION_NOTIFICATION = Firestore.firestore().collection("notifications")
 }
 
 
