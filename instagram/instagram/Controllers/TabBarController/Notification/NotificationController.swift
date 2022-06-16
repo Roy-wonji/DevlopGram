@@ -30,7 +30,6 @@ final class NotificationController:  UITableViewController {
         DispatchQueue.main.async {
             NotificationService.fetchNotifications { notifications in
                 self.notifications = notifications
-                print("DEBUG: Notifications \(notifications)")
             }
         }
     }

@@ -85,6 +85,8 @@ final class NotificationCell: UITableViewCell {
         profileImageView.sd_setImage(with: viewModel.profileImageUrl)
         postImageView.sd_setImage(with: viewModel.postImageurl)
         infoLabel.attributedText = viewModel.notificationMessage
+        followButton.isHidden = !viewModel.shouldHidePostImage
+        postImageView.isHidden = viewModel.shouldHidePostImage
     }
     
     //MARK: - UI
@@ -109,11 +111,12 @@ final class NotificationCell: UITableViewCell {
     private func setConstranitsInfoLabel() {
         infoLabel.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor,
                           paddingLeft: 8)
+        infoLabel.anchor(right: followButton.leftAnchor, paddingRight: 4)
     }
     
     private func setConstranitsFollowButton() {
         followButton.centerY(inView: self)
-        followButton.anchor(right: rightAnchor, paddingRight: 12, width: 100, height: 32)
+        followButton.anchor(right: rightAnchor, paddingRight: 12, width: 80, height: 32)
         followButton.isHidden = true
     }
     
