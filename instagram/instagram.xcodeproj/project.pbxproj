@@ -17,6 +17,7 @@
 		7F14C6CF2827F2A300C4A1A7 /* UserText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6CE2827F2A300C4A1A7 /* UserText.swift */; };
 		7F14C6D52828060F00C4A1A7 /* ProfileHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14C6D42828060F00C4A1A7 /* ProfileHeaderViewModel.swift */; };
 		7F14C6D828280E3A00C4A1A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F14C6D728280E3900C4A1A7 /* GoogleService-Info.plist */; };
+		7F1EEE17285B6ABF00E0F2A8 /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1EEE16285B6ABF00E0F2A8 /* NotificationViewModel.swift */; };
 		7F625E89281EE1DB00DF3DEC /* FeedUIText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F625E88281EE1DB00DF3DEC /* FeedUIText.swift */; };
 		7F9B2EB7283BC9510055D47C /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B2EB6283BC9510055D47C /* UploadPostController.swift */; };
 		7F9B2EB9283BCA230055D47C /* UploadImageText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B2EB8283BCA230055D47C /* UploadImageText.swift */; };
@@ -86,6 +87,7 @@
 		7F14C6CE2827F2A300C4A1A7 /* UserText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserText.swift; sourceTree = "<group>"; };
 		7F14C6D42828060F00C4A1A7 /* ProfileHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewModel.swift; sourceTree = "<group>"; };
 		7F14C6D728280E3900C4A1A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7F1EEE16285B6ABF00E0F2A8 /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		7F625E88281EE1DB00DF3DEC /* FeedUIText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedUIText.swift; sourceTree = "<group>"; };
 		7F9B2EB6283BC9510055D47C /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
 		7F9B2EB8283BCA230055D47C /* UploadImageText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageText.swift; sourceTree = "<group>"; };
@@ -193,6 +195,14 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		7F1EEE15285B6A9A00E0F2A8 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				7F1EEE16285B6ABF00E0F2A8 /* NotificationViewModel.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		7F23086C284CCFB8004574B0 /* GoogleInfo */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +260,6 @@
 				7FEB817528465C3100ED886F /* AuthCredentials.swift */,
 				7FEB817228465C3000ED886F /* AuthService.swift */,
 				7FEB817428465C3000ED886F /* FireBaseData.swift */,
-				7FEB817028465C2F00ED886F /* FollowUser.swift */,
 				7FEB817628465C3100ED886F /* ImageUploader.swift */,
 				7FEB817128465C3000ED886F /* UserService.swift */,
 				7FEB8183284799BC00ED886F /* CommentService.swift */,
@@ -283,6 +292,7 @@
 			children = (
 				7FFAB5FF28185506006AC4AF /* Utills */,
 				7FFAB5FE281854F9006AC4AF /* View Model */,
+				7F1EEE15285B6A9A00E0F2A8 /* Notification */,
 				7FFAB5FB281854DE006AC4AF /* Model */,
 				7FFAB5FD281854F1006AC4AF /* Controllers */,
 				7FFAB5FC281854EA006AC4AF /* VIew */,
@@ -302,6 +312,7 @@
 				7FEB81852847A18F00ED886F /* Comment.swift */,
 				7F0B56E828524FBF008FF39B /* Notification.swift */,
 				7F0B56EA2852503C008FF39B /* NotificationType.swift */,
+				7FEB817028465C2F00ED886F /* FollowUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -674,6 +685,7 @@
 				7F0606A0282BF96E00E0744A /* AuthenticationDelegate.swift in Sources */,
 				7FFAB617281997EA006AC4AF /* LabelMessage.swift in Sources */,
 				7F0B56E928524FBF008FF39B /* Notification.swift in Sources */,
+				7F1EEE17285B6ABF00E0F2A8 /* NotificationViewModel.swift in Sources */,
 				7F14C6D52828060F00C4A1A7 /* ProfileHeaderViewModel.swift in Sources */,
 				7F9B2EB7283BC9510055D47C /* UploadPostController.swift in Sources */,
 				7FEB817A28465C3100ED886F /* APIError.swift in Sources */,

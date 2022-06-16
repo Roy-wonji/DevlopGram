@@ -7,7 +7,7 @@
 
 import UIKit
 
- enum NotificationType: Int, CustomStringConvertible {
+enum NotificationType: Int, CustomStringConvertible {
     case like
     case follow
     case comment
@@ -15,11 +15,11 @@ import UIKit
     var description: String {
         switch self {
         case .like:
-            return "포스트에 좋아요가 눌렸어요 "
+            return "   포스트에  좋아요가  눌렸어요 "
         case .follow:
-            return "팔로우하기를 시작 했습니다"
+            return "   팔로우 하기를 시작 했습니다"
         case .comment:
-            return "게시물에 댓글을 달았어요"
+            return "   게시물에 댓글을 달았어요"
         }
     }
 }

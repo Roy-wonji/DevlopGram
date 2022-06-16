@@ -10,6 +10,11 @@ import Then
 
 final class NotificationCell: UITableViewCell {
     //MARK: - Properties
+    
+    var viewModel: NotificationViewModel?  {
+        didSet { configure() }
+    }
+    
     private lazy var profileImageView = UIImageView().then{ imageView in
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -19,7 +24,7 @@ final class NotificationCell: UITableViewCell {
     
     private lazy var infoLabel = UILabel().then{ label in
         label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.text = "Mini"
+        label.numberOfLines = .zero
     }
     
     private lazy var postImageView = UIImageView().then { imageView in
@@ -73,6 +78,13 @@ final class NotificationCell: UITableViewCell {
     
     @objc func handlePostTapped() {
         
+    }
+    
+    private func configure() {
+        guard let viewModel = viewModel else { return }
+        profileImageView.sd_setImage(with: viewModel.profileImageUrl)
+        postImageView.sd_setImage(with: viewModel.postImageurl)
+        infoLabel.attributedText = viewModel.notificationMessage
     }
     
     //MARK: - UI
