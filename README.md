@@ -19,7 +19,7 @@
 🗓 프로젝트 소개 :개발자를 위한 인스타그램 프로젝트 !</br>
 🗓 기간 : 2022.04.26 ~   </br>
 🗓 팀원: [로이](https://github.com/Roy-wonji) </br>
-🗓 리뷰어: [릴리](https://github.com/yeahg-dev)
+🗓 리뷰어: [릴리](https://github.com/yeahg-dev) </br>
 🗓 리뷰: [PR](https://github.com/Roy-wonji/DevlopGram/pulls)
 
 
