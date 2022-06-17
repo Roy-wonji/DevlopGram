@@ -15,6 +15,8 @@ final class NotificationCell: UITableViewCell {
         didSet { configure() }
     }
     
+    weak var delegate: NotificationCellDelegate?
+    
     private lazy var profileImageView = UIImageView().then{ imageView in
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -61,10 +63,10 @@ final class NotificationCell: UITableViewCell {
     }
     
     private func updateViews() {
-        addSubview(profileImageView)
-        addSubview(infoLabel)
-        addSubview(followButton)
-        addSubview(postImageView)
+        contentView.addSubview(profileImageView)
+        contentView.addSubview(infoLabel)
+        contentView.addSubview(followButton)
+        contentView.addSubview(postImageView)
     }
     
     required init?(coder: NSCoder) {
@@ -73,11 +75,12 @@ final class NotificationCell: UITableViewCell {
     
     //MARK: - Actions
     @objc func handleFollowButtonTapped() {
-        
+        print("Debug: no post here..")
     }
     
     @objc func handlePostTapped() {
-        
+        guard let postId = viewModel?.notification.postId  else {return}
+        delegate?.cell(self, wantsToViewPost: postId)
     }
     
     private func configure() {
@@ -87,6 +90,9 @@ final class NotificationCell: UITableViewCell {
         infoLabel.attributedText = viewModel.notificationMessage
         followButton.isHidden = !viewModel.shouldHidePostImage
         postImageView.isHidden = viewModel.shouldHidePostImage
+        followButton.setTitle(viewModel.followButtonText, for: .normal)
+        followButton.backgroundColor = viewModel.followButtonBackground
+        followButton.setTitleColor(viewModel.followButtonTextColor, for: .normal)
     }
     
     //MARK: - UI
