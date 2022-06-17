@@ -63,7 +63,7 @@ final class NotificationCell: UITableViewCell {
     }
     
     private func updateViews() {
-        contentView.addSubview(profileImageView)
+        addSubview(profileImageView)
         contentView.addSubview(infoLabel)
         contentView.addSubview(followButton)
         contentView.addSubview(postImageView)
@@ -75,7 +75,12 @@ final class NotificationCell: UITableViewCell {
     
     //MARK: - Actions
     @objc func handleFollowButtonTapped() {
-        print("Debug: no post here..")
+        guard let viewModel = viewModel else { return }
+        if viewModel.notification.userIsFollowed {
+            delegate?.cell(self, wantsToUnfollow: viewModel.notification.uid)
+        } else {
+            delegate?.cell(self, wantsToFollow: viewModel.notification.uid)
+        }
     }
     
     @objc func handlePostTapped() {

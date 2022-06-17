@@ -8,7 +8,7 @@
 import UIKit
 
 struct NotificationViewModel {
-    let notification: Notification
+    var notification: Notification
     
     var postImageurl: URL? { return URL(string: notification.postImageUrl ?? UserText.wrongInput) }
     var profileImageUrl: URL? { return URL(string: notification.userProfileImageUrl) }

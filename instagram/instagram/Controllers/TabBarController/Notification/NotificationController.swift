@@ -79,21 +79,39 @@ extension NotificationController {
 //MARK: - UITableViewDelgate
 extension NotificationController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let uid  = notifications[indexPath.row].uid
+        UserService.fetchUser(withUid: uid) { user in
+            let controller = ProfileController(user: user)
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
 
 //MARK: - NotificationCellDelegate
 extension NotificationController: NotificationCellDelegate {
     func cell(_ cell: NotificationCell, wantsToFollow uid: String) {
-        print("DEBUG: 팔로우 유저")
+        UserService.followUser(uid: uid) { error in
+            cell.viewModel?.notification.userIsFollowed.toggle()
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func cell(_ cell: NotificationCell, wantsToUnfollow uid: String) {
-        print("DEBUG: 언팔로우 유저")
+        UserService.unfollowUser(uid: uid) { error in
+            cell.viewModel?.notification.userIsFollowed.toggle()
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func cell(_ cell: NotificationCell, wantsToViewPost postId: String) {
-        print("DEBUG: 포스트를 보여줌")
+        PostService.fetchPost(withPostId: postId) { post in
+            let controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
+            controller.post = post
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
 }
