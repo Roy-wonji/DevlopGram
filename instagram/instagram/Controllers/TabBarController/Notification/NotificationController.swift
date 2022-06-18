@@ -14,6 +14,7 @@ final class NotificationController:  UITableViewController {
         didSet { tableView.reloadData() }
     }
     
+    private let refresher = UIRefreshControl()
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,12 @@ final class NotificationController:  UITableViewController {
             }
         }
     }
+    //MARK: - Action
+    @objc func handleRefresh() {
+        notifications.removeAll()
+        fetchNotifications()
+        refresher.endRefreshing()
+    }
     
     //MARK: - UI 관련
     private func configureUI() {
@@ -59,6 +66,12 @@ final class NotificationController:  UITableViewController {
                            forCellReuseIdentifier: CellIdentifier.notificationCellIdentifier)
         tableView.rowHeight = 80
         tableView.separatorStyle = .none
+        configureRefresher()
+    }
+    
+    private func configureRefresher() {
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        tableView.refreshControl = refresher
     }
 }
 
@@ -79,8 +92,10 @@ extension NotificationController {
 //MARK: - UITableViewDelgate
 extension NotificationController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showLoader(true)
         let uid  = notifications[indexPath.row].uid
         UserService.fetchUser(withUid: uid) { user in
+            self.showLoader(false)
             let controller = ProfileController(user: user)
             self.navigationController?.pushViewController(controller, animated: true)
         }
@@ -90,7 +105,9 @@ extension NotificationController {
 //MARK: - NotificationCellDelegate
 extension NotificationController: NotificationCellDelegate {
     func cell(_ cell: NotificationCell, wantsToFollow uid: String) {
+        showLoader(true)
         UserService.followUser(uid: uid) { error in
+            self.showLoader(false)
             cell.viewModel?.notification.userIsFollowed.toggle()
             if let error = error {
                 print(error.localizedDescription)
@@ -99,7 +116,9 @@ extension NotificationController: NotificationCellDelegate {
     }
     
     func cell(_ cell: NotificationCell, wantsToUnfollow uid: String) {
+        showLoader(true)
         UserService.unfollowUser(uid: uid) { error in
+            self.showLoader(false)
             cell.viewModel?.notification.userIsFollowed.toggle()
             if let error = error {
                 print(error.localizedDescription)
@@ -108,7 +127,9 @@ extension NotificationController: NotificationCellDelegate {
     }
     
     func cell(_ cell: NotificationCell, wantsToViewPost postId: String) {
+        showLoader(true)
         PostService.fetchPost(withPostId: postId) { post in
+            self.showLoader(false)
             let controller = FeedController(collectionViewLayout: UICollectionViewFlowLayout())
             controller.post = post
             self.navigationController?.pushViewController(controller, animated: true)

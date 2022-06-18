@@ -120,7 +120,7 @@ extension CommentController: CommentInputAcessoryViewDelegate {
         CommentService.uploadComment(comment: comment, postID: post.postId, user: currentUser) { erro in
             self.showLoader(false)
             inputView.clearCommentTextView()
-            
+            self.dismiss(animated: true, completion: PushNotification.commentPushNotification)
             NotificationService.uploadNotification(toUid: self.post.ownerUid,
                                                    fromUser: currentUser,
                                                    type: .comment,

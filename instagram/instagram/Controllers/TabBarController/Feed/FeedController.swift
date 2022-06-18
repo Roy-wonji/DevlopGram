@@ -15,7 +15,7 @@ final class FeedController:  UICollectionViewController {
         didSet{ collectionView.reloadData() }
     }
     var post: Post?
-    
+    var pushNotifcation = PushNotification()
     //MARK:  - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,6 +137,7 @@ extension FeedController: FeedCellDelegate {
                 cell.likeButton.setImage(UIImage(named: "like_unselected"), for: .normal)
                 cell.likeButton.tintColor = .textColorAsset
                 cell.viewModel?.post.likes = post.likes - 1
+                self.dismiss(animated: true, completion: PushNotification.unlikePushNotification)
                 if let error = error {
                     print(error.localizedDescription)
                 }
@@ -146,7 +147,7 @@ extension FeedController: FeedCellDelegate {
                 cell.likeButton.setImage(UIImage(named: "like_selected"), for: .normal)
                 cell.likeButton.tintColor = .red
                 cell.viewModel?.post.likes = post.likes + 1
-                
+                self.dismiss(animated: true, completion: PushNotification.likePushNotification)
                 NotificationService.uploadNotification(toUid: post.ownerUid,
                                                        fromUser: user,
                                                        type: .like, post: post)

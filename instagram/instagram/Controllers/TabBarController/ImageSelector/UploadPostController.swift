@@ -43,11 +43,11 @@ final class UploadPostController: UIViewController {
             self.showLoader(true)
             PostService.uploadPost(caption: caption, image: image, user: user) { error  in
                 self.showLoader(false)
+                self.dismiss(animated: true, completion: PushNotification.postPushNotification)
                 if let error = error {
                     print("DEBUG: Failed to upload post with error \(error.localizedDescription)")
                     return
                 }
-                
                 self.delegate?.controllerDidFinishUploadingPost(self)
             }
         }

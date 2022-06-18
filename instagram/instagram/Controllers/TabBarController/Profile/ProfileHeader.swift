@@ -29,7 +29,6 @@ final class ProfileHeader: UICollectionReusableView {
         label.textColor = .textColorAsset
     }
     
-    
     private lazy var editProfileFollowButton = UIButton(type: .system).then { button in
         button.setTitle(ProfileUIText.editProfileFollowButtonText, for: .normal)
         button.layer.cornerRadius = 3

@@ -51,6 +51,7 @@
 		7FED837728250F1500A4847A /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED837528250F1500A4847A /* ProfileCell.swift */; };
 		7FED837E282517DB00A4847A /* ProfileUIText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FED837D282517DB00A4847A /* ProfileUIText.swift */; };
 		7FEFE4D9285CB46B000149A8 /* NotificationCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEFE4D8285CB46B000149A8 /* NotificationCellDelegate.swift */; };
+		7FEFE4DB285E0337000149A8 /* PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEFE4DA285E0337000149A8 /* PushNotification.swift */; };
 		7FFAB5E828185478006AC4AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5E728185478006AC4AF /* AppDelegate.swift */; };
 		7FFAB5EA28185478006AC4AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5E928185478006AC4AF /* SceneDelegate.swift */; };
 		7FFAB5EC28185478006AC4AF /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFAB5EB28185478006AC4AF /* MainTabViewController.swift */; };
@@ -122,6 +123,7 @@
 		7FED837528250F1500A4847A /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		7FED837D282517DB00A4847A /* ProfileUIText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUIText.swift; sourceTree = "<group>"; };
 		7FEFE4D8285CB46B000149A8 /* NotificationCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCellDelegate.swift; sourceTree = "<group>"; };
+		7FEFE4DA285E0337000149A8 /* PushNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotification.swift; sourceTree = "<group>"; };
 		7FFAB5E428185478006AC4AF /* instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFAB5E728185478006AC4AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FFAB5E928185478006AC4AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				7F0B56E828524FBF008FF39B /* Notification.swift */,
 				7F0B56EA2852503C008FF39B /* NotificationType.swift */,
 				7FEB817028465C2F00ED886F /* FollowUser.swift */,
+				7FEFE4DA285E0337000149A8 /* PushNotification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				7FED837628250F1500A4847A /* ProfileHeader.swift in Sources */,
 				7F9B2EB9283BCA230055D47C /* UploadImageText.swift in Sources */,
 				7FFAB674281D7C95006AC4AF /* AuthenticationViewModelProtocol.swift in Sources */,
+				7FEFE4DB285E0337000149A8 /* PushNotification.swift in Sources */,
 				7FEB815828463A0600ED886F /* CommentController.swift in Sources */,
 				7FFAB60B28185C66006AC4AF /* ProfileController.swift in Sources */,
 				7F9B2EF2283FBE120055D47C /* UploadPostControllerDelegate.swift in Sources */,
