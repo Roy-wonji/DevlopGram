@@ -27,10 +27,10 @@ final class FeedController:  UICollectionViewController {
     private func fetchPost() {
         DispatchQueue.main.async {
             guard self.post ==  nil else { return }
-            PostService.fetchPosts { posts in
+            PostService.fetchFeedPost { posts in
                 self.posts = posts
-                self.collectionView.refreshControl?.endRefreshing()
                 self.checkIfUserLikedPosts()
+                self.collectionView.refreshControl?.endRefreshing()
             }
         }
     }

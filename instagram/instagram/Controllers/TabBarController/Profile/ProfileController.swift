@@ -140,16 +140,17 @@ extension ProfileController: ProfileHeaderDelegate {
             UserService.unfollowUser(uid: user.uid) { error in
                 self.user.isFollowed = false
                 self.collectionView.reloadData()
-                self.dismiss(animated: true, completion: PushNotification.unfollowPushNotification)
+                self.dismiss(animated: true, completion: PushNotification.followPushNotification)
             }
         } else {
             UserService.followUser(uid: user.uid) { error in
                 self.user.isFollowed = true
                 self.collectionView.reloadData()
-                self.dismiss(animated: true, completion: PushNotification.followPushNotification)
+                self.dismiss(animated: true, completion: PushNotification.unfollowPushNotification)
                 NotificationService.uploadNotification(toUid: user.uid,
                                                        fromUser: currentUser,
                                                        type: .follow)
+                PostService.updateUserFeedAfterFollowing(user: user)
             }
         }
     }

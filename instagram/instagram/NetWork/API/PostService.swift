@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
- struct PostService {
+struct PostService {
     
     static func  uploadPost(caption: String, image: UIImage, user: User,
                             completion: @escaping (FirestoreCompletion) ) {
@@ -44,15 +44,15 @@ import Firebase
             completion(posts)
         }
     }
-     
-     static func fetchPost(withPostId postId: String, completion: @escaping(Post) -> Void) {
-         FireBaseData.COLLECTION_POSTS.document(postId).getDocument { (snapshot, _ ) in
-             guard let snapshot = snapshot else { return }
-             guard let data = snapshot.data()  else { return }
-             let post = Post(postId: snapshot.documentID, dictionary: data)
-             completion(post)
-         }
-     }
+    
+    static func fetchPost(withPostId postId: String, completion: @escaping(Post) -> Void) {
+        FireBaseData.COLLECTION_POSTS.document(postId).getDocument { snapshot, _  in
+            guard let snapshot = snapshot else { return }
+            guard let data = snapshot.data()  else { return }
+            let post = Post(postId: snapshot.documentID, dictionary: data)
+            completion(post)
+        }
+    }
     //MARK:  포스트에 좋아요 눌른 함수
     static func likePost(post: Post, completion: @escaping(FirestoreCompletion)) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -77,6 +77,34 @@ import Firebase
         FireBaseData.COLLECTION_USERS.document(uid).collection("user-likes").document(post.postId).getDocument { (snapshot, error) in
             guard let didLike = snapshot?.exists else { return }
             completion(didLike)
+        }
+    }
+    
+    static func fetchFeedPost(completion: @escaping([Post]) -> Void) {
+        guard let uid  = Auth.auth().currentUser?.uid  else { return }
+        var posts = [Post]()
+        
+        FireBaseData.COLLECTION_USERS.document(uid).collection("user-feed").getDocuments { snapshot, error in
+            snapshot?.documents.forEach({ document in
+                fetchPost(withPostId: document.documentID) { post in
+                    posts.append(post)
+                    completion(posts)
+                }
+            })
+        }
+        
+    }
+    
+    static func updateUserFeedAfterFollowing(user: User) {
+        guard let uid  = Auth.auth().currentUser?.uid else { return }
+        let query = FireBaseData.COLLECTION_POSTS.whereField("ownerUid", isEqualTo: user.uid)
+        query.getDocuments { (snapshot, error) in
+            guard let documents = snapshot?.documents else { return }
+            let docementId = documents.map({ $0.documentID })
+            docementId.forEach { id in
+                FireBaseData.COLLECTION_USERS.document(uid).collection("user-feed").document(id)
+                    .setData(FollowUser.updateUserFeedSetData)
+            }
         }
     }
 }

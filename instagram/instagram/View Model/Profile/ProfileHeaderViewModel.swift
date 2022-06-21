@@ -22,7 +22,7 @@ struct ProfileHeaderViewModel {
         if user.isCurrentUser {
             return "Edit Profile"
         }
-        return user.isFollowed  ? "Follwing" : "Follow"
+        return user.isFollowed  ? "언팔로우" : "팔로우"
     }
     
     var followedButtonBackgroundColor: UIColor? {
