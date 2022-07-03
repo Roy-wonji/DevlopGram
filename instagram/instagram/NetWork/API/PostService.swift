@@ -21,7 +21,9 @@ struct PostService {
                           "ownerUid": uid ,
                           "ownerImageUrl": user.profileImageUrl,
                           "ownerUsername": user.username] as [String : Any]
-            FireBaseData.COLLECTION_POSTS.addDocument(data: data, completion: completion)
+            let documentRefenernce = FireBaseData.COLLECTION_POSTS.addDocument(data: data, completion: completion)
+            
+               updateUserFeedAfterPost(postId: documentRefenernce.documentID)
         }
     }
     
@@ -92,19 +94,33 @@ struct PostService {
                 }
             })
         }
-        
     }
     
-    static func updateUserFeedAfterFollowing(user: User) {
+    static func updateUserFeedAfterFollowing(user: User, didFollow: Bool) {
         guard let uid  = Auth.auth().currentUser?.uid else { return }
         let query = FireBaseData.COLLECTION_POSTS.whereField("ownerUid", isEqualTo: user.uid)
         query.getDocuments { (snapshot, error) in
             guard let documents = snapshot?.documents else { return }
             let docementId = documents.map({ $0.documentID })
             docementId.forEach { id in
-                FireBaseData.COLLECTION_USERS.document(uid).collection("user-feed").document(id)
-                    .setData(FollowUser.updateUserFeedSetData)
+                if didFollow {
+                    FireBaseData.COLLECTION_USERS.document(uid).collection("user-feed").document(id)
+                        .setData(FollowUser.updateUserFeedSetData)
+                } else {
+                    FireBaseData.COLLECTION_USERS.document(uid).collection("user-feed").document(id).delete()
+                }
             }
         }
+    }
+}
+
+private func updateUserFeedAfterPost(postId: String) {
+    guard let uid  = Auth.auth().currentUser?.uid else { return }
+    FireBaseData.COLLECTION_FOLLOWERS.document(uid).collection("user-followes").getDocuments { snapshot, _ in
+        guard let document = snapshot?.documents else {return}
+        document.forEach { document in
+            FireBaseData.COLLECTION_USERS.document(document.documentID).collection("user-feed").document(postId).setData(FollowUser.updateUserFeedSetData)
+        }
+        FireBaseData.COLLECTION_USERS.document(uid).collection("user-feed").document(postId).setData(FollowUser.updateUserFeedSetData)
     }
 }

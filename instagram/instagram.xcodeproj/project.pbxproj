@@ -368,6 +368,7 @@
 		7FFAB60C28197B9B006AC4AF /* TabBarController */ = {
 			isa = PBXGroup;
 			children = (
+				7FFAB66A281D61F9006AC4AF /* LoginView */,
 				7FFE527D282ECB3500AD07CC /* MainTab */,
 				7FFE527A282ECB0800AD07CC /* Feed */,
 				7FFE5279282ECAFF00AD07CC /* Search */,
@@ -407,7 +408,6 @@
 		7FFAB648281AE798006AC4AF /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				7FFAB66A281D61F9006AC4AF /* LoginView */,
 				7FFAB66B281D620F006AC4AF /* RegisterView */,
 			);
 			path = Authentication;

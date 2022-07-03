@@ -511,7 +511,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>Firebase</string>
 			<key>Type</key>
@@ -733,7 +733,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseAppCheckInterop</string>
 			<key>Type</key>
@@ -945,7 +945,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseAuth</string>
 			<key>Type</key>
@@ -1157,7 +1157,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseAuthInterop</string>
 			<key>Type</key>
@@ -1369,7 +1369,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseCore</string>
 			<key>Type</key>
@@ -1581,7 +1581,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseCoreDiagnostics</string>
 			<key>Type</key>
@@ -1793,7 +1793,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseCoreExtension</string>
 			<key>Type</key>
@@ -2005,7 +2005,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseCoreInternal</string>
 			<key>Type</key>
@@ -2352,7 +2352,7 @@ OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE, EVEN
 IF IBM IS APPRISED OF THE POSSIBILITY OF SUCH DAMAGES.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseDatabase</string>
 			<key>Type</key>
@@ -2807,7 +2807,7 @@ FirestoreEncoder
 
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseFirestore</string>
 			<key>Type</key>
@@ -3019,7 +3019,7 @@ FirestoreEncoder
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseInstallations</string>
 			<key>Type</key>
@@ -3231,7 +3231,7 @@ FirestoreEncoder
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseMessaging</string>
 			<key>Type</key>
@@ -3443,7 +3443,7 @@ FirestoreEncoder
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseStorage</string>
 			<key>Type</key>
@@ -3655,7 +3655,7 @@ FirestoreEncoder
    limitations under the License.
 </string>
 			<key>License</key>
-			<string>Apache</string>
+			<string>Apache-2.0</string>
 			<key>Title</key>
 			<string>FirebaseStorageInternal</string>
 			<key>Type</key>
@@ -4702,6 +4702,63 @@ SOFTWARE.
 			<string>MIT</string>
 			<key>Title</key>
 			<string>PryntTrimmerView</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>**The MIT License**
+**Copyright © 2015 Krunoslav Zaher, Shai Mishali**
+**All rights reserved.**
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</string>
+			<key>License</key>
+			<string>MIT</string>
+			<key>Title</key>
+			<string>RxCocoa</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>**The MIT License**
+**Copyright © 2015 Krunoslav Zaher, Shai Mishali**
+**All rights reserved.**
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</string>
+			<key>License</key>
+			<string>MIT</string>
+			<key>Title</key>
+			<string>RxRelay</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>**The MIT License**
+**Copyright © 2015 Krunoslav Zaher, Shai Mishali**
+**All rights reserved.**
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</string>
+			<key>License</key>
+			<string>MIT</string>
+			<key>Title</key>
+			<string>RxSwift</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

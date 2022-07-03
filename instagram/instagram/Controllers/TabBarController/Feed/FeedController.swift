@@ -137,7 +137,7 @@ extension FeedController: FeedCellDelegate {
                 cell.likeButton.setImage(UIImage(named: "like_unselected"), for: .normal)
                 cell.likeButton.tintColor = .textColorAsset
                 cell.viewModel?.post.likes = post.likes - 1
-                self.dismiss(animated: true, completion: PushNotification.unlikePushNotification)
+                self.dismiss(animated: true, completion: PushNotification.likePushNotification)
                 if let error = error {
                     print(error.localizedDescription)
                 }
@@ -147,7 +147,7 @@ extension FeedController: FeedCellDelegate {
                 cell.likeButton.setImage(UIImage(named: "like_selected"), for: .normal)
                 cell.likeButton.tintColor = .red
                 cell.viewModel?.post.likes = post.likes + 1
-                self.dismiss(animated: true, completion: PushNotification.likePushNotification)
+                self.dismiss(animated: true, completion: PushNotification.unlikePushNotification)
                 NotificationService.uploadNotification(toUid: post.ownerUid,
                                                        fromUser: user,
                                                        type: .like, post: post)
